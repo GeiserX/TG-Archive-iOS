@@ -49,6 +49,7 @@ jobs:
             | grep -E "error:|warning: .*\.swift|Test Case .*(passed|failed)|Test .*(passed|failed) after|Executed [0-9]+ tests?|\*\* TEST"
 
       # A run that executes no tests also ends in TEST SUCCEEDED. Read the counts from the result bundle.
+      # 3 = the two smoke tests plus the launch UI test; raise it when a stage adds tests.
       - name: Gate on the test count
         run: |
           xcrun xcresulttool get test-results summary --path build/results.xcresult --compact \
@@ -57,7 +58,7 @@ jobs:
           s = json.load(sys.stdin)
           total, failed = s.get("totalTestCount", 0), s.get("failedTests", 0)
           print(f"totalTestCount={total} failedTests={failed}")
-          sys.exit(0 if total >= 2 and failed == 0 else 1)
+          sys.exit(0 if total >= 3 and failed == 0 else 1)
           '
 
       - name: Build the Release configuration
