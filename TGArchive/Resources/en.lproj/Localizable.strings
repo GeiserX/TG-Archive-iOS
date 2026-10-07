@@ -3,3 +3,25 @@
 
 /* Placeholder line under the app name until onboarding exists. */
 "app.placeholder" = "Connect to your archive server to begin.";
+
+/* Errors from the archive server, one per kind (APIError.message). */
+"api.error.unauthorized" = "Your session on this server ended. It may have expired, been signed out elsewhere, or the link may have been revoked. Sign in again.";
+"api.error.forbidden" = "Downloads are off for this login.";
+"api.error.notFound" = "This chat is no longer available to this login.";
+"api.error.rateLimited" = "Too many sign-in attempts from your network. Wait about 5 minutes.";
+"api.error.badRequest" = "Your server did not accept this request.";
+"api.error.setupRequired" = "Your server has no login mode configured.";
+"api.error.serverUnavailable" = "Your server can't reach its database.";
+"api.error.server %lld" = "Your server answered with an error (%lld).";
+"api.error.notAnArchiveServer" = "This does not look like a Telegram-Archive server.";
+"api.error.httpsRequired" = "Remote servers need https. Put your server behind a reverse proxy with a certificate.";
+"api.error.cancelled" = "The request was cancelled.";
+"api.error.timedOut" = "Your server took too long to answer.";
+"api.error.certificate" = "Your server's certificate can't be trusted.";
+"api.error.offline" = "Can't reach your server. Check your connection and try again.";
+"api.error.decoding" = "Your server sent an answer this version can't read.";
+
+/* Connecting and signing in (SessionError.message). */
+"session.error.invalidAddress" = "Enter your server's address, like archive.example.com, or paste a share link.";
+"session.error.proxyAuthUnsupported" = "Proxy sign-in isn't supported in this version.";
+"session.error.busy" = "Already signing in.";

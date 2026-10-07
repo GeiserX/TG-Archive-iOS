@@ -3,3 +3,25 @@
 
 /* Placeholder line under the app name until onboarding exists. */
 "app.placeholder" = "Conecta con tu servidor de archivo para empezar.";
+
+/* Errors from the archive server, one per kind (APIError.message). */
+"api.error.unauthorized" = "Tu sesión en este servidor ha terminado. Puede que haya caducado, que se haya cerrado en otro sitio o que el enlace se haya revocado. Vuelve a iniciar sesión.";
+"api.error.forbidden" = "Las descargas están desactivadas para este acceso.";
+"api.error.notFound" = "Este chat ya no está disponible para este acceso.";
+"api.error.rateLimited" = "Demasiados intentos de inicio de sesión desde tu red. Espera unos 5 minutos.";
+"api.error.badRequest" = "Tu servidor no ha aceptado esta petición.";
+"api.error.setupRequired" = "Tu servidor no tiene ningún modo de inicio de sesión configurado.";
+"api.error.serverUnavailable" = "Tu servidor no puede conectar con su base de datos.";
+"api.error.server %lld" = "Tu servidor ha respondido con un error (%lld).";
+"api.error.notAnArchiveServer" = "Esto no parece un servidor de Telegram-Archive.";
+"api.error.httpsRequired" = "Los servidores remotos necesitan https. Pon tu servidor detrás de un proxy inverso con certificado.";
+"api.error.cancelled" = "Se ha cancelado la petición.";
+"api.error.timedOut" = "Tu servidor ha tardado demasiado en responder.";
+"api.error.certificate" = "No se puede confiar en el certificado de tu servidor.";
+"api.error.offline" = "No se puede conectar con tu servidor. Comprueba la conexión y vuelve a intentarlo.";
+"api.error.decoding" = "Tu servidor ha enviado una respuesta que esta versión no sabe leer.";
+
+/* Connecting and signing in (SessionError.message). */
+"session.error.invalidAddress" = "Escribe la dirección de tu servidor, como archive.example.com, o pega un enlace compartido.";
+"session.error.proxyAuthUnsupported" = "Esta versión no admite el inicio de sesión mediante proxy.";
+"session.error.busy" = "Ya se está iniciando sesión.";
