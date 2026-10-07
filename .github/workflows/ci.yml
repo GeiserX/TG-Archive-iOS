@@ -59,7 +59,7 @@ jobs:
           s = json.load(sys.stdin)
           total, failed = s.get("totalTestCount", 0), s.get("failedTests", 0)
           print(f"totalTestCount={total} failedTests={failed}")
-          sys.exit(0 if total >= 67 and failed == 0 else 1)
+          sys.exit(0 if total >= 70 and failed == 0 else 1)
           '
 
       - name: Build the Release configuration
