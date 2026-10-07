@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="docs/images/banner.svg" alt="TG-Archive-ios" width="900"/>
+  <img src="docs/images/banner.svg" alt="TG-Archive-iOS" width="900"/>
 </h1>
 
 The read-only iOS client for a self-hosted [Telegram-Archive](https://github.com/GeiserX/Telegram-Archive) backup. Point it at your own viewer, sign in with a viewer account or a share link, and read your archived chats, search them and open their media on the phone.
