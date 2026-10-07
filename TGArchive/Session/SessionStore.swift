@@ -379,7 +379,8 @@ final class SessionStore {
     private func wipeLocal(client: APIClient?) async {
         deleteStored()
         cache.removeAllCachedResponses()
-        client?.urlSession.invalidateAndCancel()
+        // Never `invalidateAndCancel()` here: views still holding this client would crash on their next request.
+        client?.end()
         for step in wipeSteps {
             await step()
         }
