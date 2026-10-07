@@ -5,7 +5,7 @@ import Testing
 /// so a test bundle that loses its host fails here instead of reading the wrong Info.plist.
 @Suite("Smoke")
 struct SmokeTests {
-    private static let appBundleID = "io.github.geiserx.tg-archive-ios"
+    private static let appBundleID = "io.github.geiserx.tgarchive"
 
     private var appBundle: Bundle {
         get throws {

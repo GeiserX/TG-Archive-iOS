@@ -1,0 +1,189 @@
+{
+  "query": "solder",
+  "limit": 20,
+  "offset": 0,
+  "has_more": false,
+  "indexed": true,
+  "results": [
+    {
+      "id": 36,
+      "date": "2026-09-30T10:38:00",
+      "text": "Who left the soldering iron on? It's off now.",
+      "sender_name": "Robin Ashgrove",
+      "sender_account_id": 1,
+      "is_deleted": false,
+      "topic_title": "Woodworking",
+      "matched_in": "message",
+      "chat": {
+        "ref": "UtB4DrfIxOJyfIL1mRcO0w",
+        "title": "Maker Space",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": true,
+        "avatar_url": "/media/avatar/UtB4DrfIxOJyfIL1mRcO0w"
+      }
+    },
+    {
+      "id": 45,
+      "date": "2026-09-28T19:20:00",
+      "text": "Who left the soldering iron on? It's off now.",
+      "sender_name": "Tobias Fernwood",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": "Events",
+      "matched_in": "message",
+      "chat": {
+        "ref": "UtB4DrfIxOJyfIL1mRcO0w",
+        "title": "Maker Space",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": true,
+        "avatar_url": "/media/avatar/UtB4DrfIxOJyfIL1mRcO0w"
+      }
+    },
+    {
+      "id": 43,
+      "date": "2026-09-27T14:32:00",
+      "text": "Who left the soldering iron on? It's off now.",
+      "sender_name": "Lior Saltmarsh",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": "Events",
+      "matched_in": "message",
+      "chat": {
+        "ref": "UtB4DrfIxOJyfIL1mRcO0w",
+        "title": "Maker Space",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": true,
+        "avatar_url": "/media/avatar/UtB4DrfIxOJyfIL1mRcO0w"
+      }
+    },
+    {
+      "id": 35,
+      "date": "2026-09-21T18:11:00",
+      "text": "Who left the soldering iron on? It's off now.",
+      "sender_name": "Kofi Brightwater",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": "Woodworking",
+      "matched_in": "message",
+      "chat": {
+        "ref": "UtB4DrfIxOJyfIL1mRcO0w",
+        "title": "Maker Space",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": true,
+        "avatar_url": "/media/avatar/UtB4DrfIxOJyfIL1mRcO0w"
+      }
+    },
+    {
+      "id": 41,
+      "date": "2026-09-21T15:48:00",
+      "text": "Who left the soldering iron on? It's off now.",
+      "sender_name": "Wren Oakhollow",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": "Events",
+      "matched_in": "message",
+      "chat": {
+        "ref": "UtB4DrfIxOJyfIL1mRcO0w",
+        "title": "Maker Space",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": true,
+        "avatar_url": "/media/avatar/UtB4DrfIxOJyfIL1mRcO0w"
+      }
+    },
+    {
+      "id": 15,
+      "date": "2026-09-14T21:46:00",
+      "text": "Who left the soldering iron on? It's off now.",
+      "sender_name": "Lior Saltmarsh",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": "3D printing",
+      "matched_in": "message",
+      "chat": {
+        "ref": "UtB4DrfIxOJyfIL1mRcO0w",
+        "title": "Maker Space",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": true,
+        "avatar_url": "/media/avatar/UtB4DrfIxOJyfIL1mRcO0w"
+      }
+    },
+    {
+      "id": 14,
+      "date": "2026-09-11T12:07:00",
+      "text": "Who left the soldering iron on? It's off now.",
+      "sender_name": "Lior Saltmarsh",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": "3D printing",
+      "matched_in": "message",
+      "chat": {
+        "ref": "UtB4DrfIxOJyfIL1mRcO0w",
+        "title": "Maker Space",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": true,
+        "avatar_url": "/media/avatar/UtB4DrfIxOJyfIL1mRcO0w"
+      }
+    },
+    {
+      "id": 31,
+      "date": "2026-09-07T19:51:00",
+      "text": "Who left the soldering iron on? It's off now.",
+      "sender_name": "Wren Oakhollow",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": "Woodworking",
+      "matched_in": "message",
+      "chat": {
+        "ref": "UtB4DrfIxOJyfIL1mRcO0w",
+        "title": "Maker Space",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": true,
+        "avatar_url": "/media/avatar/UtB4DrfIxOJyfIL1mRcO0w"
+      }
+    },
+    {
+      "id": 1,
+      "date": "2026-09-06T11:28:00",
+      "text": "Who left the soldering iron on? It's off now.",
+      "sender_name": "Kofi Brightwater",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": "General",
+      "matched_in": "message",
+      "chat": {
+        "ref": "UtB4DrfIxOJyfIL1mRcO0w",
+        "title": "Maker Space",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": true,
+        "avatar_url": "/media/avatar/UtB4DrfIxOJyfIL1mRcO0w"
+      }
+    }
+  ]
+}
