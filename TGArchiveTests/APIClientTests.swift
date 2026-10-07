@@ -103,6 +103,18 @@ struct APIClientTests {
         #expect(HTTPCookieStorage.shared.cookies(for: server.address.baseURL)?.isEmpty ?? true)
     }
 
+    @Test("A Secure session cookie from a plain-http server is kept", arguments: ["http", "https"])
+    func secureCookieOverPlainHTTP(_ scheme: String) throws {
+        let url = try #require(URL(string: "\(scheme)://192.168.1.20:8000/api/login"))
+        let response = try #require(HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: [
+            "Set-Cookie": "viewer_auth=sess-secure; HttpOnly; Max-Age=2592000; Path=/; SameSite=lax; Secure",
+        ]))
+        let cookie = try #require(APIClient.sessionCookie(in: response))
+        #expect(cookie.value == "sess-secure")
+        #expect(cookie.isSecure)
+        #expect(cookie.expiresDate != nil)
+    }
+
     @Test("A login answer without the session cookie gives no cookie")
     func noSetCookie() async throws {
         let server = MockServer { _ in .json(#"{"success": true, "message": "Anonymous access"}"#,

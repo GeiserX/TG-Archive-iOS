@@ -76,8 +76,15 @@ final class APIClient: Sendable {
     }
 
     /// The `viewer_auth` cookie of a login answer, read from its `Set-Cookie` headers.
+    ///
+    /// Foundation drops a `Secure` cookie set by a plain-http URL, and a server behind an https proxy marks the
+    /// cookie `Secure` even when the app reaches it over its plain-http local address. The headers are therefore
+    /// parsed against the same URL with the scheme forced to https; the cookie is only ever sent back by hand.
     static func sessionCookie(in response: HTTPURLResponse) -> HTTPCookie? {
-        guard let url = response.url else { return nil }
+        guard let responseURL = response.url,
+              var components = URLComponents(url: responseURL, resolvingAgainstBaseURL: false) else { return nil }
+        components.scheme = "https"
+        guard let url = components.url else { return nil }
         var fields: [String: String] = [:]
         for (key, value) in response.allHeaderFields {
             if let key = key as? String, let value = value as? String { fields[key] = value }
