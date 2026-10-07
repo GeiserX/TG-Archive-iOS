@@ -263,12 +263,14 @@ struct DecodingTests {
           {"id": "not a number", "date": "2026-10-07T10:00:00"},
           {"id": 2, "date": "2026-10-07T09:00:00", "raw_data": "garbage", "reactions": {"oops": true},
            "is_outgoing": true, "is_deleted": null},
-          {"id": 1, "date": "not a date"}
+          {"id": 1, "date": "not a date"},
+          null,
+          42
         ]
         """#
         let page = try ArchiveDecoder.decode(MessagePage.self, from: Data(json.utf8))
         #expect(page.messages.map(\.id) == [3, 2])
-        #expect(page.dropped == 2)
+        #expect(page.dropped == 4)
         #expect(page.messages[0].media?.type == .unsupported)
         #expect(page.messages[0].media?.downloaded == true)
         #expect(page.messages[1].rawData == nil)
