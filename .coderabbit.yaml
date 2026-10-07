@@ -27,7 +27,7 @@ reviews:
         Check Swift 6 concurrency correctness (Sendable, actor isolation, MainActor UI state) and error handling.
         The app is read-only: flag any request other than the GET routes and the login and logout POSTs in docs/DESIGN.md.
         No third-party packages. No hardcoded credentials, server addresses, hostnames or personal data.
-        The app name is "TG Archive"; flag "Telegram" in any user-facing name, and any Telegram logo or paper plane.
+        The app name is "TG Archive"; flag "Telegram" in any user-facing name, and Telegram's own logo. The icon is the Telegram-Archive mark (paper plane and database stack) on purpose.
     - path: "TGArchive/API/**"
       instructions: |
         These types mirror the Telegram-Archive JSON API described in docs/DESIGN.md section 2; a change to a route
