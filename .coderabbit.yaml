@@ -1,0 +1,67 @@
+language: "en-US"
+tone_instructions: "Be direct and concise. No fluff."
+
+reviews:
+  profile: "chill"
+  high_level_summary: true
+  collapse_walkthrough: true
+  poem: false
+  sequence_diagrams: false
+  suggested_reviewers: false
+  auto_review:
+    enabled: true
+    drafts: false
+    ignore_title_keywords:
+      - "WIP"
+      - "DO NOT REVIEW"
+  path_filters:
+    - "!build/**"
+    - "!out/**"
+    - "!**/*.xcodeproj/**"
+    - "!**/*.xcworkspace/**"
+    - "!TGArchiveTests/Fixtures/**"
+    - "!docs/images/**"
+  path_instructions:
+    - path: "TGArchive/**"
+      instructions: |
+        Check Swift 6 concurrency correctness (Sendable, actor isolation, MainActor UI state) and error handling.
+        The app is read-only: flag any request other than the GET routes and the login and logout POSTs in docs/DESIGN.md.
+        No third-party packages. No hardcoded credentials, server addresses, hostnames or personal data.
+        The app name is "TG Archive"; flag "Telegram" in any user-facing name, and any Telegram logo or paper plane.
+    - path: "TGArchive/API/**"
+      instructions: |
+        These types mirror the Telegram-Archive JSON API described in docs/DESIGN.md section 2; a change to a route
+        or a field changes that document in the same pull request.
+    - path: "TGArchive/Resources/**"
+      instructions: |
+        Check Info.plist and PrivacyInfo.xcprivacy against docs/DESIGN.md section 3.1. Never NSAllowsArbitraryLoads.
+    - path: "project.yml"
+      instructions: |
+        project.yml is the single source of truth for the Xcode project; the .xcodeproj is never committed.
+    - path: ".github/workflows/**"
+      instructions: |
+        Actions are pinned to a commit SHA. A gate must be able to fail: a new check comes with a negative control.
+  tools:
+    gitleaks:
+      enabled: true
+    actionlint:
+      enabled: true
+    yamllint:
+      enabled: true
+    markdownlint:
+      enabled: true
+    swiftlint:
+      enabled: true
+    shellcheck:
+      enabled: true
+
+chat:
+  auto_reply: true
+
+knowledge_base:
+  learnings:
+    scope: "local"
+  code_guidelines:
+    enabled: true
+    filePatterns:
+      - "AGENTS.md"
