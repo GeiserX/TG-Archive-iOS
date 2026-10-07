@@ -6,7 +6,7 @@ struct VideoNoteCell: View {
     let message: Message
     let media: MessageMedia
     let context: ThreadContext
-    @Environment(\.openMedia) private var openMedia
+    @State private var viewing: MediaTarget?
     @Environment(\.displayScale) private var displayScale
 
     private let diameter: CGFloat = 200
@@ -18,13 +18,14 @@ struct VideoNoteCell: View {
                     .frame(width: diameter)
             } else {
                 Button {
-                    openMedia?(MediaTarget(ref: context.ref, messageID: message.id, media: media))
+                    viewing = MediaTarget(ref: context.ref, messageID: message.id, media: media)
                 } label: {
                     circle
                 }
                 .buttonStyle(.plain)
                 .accessibilityElement(children: .ignore)
                 .accessibilityLabel(Text("preview.kind.videoNote"))
+                .mediaViewer($viewing, canShare: !context.noDownload)
             }
             TranscriptView(media: media)
                 .frame(maxWidth: MediaFrame.width, alignment: .leading)

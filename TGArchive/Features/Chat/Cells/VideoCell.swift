@@ -6,7 +6,7 @@ struct VideoCell: View {
     let message: Message
     let media: MessageMedia
     let context: ThreadContext
-    @Environment(\.openMedia) private var openMedia
+    @State private var viewing: MediaTarget?
     @Environment(\.displayScale) private var displayScale
 
     private var isAnimation: Bool { media.type == .animation }
@@ -17,7 +17,7 @@ struct VideoCell: View {
                 .frame(width: MediaFrame.width)
         } else {
             Button {
-                openMedia?(MediaTarget(ref: context.ref, messageID: message.id, media: media))
+                viewing = MediaTarget(ref: context.ref, messageID: message.id, media: media)
             } label: {
                 Color.clear
                     .aspectRatio(MediaFrame.aspectRatio(media, fallback: 16.0 / 9.0), contentMode: .fit)
@@ -46,6 +46,7 @@ struct VideoCell: View {
             .buttonStyle(.plain)
             .accessibilityElement(children: .ignore)
             .accessibilityLabel(accessibilityText)
+            .mediaViewer($viewing, canShare: !context.noDownload)
         }
     }
 

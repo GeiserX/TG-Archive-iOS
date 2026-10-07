@@ -208,3 +208,12 @@
 "chat.media.tooLarge" = "No descargado (demasiado grande)";
 "chat.media.filtered" = "No descargado (filtrado)";
 "chat.media.notDownloaded" = "Aún no descargado";
+
+/* The media viewer and in-place playback. */
+"media.viewer.done" = "Listo";
+"media.viewer.share" = "Compartir";
+"chat.pause" = "Pausa";
+"chat.file.missing" = "El archivo no está en el servidor";
+"chat.voice.unsupported" = "Esta nota de voz no se puede reproducir en este dispositivo";
+"chat.voice.unsupported.transcript" = "Esta nota de voz no se puede reproducir en este dispositivo. Debajo está su transcripción.";
+"chat.audio.unsupported" = "Este archivo no se puede reproducir en este dispositivo";

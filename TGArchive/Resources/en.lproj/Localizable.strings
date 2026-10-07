@@ -208,3 +208,12 @@
 "chat.media.tooLarge" = "Not downloaded (too large)";
 "chat.media.filtered" = "Not downloaded (filtered)";
 "chat.media.notDownloaded" = "Not downloaded yet";
+
+/* The media viewer and in-place playback. */
+"media.viewer.done" = "Done";
+"media.viewer.share" = "Share";
+"chat.pause" = "Pause";
+"chat.file.missing" = "The file is not on the server";
+"chat.voice.unsupported" = "This voice note can't be played on this device";
+"chat.voice.unsupported.transcript" = "This voice note can't be played on this device. Its transcript is below.";
+"chat.audio.unsupported" = "This file can't be played on this device";

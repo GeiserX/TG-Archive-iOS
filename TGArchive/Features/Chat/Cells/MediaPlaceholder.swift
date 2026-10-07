@@ -8,22 +8,12 @@ struct ThreadContext: Equatable, Sendable {
 }
 
 /// What a tap on a media cell opens: the file of one message in one chat.
-struct MediaTarget: Hashable, Sendable {
+struct MediaTarget: Hashable, Sendable, Identifiable {
     let ref: String
     let messageID: Int
     let media: MessageMedia
-}
 
-/// The hook a media tap calls. The thread leaves it unset; the media viewer sets it to present itself.
-struct OpenMediaAction {
-    let handler: @MainActor (MediaTarget) -> Void
-
-    @MainActor
-    func callAsFunction(_ target: MediaTarget) { handler(target) }
-}
-
-extension EnvironmentValues {
-    @Entry var openMedia: OpenMediaAction?
+    var id: String { "\(ref)/\(media.key)" }
 }
 
 /// The tile for media the app does not ask the server for: downloads off, skipped by the archive, not

@@ -1,14 +1,15 @@
 import SwiftUI
 
-/// A voice note or an audio file: a play button, the duration over a progress bar, and the newest finished
-/// transcript under it as text that folds open. Playback comes with the media viewer; the button calls its
-/// hook.
+/// A voice note or an audio file: a play button, the time over a progress bar, and the newest finished
+/// transcript under it as text that folds open. It plays in place; when the device cannot play the file the
+/// cell says so, and the transcript stays.
 struct VoiceCell: View {
     let message: Message
     let media: MessageMedia
     let context: ThreadContext
-    @Environment(\.openMedia) private var openMedia
+    @Environment(SessionStore.self) private var store: SessionStore?
     @ScaledMetric(relativeTo: .body) private var buttonSize: CGFloat = 40
+    @State private var playback = AudioPlayback()
 
     private var reason: MediaUnavailable? {
         MediaUnavailable.reason(for: media, noDownload: context.noDownload)
@@ -17,18 +18,22 @@ struct VoiceCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 10) {
-                Button {
-                    openMedia?(MediaTarget(ref: context.ref, messageID: message.id, media: media))
-                } label: {
-                    Image(systemName: "play.fill")
-                        .font(.body.weight(.semibold))
-                        .foregroundStyle(.white)
-                        .frame(width: buttonSize, height: buttonSize)
-                        .background(reason == nil ? Color.accentColor : Color.secondary, in: Circle())
+                Button(action: toggle) {
+                    Group {
+                        if playback.state == .loading {
+                            ProgressView().tint(.white)
+                        } else {
+                            Image(systemName: playback.state == .playing ? "pause.fill" : "play.fill")
+                        }
+                    }
+                    .font(.body.weight(.semibold))
+                    .foregroundStyle(.white)
+                    .frame(width: buttonSize, height: buttonSize)
+                    .background(reason == nil ? Color.accentColor : Color.secondary, in: Circle())
                 }
                 .buttonStyle(.plain)
                 .disabled(reason != nil)
-                .accessibilityLabel(Text("chat.play"))
+                .accessibilityLabel(Text(LocalizedStringKey(playback.isActive ? "chat.pause" : "chat.play")))
                 VStack(alignment: .leading, spacing: 4) {
                     if media.type == .audio {
                         Text(verbatim: AudioTitle.make(media))
@@ -36,14 +41,14 @@ struct VoiceCell: View {
                             .lineLimit(2)
                             .truncationMode(.middle)
                     }
-                    ProgressView(value: 0)
+                    ProgressView(value: playback.progress)
                         .tint(.accentColor)
                         .accessibilityHidden(true)
                     HStack(spacing: 6) {
                         Image(systemName: media.type == .voice ? "mic.fill" : "music.note")
                             .accessibilityHidden(true)
-                        if let duration = MediaFrame.duration(media.duration) {
-                            Text(verbatim: duration).monospacedDigit()
+                        if let time = timeText {
+                            Text(verbatim: time).monospacedDigit()
                         }
                     }
                     .font(.caption)
@@ -54,10 +59,42 @@ struct VoiceCell: View {
             .accessibilityLabel(accessibilityText)
             if let reason {
                 MediaUnavailableLine(reason: reason)
+            } else if let problem = playbackProblem {
+                Label(problem, systemImage: "speaker.slash")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             TranscriptView(media: media)
         }
         .frame(width: MediaFrame.width, alignment: .leading)
+        .onDisappear { playback.stop() }
+    }
+
+    private func toggle() {
+        guard let store, case let .ready(session) = store.phase else { return }
+        playback.toggle(.media(ref: context.ref, key: media.key), client: session.client,
+                        knownDuration: media.duration) { await store.sessionEnded(session.client) }
+    }
+
+    /// The elapsed time once playback started, else the length.
+    private var timeText: String? {
+        switch playback.state {
+        case .playing, .paused: MediaFrame.duration(playback.elapsed)
+        default: MediaFrame.duration(media.duration)
+        }
+    }
+
+    /// Why nothing plays: a device without a decoder for the file, or a file that did not load.
+    private var playbackProblem: LocalizedStringKey? {
+        switch playback.state {
+        case .unsupported:
+            media.type == .voice
+                ? (TranscriptView.text(of: media) == nil ? "chat.voice.unsupported" : "chat.voice.unsupported.transcript")
+                : "chat.audio.unsupported"
+        case .failed: "media.failed"
+        default: nil
+        }
     }
 
     private var accessibilityText: Text {
