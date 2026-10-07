@@ -1,0 +1,30 @@
+[
+  {
+    "chat_id": -1001900000001,
+    "message_id": 1269,
+    "text": "Found this view on the way back",
+    "date": "2026-10-07T13:32:00",
+    "captured_at": "2026-10-07T13:35:00",
+    "source": "listener",
+    "entities": null,
+    "rich_message": null,
+    "media": [
+      {
+        "type": "photo",
+        "file_name": "3274155916_photo.jpg",
+        "file_size": 35546,
+        "mime_type": "image/jpeg",
+        "width": 1280,
+        "height": 853,
+        "duration": null,
+        "downloaded": true,
+        "skip_reason": null,
+        "first_seen": null,
+        "date": "2026-10-07T13:32:00",
+        "captured_at": "2026-10-07T13:35:00",
+        "source": "listener",
+        "url": "/media/C9uWzfb7MCkzaP28_9kOKA/1269_v1"
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "id": -1001900000001,
+  "account_id": 1,
+  "ref": "C9uWzfb7MCkzaP28_9kOKA",
+  "type": "group",
+  "title": "Weekend Hikers",
+  "username": null,
+  "first_name": null,
+  "last_name": null,
+  "phone": null,
+  "description": "Day hikes, trail reports and carpools.",
+  "participants_count": 24,
+  "is_forum": 0,
+  "is_archived": 0,
+  "avatar_photo_id": 5550000,
+  "avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA",
+  "accounts": [
+    1
+  ]
+}
