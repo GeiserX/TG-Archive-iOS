@@ -27,3 +27,83 @@
 "session.error.busy" = "Ya se está iniciando sesión.";
 "session.error.wrongCredentials" = "Usuario o contraseña incorrectos.";
 "session.error.invalidLink" = "Este enlace no es válido, se ha revocado o ha caducado.";
+
+/* Chat list (tab Chats). */
+"chats.title" = "Chats";
+"chats.search.prompt" = "Buscar chats";
+"chats.archived %lld" = "Archivados (%lld)";
+"chats.archived.title" = "Archivados";
+"chats.archived.empty" = "No hay chats archivados";
+"chats.empty" = "Aún no hay chats";
+"chats.folders" = "Carpetas";
+"chats.folder.all" = "Todos los chats";
+"chats.forum" = "Foro";
+"chats.preview.empty" = "Sin mensajes";
+/* The preview line of a chat row: sender, then the kind's glyph and the text. */
+"chats.preview.sender %@ %@%@" = "%1$@: %2$@%3$@";
+"chat.deletedAccount" = "Cuenta eliminada";
+"chat.placeholder" = "Pronto verás aquí los mensajes";
+"list.retry" = "Reintentar";
+
+/* The relative date of a row. */
+"date.yesterday" = "Ayer";
+
+/* The preview line's label for a message without text, by kind. */
+"preview.you" = "Tú";
+"preview.kind.photo" = "Foto";
+"preview.kind.video" = "Vídeo";
+"preview.kind.videoNote" = "Videomensaje";
+"preview.kind.voice" = "Mensaje de voz";
+"preview.kind.audio" = "Audio";
+"preview.kind.animation" = "GIF";
+"preview.kind.sticker" = "Sticker";
+"preview.kind.document" = "Archivo";
+"preview.kind.location" = "Ubicación";
+"preview.kind.liveLocation" = "Ubicación en tiempo real";
+"preview.kind.venue" = "Lugar";
+"preview.kind.contact" = "Contacto";
+"preview.kind.poll" = "Encuesta";
+"preview.kind.dice" = "Dado";
+"preview.kind.game" = "Juego";
+"preview.kind.invoice" = "Factura";
+"preview.kind.story" = "Historia";
+"preview.kind.giveaway" = "Sorteo";
+"preview.kind.link" = "Enlace";
+"preview.kind.unsupported" = "Mensaje no compatible";
+"preview.kind.message" = "Mensaje";
+
+/* Service rows the archive kept without a sentence, worded from the action (the server's own table). */
+"service.joinedByLink.actor %@" = "%@ se unió al grupo con un enlace de invitación";
+"service.joinedByLink" = "Se unió al grupo con un enlace de invitación";
+"service.joinedByRequest.actor %@" = "%@ se unió al grupo";
+"service.joinedByRequest" = "Se unió al grupo";
+"service.editPhoto.actor %@" = "%@ cambió la foto del grupo";
+"service.editPhoto" = "Foto del grupo cambiada";
+"service.deletePhoto.actor %@" = "%@ quitó la foto del grupo";
+"service.deletePhoto" = "Foto del grupo quitada";
+"service.editTitle.actor %@ %@" = "%1$@ cambió el nombre del grupo a «%2$@»";
+"service.editTitle %@" = "Nombre del grupo cambiado a «%@»";
+"service.editTitleUnknown.actor %@" = "%@ cambió el nombre del grupo";
+"service.editTitleUnknown" = "Nombre del grupo cambiado";
+"service.chatCreate.actor %@ %@" = "%1$@ creó el grupo «%2$@»";
+"service.chatCreate %@" = "Grupo «%@» creado";
+"service.chatCreateUnknown.actor %@" = "%@ creó el grupo";
+"service.chatCreateUnknown" = "Grupo creado";
+"service.channelCreate.actor %@ %@" = "%1$@ creó el canal «%2$@»";
+"service.channelCreate %@" = "Canal «%@» creado";
+"service.channelCreateUnknown.actor %@" = "%@ creó el canal";
+"service.channelCreateUnknown" = "Canal creado";
+"service.addUser" = "Alguien fue añadido al grupo";
+"service.deleteUser" = "Alguien fue eliminado del grupo";
+
+/* Forum topics. */
+"topics.empty" = "No hay temas";
+"topics.untitled" = "Tema sin título";
+"topics.closed" = "Cerrado";
+"topics.pinned" = "Fijado";
+"topics.messageCount %lld" = "^[%lld mensaje](inflect: true)";
+
+/* Image tiles when an image does not load. */
+"media.downloadsOff" = "Las descargas están desactivadas para este acceso";
+"media.missing" = "Sin vista previa";
+"media.failed" = "No se pudo cargar";
