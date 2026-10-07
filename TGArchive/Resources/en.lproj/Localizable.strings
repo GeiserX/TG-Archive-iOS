@@ -27,3 +27,83 @@
 "session.error.busy" = "Already signing in.";
 "session.error.wrongCredentials" = "Wrong username or password.";
 "session.error.invalidLink" = "This link is invalid, revoked or expired.";
+
+/* Chat list (tab Chats). */
+"chats.title" = "Chats";
+"chats.search.prompt" = "Search chats";
+"chats.archived %lld" = "Archived (%lld)";
+"chats.archived.title" = "Archived";
+"chats.archived.empty" = "No archived chats";
+"chats.empty" = "No chats yet";
+"chats.folders" = "Folders";
+"chats.folder.all" = "All chats";
+"chats.forum" = "Forum";
+"chats.preview.empty" = "No messages";
+/* The preview line of a chat row: sender, then the kind's glyph and the text. */
+"chats.preview.sender %@ %@%@" = "%1$@: %2$@%3$@";
+"chat.deletedAccount" = "Deleted account";
+"chat.placeholder" = "Messages open here soon";
+"list.retry" = "Retry";
+
+/* The relative date of a row. */
+"date.yesterday" = "Yesterday";
+
+/* The preview line's label for a message without text, by kind. */
+"preview.you" = "You";
+"preview.kind.photo" = "Photo";
+"preview.kind.video" = "Video";
+"preview.kind.videoNote" = "Video message";
+"preview.kind.voice" = "Voice message";
+"preview.kind.audio" = "Audio";
+"preview.kind.animation" = "GIF";
+"preview.kind.sticker" = "Sticker";
+"preview.kind.document" = "File";
+"preview.kind.location" = "Location";
+"preview.kind.liveLocation" = "Live location";
+"preview.kind.venue" = "Place";
+"preview.kind.contact" = "Contact";
+"preview.kind.poll" = "Poll";
+"preview.kind.dice" = "Dice";
+"preview.kind.game" = "Game";
+"preview.kind.invoice" = "Invoice";
+"preview.kind.story" = "Story";
+"preview.kind.giveaway" = "Giveaway";
+"preview.kind.link" = "Link";
+"preview.kind.unsupported" = "Unsupported message";
+"preview.kind.message" = "Message";
+
+/* Service rows the archive kept without a sentence, worded from the action (the server's own table). */
+"service.joinedByLink.actor %@" = "%@ joined the group via invite link";
+"service.joinedByLink" = "Joined the group via invite link";
+"service.joinedByRequest.actor %@" = "%@ joined the group";
+"service.joinedByRequest" = "Joined the group";
+"service.editPhoto.actor %@" = "%@ changed the group photo";
+"service.editPhoto" = "Group photo changed";
+"service.deletePhoto.actor %@" = "%@ removed the group photo";
+"service.deletePhoto" = "Group photo removed";
+"service.editTitle.actor %@ %@" = "%1$@ changed the group name to “%2$@”";
+"service.editTitle %@" = "Group name changed to “%@”";
+"service.editTitleUnknown.actor %@" = "%@ changed the group name";
+"service.editTitleUnknown" = "Group name changed";
+"service.chatCreate.actor %@ %@" = "%1$@ created the group “%2$@”";
+"service.chatCreate %@" = "Group “%@” created";
+"service.chatCreateUnknown.actor %@" = "%@ created the group";
+"service.chatCreateUnknown" = "Group created";
+"service.channelCreate.actor %@ %@" = "%1$@ created the channel “%2$@”";
+"service.channelCreate %@" = "Channel “%@” created";
+"service.channelCreateUnknown.actor %@" = "%@ created the channel";
+"service.channelCreateUnknown" = "Channel created";
+"service.addUser" = "Someone was added to the group";
+"service.deleteUser" = "Someone was removed from the group";
+
+/* Forum topics. */
+"topics.empty" = "No topics";
+"topics.untitled" = "Untitled topic";
+"topics.closed" = "Closed";
+"topics.pinned" = "Pinned";
+"topics.messageCount %lld" = "^[%lld message](inflect: true)";
+
+/* Image tiles when an image does not load. */
+"media.downloadsOff" = "Downloads are off for this login";
+"media.missing" = "No preview";
+"media.failed" = "Couldn't load";
