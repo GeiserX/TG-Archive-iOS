@@ -52,7 +52,7 @@ targets:
           - UIInterfaceOrientationLandscapeRight
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: io.github.geiserx.tg-archive-ios
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.geiserx.tgarchive
         # iPhone only. Set per target: XcodeGen's target default ("1,2") overrides the project-level value,
         # and an iPad build must support all four orientations or App Store upload fails (error 90474).
         TARGETED_DEVICE_FAMILY: "1"
@@ -77,7 +77,7 @@ targets:
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES
-        PRODUCT_BUNDLE_IDENTIFIER: io.github.geiserx.tg-archive-ios.tests
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.geiserx.tgarchive.tests
         TARGETED_DEVICE_FAMILY: "1"
     dependencies:
       - target: TGArchive
@@ -90,7 +90,7 @@ targets:
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES
-        PRODUCT_BUNDLE_IDENTIFIER: io.github.geiserx.tg-archive-ios.uitests
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.geiserx.tgarchive.uitests
         TARGETED_DEVICE_FAMILY: "1"
         TEST_TARGET_NAME: TGArchive
     dependencies:
