@@ -15,29 +15,12 @@ struct MainTabView: View {
                 ChatListView(session: session)
             }
             Tab("tab.search", systemImage: "magnifyingglass") {
-                TabPlaceholder(title: "tab.search", systemImage: "magnifyingglass")
+                SearchView(session: session)
             }
             Tab("tab.settings", systemImage: "gearshape") {
                 SettingsView(session: session)
             }
         }
         .errorBanner(problemDismissed ? nil : store.connectionProblem, dismiss: { problemDismissed = true })
-    }
-}
-
-/// Holds a tab's place until its screen exists.
-private struct TabPlaceholder: View {
-    let title: LocalizedStringKey
-    let systemImage: String
-
-    var body: some View {
-        NavigationStack {
-            ContentUnavailableView {
-                Label { Text(title) } icon: { Image(systemName: systemImage) }
-            } description: {
-                Text("tab.placeholder")
-            }
-            .navigationTitle(Text(title))
-        }
     }
 }

@@ -64,7 +64,15 @@
 "tab.chats" = "Chats";
 "tab.search" = "Buscar";
 "tab.settings" = "Ajustes";
-"tab.placeholder" = "Esta pantalla llegará en una versión próxima.";
+
+/* Búsqueda (la pestaña Buscar). */
+"search.prompt" = "Buscar mensajes";
+"search.start.title" = "Busca en tu archivo";
+"search.start.description" = "Encuentra mensajes en todos los chats que ve este acceso. Las palabras coinciden desde su inicio, así que «foto» también encuentra «fotos».";
+"search.notIndexed" = "La búsqueda de mensajes necesita el índice de búsqueda de tu servidor. Tu servidor lo crea cuando arranca su copia en la versión 8.5 o posterior.";
+"search.matchedTranscript" = "Encontrado en la transcripción de un mensaje de voz";
+"search.noText" = "Mensaje sin texto";
+"search.limit" = "Hay más resultados de los que caben en esta lista. Añade palabras para acotar la búsqueda.";
 
 /* Settings. */
 "settings.title" = "Ajustes";
