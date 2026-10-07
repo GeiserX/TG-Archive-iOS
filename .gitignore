@@ -1,0 +1,24 @@
+# Xcode: the project is generated from project.yml by xcodegen
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+build/
+*.ipa
+*.dSYM.zip
+*.xcresult/
+
+# macOS
+.DS_Store
+
+# Beads: only the scaffolding under .beads/ is tracked; bead data lives in the private Dolt remote
+.dolt/
+*.db
+.beads-credential-key
+.beads/proxieddb/
+.beads/issues.jsonl
+.beads/interactions.jsonl
+.beads/events.jsonl
+
+# scripts/record-demo.sh output
+out/
