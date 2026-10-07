@@ -42,6 +42,7 @@ targets:
         NSAppTransportSecurity:
           NSAllowsLocalNetworking: true
         NSLocalNetworkUsageDescription: TG Archive connects to your archive server when you enter an address on your local network.
+        NSPhotoLibraryAddUsageDescription: TG Archive saves a photo or video you share from the archive to your photo library.
         UILaunchScreen:
           UIColorName: LaunchBackground
         UIApplicationSceneManifest:
