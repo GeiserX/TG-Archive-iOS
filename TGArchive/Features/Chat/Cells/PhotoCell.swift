@@ -5,7 +5,7 @@ struct PhotoCell: View {
     let message: Message
     let media: MessageMedia
     let context: ThreadContext
-    @Environment(\.openMedia) private var openMedia
+    @State private var viewing: MediaTarget?
     @Environment(\.displayScale) private var displayScale
 
     var body: some View {
@@ -14,7 +14,7 @@ struct PhotoCell: View {
                 .frame(width: MediaFrame.width)
         } else {
             Button {
-                openMedia?(MediaTarget(ref: context.ref, messageID: message.id, media: media))
+                viewing = MediaTarget(ref: context.ref, messageID: message.id, media: media)
             } label: {
                 Color.clear
                     .aspectRatio(MediaFrame.aspectRatio(media), contentMode: .fit)
@@ -33,6 +33,7 @@ struct PhotoCell: View {
             .buttonStyle(.plain)
             .accessibilityLabel(Text("preview.kind.photo"))
             .accessibilityAddTraits(.isImage)
+            .mediaViewer($viewing, canShare: !context.noDownload)
         }
     }
 }

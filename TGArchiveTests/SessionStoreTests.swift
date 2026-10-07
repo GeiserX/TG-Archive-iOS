@@ -459,4 +459,25 @@ struct SessionStoreTests {
         #expect(try readySession(store).stored.cookie == "new-session")
         #expect(vault.stored != nil)
     }
+
+    @Test("A view still holding an ended session's client gets a cancellation, never a crash")
+    func endedClientStaysUsable() async throws {
+        let server = MockServer(handler: Self.archive())
+        try vault.save(stored(server))
+        let store = store()
+        await store.restore()
+        let client = try readySession(store).client
+        await store.sessionEnded(client)
+        let before = server.requests.count
+
+        do {
+            let _: AuthCheck = try await client.get(.authCheck)
+            Issue.record("an ended client still reached the server")
+        } catch {
+            #expect(error.isCancellation)
+        }
+        #expect(server.requests.count == before)
+        // The media loader and the file store start tasks on the URLSession itself: it must still take one.
+        _ = try? await client.urlSession.data(for: client.request(for: .authCheck))
+    }
 }

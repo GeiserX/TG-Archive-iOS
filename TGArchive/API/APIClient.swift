@@ -22,6 +22,8 @@ final class APIClient: Sendable {
     let cache: URLCache
     /// Shared with the media loader, so images use the same cache and the same cookie rules.
     let urlSession: URLSession
+    /// Set once the session store wipes this session. Later sends fail as cancelled without a request.
+    private let ended = OSAllocatedUnfairLock(initialState: false)
 
     private static let log = Logger(subsystem: "io.github.geiserx.tgarchive", category: "api")
 
@@ -39,6 +41,21 @@ final class APIClient: Sendable {
         config.urlCache = cache
         config.requestCachePolicy = .useProtocolCachePolicy
         urlSession = URLSession(configuration: config)
+    }
+
+    /// The `URLSession` is only invalidated here: a view can still hold this client after its session ends,
+    /// and a task created on an invalidated `URLSession` raises an exception nothing can catch.
+    deinit {
+        urlSession.invalidateAndCancel()
+    }
+
+    /// Ends this client for good: cancels every request in flight, and every later `get`, `post` or `data`
+    /// fails as cancelled without reaching the server. The `URLSession` stays usable on purpose.
+    func end() {
+        ended.withLock { $0 = true }
+        urlSession.getAllTasks { tasks in
+            for task in tasks { task.cancel() }
+        }
     }
 
     /// The request for an endpoint with the session cookie attached. The media loader uses it too.
@@ -104,6 +121,7 @@ final class APIClient: Sendable {
     }
 
     private func send(_ request: URLRequest, endpoint: Endpoint) async throws(APIError) -> (Data, HTTPURLResponse) {
+        if ended.withLock({ $0 }) { throw .transport(.cancelled) }
         let data: Data
         let response: URLResponse
         do {

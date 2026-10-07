@@ -35,6 +35,8 @@ Three tabs (Chats, Search, Settings) plus the screens pushed or presented from t
 | **SearchView** (tab Search) | Word-prefix search across every chat the login sees. Each row: chat avatar and title, sender, date, snippet, topic title for forum hits, a "Deleted in Telegram" tag when `is_deleted`. Tapping opens ChatView anchored at the message. | `GET /api/search/messages?q=&limit=20&offset=` |
 | **SettingsView** (tab Settings) and **AboutView** | Server host; signed in as (username and role: Owner, Viewer, Share link "label", or Open server); "Downloads are off for this login" when `no_download`; an Archive section (chats, messages, media files, last backup) when `show_stats`; Sign out with confirmation; Clear cache; About with the disclaimer, version, and links to the privacy policy, the source code and the GPL text. | `GET /api/stats`, `POST /api/logout` |
 
+Stage 7 note: a document downloads in its cell and opens straight in Quick Look, which carries its own share button, so the full-screen viewer holds photos and videos only; voice notes and audio files play inside their cell. The share button downloads the original file only when a share target asks for it.
+
 Stage 4 note: `PasteButton`'s title is fixed by the system ("Paste"), so its row on ConnectView reads "Have a share link?"; SignInView's "Other Server" button returns to ConnectView through view state in `RootView`, since changing server before signing in changes no session.
 
 ### Shared chats and the preview, as the API defines them
@@ -54,6 +56,7 @@ Stage 4 note: `PasteButton`'s title is fixed by the system ("Paste"), so its row
 - Test targets `TGArchiveTests` (Swift Testing, fixtures as resources) and `TGArchiveUITests` (XCTest, run against the demo server).
 - Frameworks: SwiftUI, Observation, Foundation, Security, ImageIO, AVKit, QuickLook, MapKit. **No third-party packages.** WebP thumbnails and static stickers decode through ImageIO. The only package worth a debate was Lottie for animated `.tgs` stickers, and those are cut from v1.
 - Info.plist: `CFBundleDisplayName` "TG Archive"; `ITSAppUsesNonExemptEncryption` false; `NSAppTransportSecurity { NSAllowsLocalNetworking: true }` and nothing else, never `NSAllowsArbitraryLoads`; `NSLocalNetworkUsageDescription` (localized) "TG Archive connects to your archive server when you enter an address on your local network."; single scene; no background modes, URL schemes or associated domains.
+- Stage 7 note: the Info.plist also carries `NSPhotoLibraryAddUsageDescription` (localized), without which the share sheet offers no Save Image or Save Video.
 - `PrivacyInfo.xcprivacy`: `NSPrivacyTracking` false, no collected data types, Required Reason APIs: `NSPrivacyAccessedAPICategoryUserDefaults` with reason `CA92.1` only. The code uses no file-timestamp, boot-time or disk-space APIs, and a CI script greps for them with a positive control.
 - Strings: `en.lproj` and `es.lproj`, `Localizable.strings` and `InfoPlist.strings` (`LOCALIZATION_PREFERS_STRING_CATALOGS NO`).
 
@@ -114,6 +117,7 @@ Three places. The Keychain holds the session. `SessionStore` on the main actor h
 ### 3.4 Networking, cookies and the cache
 
 - One `URLSession` per session, no shared cookie storage, the cookie sent as an explicit header. A `Secure` cookie therefore still works against a plain-http server on the local network, and `HTTPCookieStorage.shared` never holds it.
+- Stage 7 note: an ended session's `URLSession` is never invalidated while the app runs, because a view can still hold its client and a task on an invalidated `URLSession` raises an uncatchable exception; the wipe calls `APIClient.end()`, which cancels its requests and fails later ones as cancelled, and the session is invalidated when the client is freed.
 - ATS allows plain http only to local addresses (IP literals, `.local`, unqualified names, loopback) through `NSAllowsLocalNetworking`. Any other host needs https; ConnectView says so when an http address outside the local network fails: "Remote servers need https. Put your server behind a reverse proxy with a certificate." Stage 3 verifies on the simulator which of a private IPv4, `.local` and loopback get through and records the result in this section.
 - Measured by stage 3 on the iOS 27 simulator (`LiveServerTests`, `NSAllowsLocalNetworking` only): plain http reaches loopback (`127.0.0.1`, `localhost`), `.local` names, unqualified names and private IPv4 literals (`10.x`, `192.168.x`); a public hostname and a public IPv4 literal fail at once with `URLError.appTransportSecurityRequiresSecureConnection` (-1022), which `APIError` words as the https sentence above.
 - Media, thumbnails and avatars are stored by `URLCache` and revalidated on every reuse because the server sends `private, no-cache` with an `ETag`: a `304` reuses the bytes without a body, a `401`/`403`/`404` is handled as below. That is the same check the server runs for browsers. JSON is never served from the cache.
@@ -150,6 +154,7 @@ Three places. The Keychain holds the session. `SessionStore` on the main actor h
   - `VideoCell` (video, animation): tries the 400 px thumbnail (the server makes one when it has ffmpeg), falls back to a dark tile; play glyph and duration; tap opens MediaViewer.
   - `VideoNoteCell`: a circle; tap opens MediaViewer.
   - `VoiceCell` and `AudioCell`: play/pause, duration, a progress bar, and under it the newest `done` transcript as collapsible text. Playback goes through `PlayerFactory`. Voice notes are Ogg/Opus files, which AVFoundation on iOS does not play; stage 8 confirms this against the demo server and, when confirmed, the cell shows the duration and transcript and "Voice note playback isn't supported in this version" when tapped. Audio files AVFoundation plays (m4a, mp3, mp4) play.
+  - Stage 7 note: measured on the iOS 26.5 simulator, AVFoundation reads and decodes Ogg/Opus: `PlayerFactoryTests` decodes an Ogg/Opus fixture to PCM and opens the demo server's voice notes over http with the session cookie. Voice notes therefore play in the cell like any audio file. When AVFoundation on a device cannot read a file, the cell says "This voice note can't be played on this device" and the transcript stays under it.
   - `DocumentCell`: file icon, `file_name`, `file_size`; tap downloads through `FileStore` and opens Quick Look.
   - `StickerCell`: a static WebP (`image/webp`) renders as an image at 160 pt; `.tgs` and `.webm` stickers show `raw_data.sticker.emoji` at 64 pt, or a generic sticker glyph.
   - `LocationCell` (geo, venue, geo_live): a non-interactive MapKit `Map` with a `Marker` at `lat`/`long`, the venue title and address under it, tap opens Apple Maps. A location without a point shows "Location".
@@ -235,6 +240,7 @@ CI starts the demo on the `macos-latest` runner (`brew install uv`), runs the un
 - Universal links or a URL scheme for share links: the link's domain is the user's own, so universal links cannot work; `PasteButton` covers it. No QR scanner: the server shows no QR anywhere.
 - A built-in "Try the demo" button: it would put a hostname in the public repo and the binary.
 - Voice note (Ogg/Opus) playback: AVFoundation does not play the Ogg container, and a decoder would break the no-packages rule; the transcript and duration are shown. Reconsidered when the server offers another rendition.
+- Stage 7 note: voice note playback is in v1 after all, because AVFoundation does play Ogg/Opus (section 3.6).
 
 ## 8. Implementation stages and file ownership
 
