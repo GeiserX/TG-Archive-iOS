@@ -1,8 +1,5 @@
-/* App name, shown on the placeholder root screen. */
+/* App name, shown on the connect and About screens. */
 "app.name" = "TG Archive";
-
-/* Placeholder line under the app name until onboarding exists. */
-"app.placeholder" = "Conecta con tu servidor de archivo para empezar.";
 
 /* Errors from the archive server, one per kind (APIError.message). */
 "api.error.unauthorized" = "Tu sesión en este servidor ha terminado. Puede que haya caducado, que se haya cerrado en otro sitio o que el enlace se haya revocado. Vuelve a iniciar sesión.";
@@ -27,3 +24,80 @@
 "session.error.busy" = "Ya se está iniciando sesión.";
 "session.error.wrongCredentials" = "Usuario o contraseña incorrectos.";
 "session.error.invalidLink" = "Este enlace no es válido, se ha revocado o ha caducado.";
+
+/* The error banner (ErrorBanner). */
+"banner.retry" = "Reintentar";
+"banner.dismiss" = "Cerrar";
+
+"common.cancel" = "Cancelar";
+
+/* Connect screen. */
+"connect.intro" = "TG Archive lee las copias de Telegram-Archive, un servidor de código abierto que instalas tú. Escribe su dirección para leer aquí tu archivo.";
+"connect.docs" = "¿Qué es Telegram-Archive?";
+"connect.address.label" = "Dirección del servidor";
+"connect.address.prompt" = "archive.example.com";
+"connect.address.footer" = "La dirección con la que abres tu archivo en el navegador. Los servidores remotos necesitan https; http sin cifrar solo funciona en tu red local.";
+"connect.continue" = "Continuar";
+"connect.paste.label" = "¿Tienes un enlace compartido?";
+"connect.paste.footer" = "Pega un enlace compartido para abrir el archivo al que da acceso, sin cuenta.";
+"connect.setup.docs" = "Cómo configurar el inicio de sesión en tu servidor";
+
+/* Sign-in screen. */
+"signin.title" = "Iniciar sesión";
+"signin.changeServer" = "Otro servidor";
+"signin.server" = "Servidor";
+"signin.server.footer" = "Tu contraseña o tu enlace solo se envían a este servidor.";
+"signin.method" = "Iniciar sesión con";
+"signin.method.account" = "Cuenta";
+"signin.method.link" = "Enlace compartido";
+"signin.username" = "Usuario";
+"signin.password" = "Contraseña";
+"signin.token" = "Enlace compartido";
+"signin.token.prompt" = "Enlace compartido o token";
+"signin.token.footer" = "Pega el enlace completo o solo su token.";
+"signin.submit" = "Iniciar sesión";
+"signin.footer.oneSession" = "TG Archive mantiene una sola sesión en tu servidor y la cierra cuando sales, así que nunca expulsa la sesión de tu navegador.";
+"signin.notice.expired" = "Tu sesión ha caducado. Vuelve a iniciar sesión.";
+"signin.notice.localSignOut" = "No se pudo contactar con tu servidor al cerrar la sesión, así que allí sigue abierta hasta que caduque.";
+
+/* Tabs. */
+"tab.chats" = "Chats";
+"tab.search" = "Buscar";
+"tab.settings" = "Ajustes";
+"tab.placeholder" = "Esta pantalla llegará en una versión próxima.";
+
+/* Settings. */
+"settings.title" = "Ajustes";
+"settings.section.connection" = "Conexión";
+"settings.server" = "Servidor";
+"settings.signedInAs" = "Sesión iniciada como";
+"settings.role.master" = "Propietario";
+"settings.role.viewer" = "Lector";
+"settings.role.token" = "Enlace compartido";
+"settings.role.token.named %@" = "Enlace compartido «%@»";
+"settings.role.anonymous" = "Servidor abierto";
+"settings.noDownload" = "Las descargas están desactivadas para este acceso.";
+"settings.section.archive" = "Archivo";
+"settings.stats.chats" = "Chats";
+"settings.stats.messages" = "Mensajes";
+"settings.stats.media" = "Archivos multimedia";
+"settings.stats.lastBackup" = "Última copia";
+"settings.clearCache" = "Borrar caché";
+"settings.clearCache.done" = "Caché borrada";
+"settings.clearCache.footer" = "Elimina las fotos y los archivos guardados en este iPhone. Se vuelven a descargar al abrirlos.";
+"settings.about" = "Acerca de";
+"settings.signOut" = "Cerrar sesión";
+"settings.signOut.confirm.title" = "¿Cerrar sesión en este servidor?";
+"settings.signOut.confirm.message" = "TG Archive cierra su sesión en tu servidor y elimina todo lo que guardó en este iPhone.";
+"settings.disconnect" = "Desconectar";
+"settings.disconnect.confirm.title" = "¿Desconectar de este servidor?";
+"settings.disconnect.confirm.message" = "TG Archive elimina todo lo que guardó en este iPhone.";
+
+/* About. */
+"about.title" = "Acerca de";
+"about.version %@" = "Versión %@";
+"about.disclaimer" = "TG Archive no es oficial ni está afiliada con Telegram. Lee copias de seguridad hechas por Telegram-Archive, un servidor de código abierto que instalas tú, que usa la API de Telegram.";
+"about.privacy" = "Política de privacidad";
+"about.source" = "Código fuente";
+"about.license" = "Licencia (GPL-3.0-or-later)";
+"about.license.footer" = "TG Archive es software libre bajo la Licencia Pública General de GNU, versión 3 o posterior. El código fuente de cada versión es público.";

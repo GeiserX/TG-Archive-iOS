@@ -1,8 +1,5 @@
-/* App name, shown on the placeholder root screen. */
+/* App name, shown on the connect and About screens. */
 "app.name" = "TG Archive";
-
-/* Placeholder line under the app name until onboarding exists. */
-"app.placeholder" = "Connect to your archive server to begin.";
 
 /* Errors from the archive server, one per kind (APIError.message). */
 "api.error.unauthorized" = "Your session on this server ended. It may have expired, been signed out elsewhere, or the link may have been revoked. Sign in again.";
@@ -27,3 +24,80 @@
 "session.error.busy" = "Already signing in.";
 "session.error.wrongCredentials" = "Wrong username or password.";
 "session.error.invalidLink" = "This link is invalid, revoked or expired.";
+
+/* The error banner (ErrorBanner). */
+"banner.retry" = "Retry";
+"banner.dismiss" = "Close";
+
+"common.cancel" = "Cancel";
+
+/* Connect screen. */
+"connect.intro" = "TG Archive reads the backups of Telegram-Archive, an open source server you run yourself. Enter its address to read your archive here.";
+"connect.docs" = "What is Telegram-Archive?";
+"connect.address.label" = "Server address";
+"connect.address.prompt" = "archive.example.com";
+"connect.address.footer" = "The address you open your archive at in a browser. Remote servers need https; plain http works only on your local network.";
+"connect.continue" = "Continue";
+"connect.paste.label" = "Have a share link?";
+"connect.paste.footer" = "Paste a share link to open the archive it gives access to, without an account.";
+"connect.setup.docs" = "How to set up sign-in on your server";
+
+/* Sign-in screen. */
+"signin.title" = "Sign In";
+"signin.changeServer" = "Other Server";
+"signin.server" = "Server";
+"signin.server.footer" = "Your password or link goes only to this server.";
+"signin.method" = "Sign in with";
+"signin.method.account" = "Account";
+"signin.method.link" = "Share link";
+"signin.username" = "Username";
+"signin.password" = "Password";
+"signin.token" = "Share link";
+"signin.token.prompt" = "Share link or token";
+"signin.token.footer" = "Paste the whole link or only its token.";
+"signin.submit" = "Sign In";
+"signin.footer.oneSession" = "TG Archive keeps one session on your server and ends it when you sign out, so it never pushes out your browser's session.";
+"signin.notice.expired" = "Your session expired. Sign in again.";
+"signin.notice.localSignOut" = "Your server couldn't be reached while signing out, so its session stays open there until it expires.";
+
+/* Tabs. */
+"tab.chats" = "Chats";
+"tab.search" = "Search";
+"tab.settings" = "Settings";
+"tab.placeholder" = "This screen is coming in a later version.";
+
+/* Settings. */
+"settings.title" = "Settings";
+"settings.section.connection" = "Connection";
+"settings.server" = "Server";
+"settings.signedInAs" = "Signed in as";
+"settings.role.master" = "Owner";
+"settings.role.viewer" = "Viewer";
+"settings.role.token" = "Share link";
+"settings.role.token.named %@" = "Share link “%@”";
+"settings.role.anonymous" = "Open server";
+"settings.noDownload" = "Downloads are off for this login.";
+"settings.section.archive" = "Archive";
+"settings.stats.chats" = "Chats";
+"settings.stats.messages" = "Messages";
+"settings.stats.media" = "Media files";
+"settings.stats.lastBackup" = "Last backup";
+"settings.clearCache" = "Clear Cache";
+"settings.clearCache.done" = "Cache cleared";
+"settings.clearCache.footer" = "Removes the photos and files kept on this iPhone. They download again when you open them.";
+"settings.about" = "About";
+"settings.signOut" = "Sign Out";
+"settings.signOut.confirm.title" = "Sign out of this server?";
+"settings.signOut.confirm.message" = "TG Archive ends its session on your server and removes everything it kept on this iPhone.";
+"settings.disconnect" = "Disconnect";
+"settings.disconnect.confirm.title" = "Disconnect from this server?";
+"settings.disconnect.confirm.message" = "TG Archive removes everything it kept on this iPhone.";
+
+/* About. */
+"about.title" = "About";
+"about.version %@" = "Version %@";
+"about.disclaimer" = "TG Archive is unofficial and not affiliated with Telegram. It reads backups made by Telegram-Archive, an open source server you run yourself, which uses the Telegram API.";
+"about.privacy" = "Privacy Policy";
+"about.source" = "Source Code";
+"about.license" = "License (GPL-3.0-or-later)";
+"about.license.footer" = "TG Archive is free software under the GNU General Public License, version 3 or later. The source code of every version is public.";
