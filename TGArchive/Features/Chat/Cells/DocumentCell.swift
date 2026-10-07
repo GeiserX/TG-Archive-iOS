@@ -61,10 +61,8 @@ struct DocumentCell: View {
         .frame(width: MediaFrame.width, alignment: .leading)
         .accessibilityElement(children: .combine)
         .quickLookPreview($preview)
-        .onDisappear {
-            download?.cancel()
-            download = nil
-        }
+        // The cancelled task clears `download` itself when it ends, so a new download never starts beside it.
+        .onDisappear { download?.cancel() }
     }
 
     /// Downloads the file through the session's loader, which reports a 401 to the session store.

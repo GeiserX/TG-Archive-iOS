@@ -187,7 +187,6 @@ struct LivePlaybackTests {
         let refused = PlayerFactory.asset(for: .media(ref: voiceNote.ref, key: voiceNote.media.key), client: stranger)
         let refusedPlayable = try? await refused.load(.isPlayable)
         #expect(refusedPlayable != true)
-        // A refused file is a failed load, never "this device can't play it".
         // A refused file reaches AVFoundation as a 401: the session's end, never "this device can't play it".
         #expect(await PlayerFactory.readiness(of: PlayerFactory.asset(
             for: .media(ref: voiceNote.ref, key: voiceNote.media.key), client: stranger)) == .unauthorized)
@@ -207,14 +206,16 @@ struct LivePlaybackTests {
     }
 }
 
-/// Polls a condition on the main actor for up to `timeout`.
+/// Polls a condition on the main actor for up to `timeout`, and records an issue when it never holds.
 @MainActor
-func waitFor(timeout: Duration = .seconds(15), _ condition: () -> Bool) async throws {
+func waitFor(timeout: Duration = .seconds(15), _ condition: () -> Bool,
+             sourceLocation: SourceLocation = #_sourceLocation) async throws {
     let clock = ContinuousClock()
     let deadline = clock.now + timeout
     while !condition(), clock.now < deadline {
         try await Task.sleep(for: .milliseconds(50))
     }
+    if !condition() { Issue.record("timed out after \(timeout)", sourceLocation: sourceLocation) }
 }
 
 @MainActor

@@ -134,6 +134,7 @@ private struct VideoViewer: View {
             }
         }
         .task(id: target) {
+            guard !Task.isCancelled else { return }
             let asset = PlayerFactory.asset(for: .media(ref: target.ref, key: target.media.key), client: client)
             let item = AVPlayerItem(asset: asset)
             if target.media.type == .animation {
@@ -145,7 +146,10 @@ private struct VideoViewer: View {
                 player = PlayerFactory.player(for: item)
             }
             player?.play()
-            if await PlayerFactory.readiness(of: asset) == .unauthorized, !Task.isCancelled {
+            let readiness = await PlayerFactory.readiness(of: asset)
+            guard !Task.isCancelled else { return }
+            if readiness == .unauthorized {
+                player?.pause()
                 await unauthorized()
             }
         }

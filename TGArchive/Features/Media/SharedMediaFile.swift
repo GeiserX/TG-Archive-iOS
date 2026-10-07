@@ -30,8 +30,8 @@ struct SharedMediaFile: Transferable {
         return SentTransferredFile(url)
     }
 
-    /// A concrete type first, so the share sheet offers Save Image and Save Video; plain data last, so any
-    /// file can still go to Files or another app.
+    /// A concrete type first, so share targets see an image or a movie (Save Image and Save Video also need a
+    /// photo-library usage string in the Info.plist); plain data last, so any file can still go to Files.
     static var transferRepresentation: some TransferRepresentation {
         FileRepresentation(exportedContentType: .jpeg) { try await $0.download() }
             .exportingCondition { $0.contentType.conforms(to: .jpeg) }
