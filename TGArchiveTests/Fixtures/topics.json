@@ -1,0 +1,74 @@
+{
+  "topics": [
+    {
+      "id": 39,
+      "chat_id": -1001900000002,
+      "title": "Events",
+      "icon_color": 16749490,
+      "icon_emoji_id": null,
+      "icon_emoji": "📅",
+      "is_closed": 0,
+      "is_pinned": 1,
+      "is_hidden": 0,
+      "date": "2026-09-08T13:59:00",
+      "message_count": 9,
+      "last_message_date": "2026-10-05T10:16:00"
+    },
+    {
+      "id": 20,
+      "chat_id": -1001900000002,
+      "title": "Electronics",
+      "icon_color": 13338331,
+      "icon_emoji_id": null,
+      "icon_emoji": "🔌",
+      "is_closed": 0,
+      "is_pinned": 0,
+      "is_hidden": 0,
+      "date": "2026-09-06T13:59:00",
+      "message_count": 10,
+      "last_message_date": "2026-10-05T13:10:00"
+    },
+    {
+      "id": 30,
+      "chat_id": -1001900000002,
+      "title": "Woodworking",
+      "icon_color": 9367192,
+      "icon_emoji_id": null,
+      "icon_emoji": "🪵",
+      "is_closed": 1,
+      "is_pinned": 0,
+      "is_hidden": 0,
+      "date": "2026-08-31T13:59:00",
+      "message_count": 9,
+      "last_message_date": "2026-10-04T22:41:00"
+    },
+    {
+      "id": 9,
+      "chat_id": -1001900000002,
+      "title": "3D printing",
+      "icon_color": 16766590,
+      "icon_emoji_id": null,
+      "icon_emoji": "🖨️",
+      "is_closed": 0,
+      "is_pinned": 0,
+      "is_hidden": 0,
+      "date": "2026-08-30T13:59:00",
+      "message_count": 11,
+      "last_message_date": "2026-09-26T09:58:00"
+    },
+    {
+      "id": 1,
+      "chat_id": -1001900000002,
+      "title": "General",
+      "icon_color": 7322096,
+      "icon_emoji_id": null,
+      "icon_emoji": null,
+      "is_closed": 0,
+      "is_pinned": 0,
+      "is_hidden": 0,
+      "date": "2026-08-30T13:59:00",
+      "message_count": 8,
+      "last_message_date": "2026-09-19T13:31:00"
+    }
+  ]
+}

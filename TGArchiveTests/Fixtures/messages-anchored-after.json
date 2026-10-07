@@ -1,0 +1,1219 @@
+[
+  {
+    "id": 1275,
+    "chat_id": -1001900000001,
+    "sender_id": 7100007,
+    "sender_name": "Esme Driftwood",
+    "date": "2026-10-07T13:48:00",
+    "text": "Perfect, save me a seat 🙌",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:01.029946",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Esme",
+    "last_name": "Driftwood",
+    "username": "esme_drift",
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "❤️",
+        "count": 1,
+        "user_ids": [
+          7000001
+        ]
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "❤️",
+        "count": 1,
+        "previous_count": null,
+        "observed_at": "2026-10-07T13:49:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 1274,
+    "chat_id": -1001900000001,
+    "sender_id": 7100003,
+    "sender_name": "Kofi Brightwater",
+    "date": "2026-10-07T13:47:00",
+    "text": "Blurry one, sorry",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:01.029438",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 1,
+    "deleted_at": "2026-10-07T13:49:00",
+    "first_name": "Kofi",
+    "last_name": "Brightwater",
+    "username": "kofi_bw",
+    "media": {
+      "id": "1274_photo",
+      "type": "photo",
+      "file_path": "-1001900000001/1664562715_photo.jpg",
+      "file_name": "1664562715_photo.jpg",
+      "file_size": 36129,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/C9uWzfb7MCkzaP28_9kOKA/1274_photo"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [],
+    "reaction_history": [],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA/1274"
+  },
+  {
+    "id": 1273,
+    "chat_id": -1001900000001,
+    "sender_id": 7000001,
+    "sender_name": "Robin Ashgrove",
+    "date": "2026-10-07T13:46:00",
+    "text": "I can drive, room for three more.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:01.029075",
+    "is_outgoing": 1,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Robin",
+    "last_name": "Ashgrove",
+    "username": "robin_ashgrove",
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 2,
+        "previous_count": null,
+        "observed_at": "2026-10-07T13:47:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "👍",
+        "count": 0,
+        "previous_count": 2,
+        "observed_at": "2026-10-07T13:49:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [
+      {
+        "emoji": "👍",
+        "count": 2,
+        "count_before": 2,
+        "removed_at": "2026-10-07T13:49:00",
+        "back_at": null
+      }
+    ],
+    "sender_account_id": 1,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 1272,
+    "chat_id": -1001900000001,
+    "sender_id": 7100008,
+    "sender_name": "Hugo Tallowmere",
+    "date": "2026-10-07T13:45:00",
+    "text": "Parking at the north lot is free before nine, after that it's the paid lot by the café.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:01.028704",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 1,
+    "deleted_at": "2026-10-07T13:49:00",
+    "first_name": "Hugo",
+    "last_name": "Tallowmere",
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 1,
+        "previous_count": null,
+        "observed_at": "2026-10-07T13:46:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "custom_5000000000000000002",
+        "count": 1,
+        "previous_count": null,
+        "observed_at": "2026-10-07T13:46:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "👍",
+        "count": 0,
+        "previous_count": 1,
+        "observed_at": "2026-10-07T13:47:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "custom_5000000000000000002",
+        "count": 0,
+        "previous_count": 1,
+        "observed_at": "2026-10-07T13:48:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [
+      {
+        "emoji": "custom_5000000000000000002",
+        "count": 1,
+        "count_before": 1,
+        "removed_at": "2026-10-07T13:48:00",
+        "back_at": null
+      },
+      {
+        "emoji": "👍",
+        "count": 1,
+        "count_before": 1,
+        "removed_at": "2026-10-07T13:47:00",
+        "back_at": null
+      }
+    ],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 1271,
+    "chat_id": -1001900000001,
+    "sender_id": 7100002,
+    "sender_name": "Orson Quill",
+    "date": "2026-10-07T13:44:00",
+    "text": "Meeting point for Sunday: north lot, 7:30. Carpool list is in the shared sheet.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:01.028221",
+    "is_outgoing": 0,
+    "is_pinned": 1,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Orson",
+    "last_name": "Quill",
+    "username": "orsonquill",
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👌",
+        "count": 4,
+        "user_ids": [
+          7000001,
+          7100001,
+          7100003,
+          7100004
+        ]
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👌",
+        "count": 4,
+        "previous_count": null,
+        "observed_at": "2026-10-07T13:45:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 1270,
+    "chat_id": -1001900000001,
+    "sender_id": 7100008,
+    "sender_name": "Hugo Tallowmere",
+    "date": "2026-10-07T13:34:00",
+    "text": "Same sun from the summit 🌞",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": "2026-10-07T13:37:00",
+    "edit_hide": null,
+    "raw_data": {
+      "entities": [
+        {
+          "type": "custom_emoji",
+          "offset": 25,
+          "length": 2,
+          "document_id": "5000000000000000002"
+        }
+      ]
+    },
+    "created_at": "2026-10-07T14:00:01.027817",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Hugo",
+    "last_name": "Tallowmere",
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 1,
+    "reactions": [],
+    "reaction_history": [],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 1269,
+    "chat_id": -1001900000001,
+    "sender_id": 7100003,
+    "sender_name": "Kofi Brightwater",
+    "date": "2026-10-07T13:32:00",
+    "text": "Found this view on the way back",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": "2026-10-07T13:35:00",
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:01.027439",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Kofi",
+    "last_name": "Brightwater",
+    "username": "kofi_bw",
+    "media": {
+      "id": "1269_photo",
+      "type": "photo",
+      "file_path": "-1001900000001/3274155915_photo.jpg",
+      "file_name": "3274155915_photo.jpg",
+      "file_size": 36425,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/C9uWzfb7MCkzaP28_9kOKA/1269_photo"
+    },
+    "snapshots": {},
+    "version_count": 1,
+    "reactions": [
+      {
+        "emoji": "custom_5000000000000000001",
+        "count": 3,
+        "user_ids": [
+          7000001,
+          7100001,
+          7100002
+        ]
+      },
+      {
+        "emoji": "custom_5000000000000000002",
+        "count": 2,
+        "user_ids": [
+          7000001,
+          7100001
+        ]
+      },
+      {
+        "emoji": "custom_5000000000000000003",
+        "count": 1,
+        "user_ids": [
+          7000001
+        ]
+      },
+      {
+        "emoji": "❤️",
+        "count": 5,
+        "user_ids": []
+      },
+      {
+        "emoji": "🔥",
+        "count": 1,
+        "user_ids": [
+          7000001
+        ]
+      },
+      {
+        "emoji": "😮",
+        "count": 1,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "🔥",
+        "count": 1,
+        "previous_count": null,
+        "observed_at": "2026-10-07T13:33:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "custom_5000000000000000001",
+        "count": 3,
+        "previous_count": null,
+        "observed_at": "2026-10-07T13:33:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "custom_5000000000000000002",
+        "count": 2,
+        "previous_count": null,
+        "observed_at": "2026-10-07T13:33:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "custom_5000000000000000003",
+        "count": 1,
+        "previous_count": null,
+        "observed_at": "2026-10-07T13:33:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "❤️",
+        "count": 7,
+        "previous_count": null,
+        "observed_at": "2026-10-07T13:33:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "😮",
+        "count": 1,
+        "previous_count": null,
+        "observed_at": "2026-10-07T13:33:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "😮",
+        "count": 0,
+        "previous_count": 1,
+        "observed_at": "2026-10-07T13:37:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "😮",
+        "count": 1,
+        "previous_count": 0,
+        "observed_at": "2026-10-07T13:38:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "❤️",
+        "count": 5,
+        "previous_count": 7,
+        "observed_at": "2026-10-07T13:40:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [
+      {
+        "emoji": "❤️",
+        "count": 2,
+        "count_before": 7,
+        "removed_at": "2026-10-07T13:40:00",
+        "back_at": null
+      },
+      {
+        "emoji": "😮",
+        "count": 1,
+        "count_before": 1,
+        "removed_at": "2026-10-07T13:37:00",
+        "back_at": "2026-10-07T13:38:00"
+      }
+    ],
+    "sender_account_id": null,
+    "sender_avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA/1269"
+  },
+  {
+    "id": 1268,
+    "chat_id": -1001900000001,
+    "sender_id": 7100008,
+    "sender_name": "Hugo Tallowmere",
+    "date": "2026-10-07T13:20:00",
+    "text": "",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:01.026831",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Hugo",
+    "last_name": "Tallowmere",
+    "username": null,
+    "media": {
+      "id": "1268_sticker",
+      "type": "sticker",
+      "file_path": "-1001900000001/3794862624_AnimatedSticker.tgs",
+      "file_name": "3794862624_AnimatedSticker.tgs",
+      "file_size": 486,
+      "mime_type": "application/x-tgsticker",
+      "width": 512,
+      "height": 512,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/C9uWzfb7MCkzaP28_9kOKA/1268_sticker"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [],
+    "reaction_history": [],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 1267,
+    "chat_id": -1001900000001,
+    "sender_id": 7100008,
+    "sender_name": "Hugo Tallowmere",
+    "date": "2026-10-07T13:19:00",
+    "text": "",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "sticker": {
+        "emoji": "☀️"
+      }
+    },
+    "created_at": "2026-10-07T14:00:01.026223",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Hugo",
+    "last_name": "Tallowmere",
+    "username": null,
+    "media": {
+      "id": "1267_sticker",
+      "type": "sticker",
+      "file_path": "-1001900000001/1992704045_sticker.webp",
+      "file_name": "1992704045_sticker.webp",
+      "file_size": 13752,
+      "mime_type": "image/webp",
+      "width": 512,
+      "height": 512,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/C9uWzfb7MCkzaP28_9kOKA/1267_sticker"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [],
+    "reaction_history": [],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 1266,
+    "chat_id": -1001900000001,
+    "sender_id": 7100002,
+    "sender_name": "Orson Quill",
+    "date": "2026-10-07T13:15:00",
+    "text": "",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "poll": {
+        "question": "Where should we go next Sunday?",
+        "answers": [
+          {
+            "text": "Pine Lake loop",
+            "option": "MA=="
+          },
+          {
+            "text": "Ridge trail again",
+            "option": "MQ=="
+          },
+          {
+            "text": "Coastal path",
+            "option": "Mg=="
+          }
+        ],
+        "closed": false,
+        "public_voters": true,
+        "multiple_choice": false,
+        "quiz": false,
+        "results": {
+          "total_voters": 11,
+          "results": [
+            {
+              "option": "MA==",
+              "voters": 6
+            },
+            {
+              "option": "MQ==",
+              "voters": 2
+            },
+            {
+              "option": "Mg==",
+              "voters": 3
+            }
+          ]
+        }
+      }
+    },
+    "created_at": "2026-10-07T14:00:01.025828",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Orson",
+    "last_name": "Quill",
+    "username": "orsonquill",
+    "media": null,
+    "snapshots": {
+      "poll": {
+        "payload": {
+          "question": "Where should we go next Sunday?",
+          "answers": [
+            {
+              "text": "Pine Lake loop",
+              "option": "MA=="
+            },
+            {
+              "text": "Ridge trail again",
+              "option": "MQ=="
+            },
+            {
+              "text": "Coastal path",
+              "option": "Mg=="
+            }
+          ],
+          "closed": true,
+          "public_voters": true,
+          "multiple_choice": false,
+          "quiz": false,
+          "results": {
+            "total_voters": 14,
+            "results": [
+              {
+                "option": "MA==",
+                "voters": 8
+              },
+              {
+                "option": "MQ==",
+                "voters": 2
+              },
+              {
+                "option": "Mg==",
+                "voters": 4
+              }
+            ]
+          }
+        },
+        "observed_at": "2026-10-07T15:19:00",
+        "source": "sync",
+        "count": 2,
+        "differs_from_first": true
+      }
+    },
+    "version_count": 0,
+    "reactions": [],
+    "reaction_history": [],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 1265,
+    "chat_id": -1001900000001,
+    "sender_id": 7100001,
+    "sender_name": "Juniper Vale",
+    "date": "2026-10-07T13:07:00",
+    "text": "",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:01.025371",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Juniper",
+    "last_name": "Vale",
+    "username": "juniper_vale",
+    "media": {
+      "id": "1265_voice",
+      "type": "voice",
+      "file_path": "-1001900000001/1419287390_voice.ogg",
+      "file_name": "1419287390_voice.ogg",
+      "file_size": 69007,
+      "mime_type": "audio/ogg",
+      "width": null,
+      "height": null,
+      "duration": 14,
+      "skip_reason": null,
+      "downloaded": true,
+      "transcripts": [
+        {
+          "id": 1,
+          "status": "done",
+          "error": null,
+          "text": "Quick update on Sunday. The forecast looks clear until mid afternoon, so let's meet at seven thirty at the north lot. Bring layers, it gets windy at the top.",
+          "language": "en",
+          "source": "akou",
+          "engine_name": "akou",
+          "engine_version": null,
+          "preset": "fast",
+          "models": [],
+          "confidence": 0.94,
+          "duration_s": 14.0,
+          "requested_at": "2026-10-07T14:00:01.144708",
+          "completed_at": "2026-10-07T13:08:00",
+          "turns": null
+        }
+      ],
+      "transcript": {
+        "id": 1,
+        "status": "done",
+        "error": null,
+        "text": "Quick update on Sunday. The forecast looks clear until mid afternoon, so let's meet at seven thirty at the north lot. Bring layers, it gets windy at the top.",
+        "language": "en",
+        "source": "akou",
+        "engine_name": "akou",
+        "engine_version": null,
+        "preset": "fast",
+        "models": [],
+        "confidence": 0.94,
+        "duration_s": 14.0,
+        "requested_at": "2026-10-07T14:00:01.144708",
+        "completed_at": "2026-10-07T13:08:00",
+        "turns": null
+      },
+      "url": "/media/C9uWzfb7MCkzaP28_9kOKA/1265_voice"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 3,
+        "user_ids": [
+          7000001,
+          7100002,
+          7100003
+        ]
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 3,
+        "previous_count": null,
+        "observed_at": "2026-10-07T13:08:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA/1265"
+  },
+  {
+    "id": 1264,
+    "chat_id": -1001900000001,
+    "sender_id": 7100001,
+    "sender_name": "Juniper Vale",
+    "date": "2026-10-07T12:50:00",
+    "text": "Trail notice: the lower canyon path is closed for bridge repairs until Friday. Use the ridge detour.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": -1001900000003,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "forward_from_name": "Harbor Town Weekly",
+      "forward_origin": {
+        "chat_id": -1001900000003,
+        "message_id": 3021
+      }
+    },
+    "created_at": "2026-10-07T14:00:01.024997",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Juniper",
+    "last_name": "Vale",
+    "username": "juniper_vale",
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 3,
+        "user_ids": [
+          7000001,
+          7100002,
+          7100003
+        ]
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 3,
+        "previous_count": null,
+        "observed_at": "2026-10-07T12:51:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA/1264"
+  },
+  {
+    "id": 1263,
+    "chat_id": -1001900000001,
+    "sender_id": 7000001,
+    "sender_name": "Robin Ashgrove",
+    "date": "2026-10-07T12:34:00",
+    "text": "Adding this one to the list for next month.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:01.024602",
+    "is_outgoing": 1,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Robin",
+    "last_name": "Ashgrove",
+    "username": "robin_ashgrove",
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [],
+    "reaction_history": [],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": 1,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 1262,
+    "chat_id": -1001900000001,
+    "sender_id": 7100007,
+    "sender_name": "Esme Driftwood",
+    "date": "2026-10-07T12:21:00",
+    "text": "The north lot. It fills up by 8, so get there early.",
+    "reply_to_msg_id": 1261,
+    "reply_to_top_id": null,
+    "reply_to_text": "Which trailhead did you park at?",
+    "forward_from_id": null,
+    "edit_date": "2026-10-07T12:26:00",
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:01.024137",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Esme",
+    "last_name": "Driftwood",
+    "username": "esme_drift",
+    "media": null,
+    "snapshots": {},
+    "reply_to_sender_name": "Kofi Brightwater",
+    "reply_to_media_type": null,
+    "version_count": 2,
+    "reactions": [],
+    "reaction_history": [],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 1261,
+    "chat_id": -1001900000001,
+    "sender_id": 7100003,
+    "sender_name": "Kofi Brightwater",
+    "date": "2026-10-07T12:18:00",
+    "text": "Which trailhead did you park at?",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:01.023766",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Kofi",
+    "last_name": "Brightwater",
+    "username": "kofi_bw",
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [],
+    "reaction_history": [],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA/1261"
+  },
+  {
+    "id": 1260,
+    "chat_id": -1001900000001,
+    "sender_id": 7100008,
+    "sender_name": "Hugo Tallowmere",
+    "date": "2026-10-07T12:15:00",
+    "text": "That first one looks like a postcard",
+    "reply_to_msg_id": 1256,
+    "reply_to_top_id": null,
+    "reply_to_text": "A few shots from the ridge loop",
+    "forward_from_id": null,
+    "edit_date": "2026-10-07T12:19:00",
+    "edit_hide": 1,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:01.023276",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Hugo",
+    "last_name": "Tallowmere",
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "reply_to_sender_name": "Esme Driftwood",
+    "reply_to_media_type": "photo",
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "😂",
+        "count": 1,
+        "user_ids": [
+          7000001
+        ]
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "😂",
+        "count": 1,
+        "previous_count": null,
+        "observed_at": "2026-10-07T12:16:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 1259,
+    "chat_id": -1001900000001,
+    "sender_id": 7100007,
+    "sender_name": "Esme Driftwood",
+    "date": "2026-10-07T12:10:00",
+    "text": "",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "grouped_id": 9426363869307435
+    },
+    "created_at": "2026-10-07T14:00:01.022829",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Esme",
+    "last_name": "Driftwood",
+    "username": "esme_drift",
+    "media": {
+      "id": "1259_photo",
+      "type": "photo",
+      "file_path": "-1001900000001/3576362939_photo.jpg",
+      "file_name": "3576362939_photo.jpg",
+      "file_size": 31555,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/C9uWzfb7MCkzaP28_9kOKA/1259_photo"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [],
+    "reaction_history": [],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 1258,
+    "chat_id": -1001900000001,
+    "sender_id": 7100007,
+    "sender_name": "Esme Driftwood",
+    "date": "2026-10-07T12:10:00",
+    "text": "",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "grouped_id": 9426363869307435
+    },
+    "created_at": "2026-10-07T14:00:01.022459",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Esme",
+    "last_name": "Driftwood",
+    "username": "esme_drift",
+    "media": {
+      "id": "1258_photo",
+      "type": "photo",
+      "file_path": "-1001900000001/1475164412_photo.jpg",
+      "file_name": "1475164412_photo.jpg",
+      "file_size": 28630,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/C9uWzfb7MCkzaP28_9kOKA/1258_photo"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [],
+    "reaction_history": [],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 1257,
+    "chat_id": -1001900000001,
+    "sender_id": 7100007,
+    "sender_name": "Esme Driftwood",
+    "date": "2026-10-07T12:10:00",
+    "text": "",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "grouped_id": 9426363869307435
+    },
+    "created_at": "2026-10-07T14:00:01.022088",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Esme",
+    "last_name": "Driftwood",
+    "username": "esme_drift",
+    "media": {
+      "id": "1257_photo",
+      "type": "photo",
+      "file_path": "-1001900000001/1798789966_photo.jpg",
+      "file_name": "1798789966_photo.jpg",
+      "file_size": 29386,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/C9uWzfb7MCkzaP28_9kOKA/1257_photo"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [],
+    "reaction_history": [],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 1256,
+    "chat_id": -1001900000001,
+    "sender_id": 7100007,
+    "sender_name": "Esme Driftwood",
+    "date": "2026-10-07T12:10:00",
+    "text": "A few shots from the ridge loop",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "grouped_id": 9426363869307435
+    },
+    "created_at": "2026-10-07T14:00:01.021699",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": "Esme",
+    "last_name": "Driftwood",
+    "username": "esme_drift",
+    "media": {
+      "id": "1256_photo",
+      "type": "photo",
+      "file_path": "-1001900000001/3948109007_photo.jpg",
+      "file_name": "3948109007_photo.jpg",
+      "file_size": 36004,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/C9uWzfb7MCkzaP28_9kOKA/1256_photo"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "🔥",
+        "count": 4,
+        "user_ids": [
+          7000001,
+          7100001,
+          7100002,
+          7100003
+        ]
+      },
+      {
+        "emoji": "😍",
+        "count": 2,
+        "user_ids": [
+          7000001,
+          7100001
+        ]
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "🔥",
+        "count": 4,
+        "previous_count": null,
+        "observed_at": "2026-10-07T12:11:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "😍",
+        "count": 2,
+        "previous_count": null,
+        "observed_at": "2026-10-07T12:11:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  }
+]

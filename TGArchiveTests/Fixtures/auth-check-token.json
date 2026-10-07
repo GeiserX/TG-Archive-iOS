@@ -1,0 +1,7 @@
+{
+  "authenticated": true,
+  "auth_required": true,
+  "role": "token",
+  "username": "token:Hike photos",
+  "no_download": true
+}

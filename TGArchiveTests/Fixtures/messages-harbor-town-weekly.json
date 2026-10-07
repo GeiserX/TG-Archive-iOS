@@ -1,0 +1,1302 @@
+[
+  {
+    "id": 3021,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-10-02T10:06:00",
+    "text": "Trail notice: the lower canyon path is closed for bridge repairs until Friday. Use the ridge detour.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.939925",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 19,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 19,
+        "previous_count": null,
+        "observed_at": "2026-10-02T10:07:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3020,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-29T09:00:00",
+    "text": "Photo of the week: evening light over the lighthouse.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.939540",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": {
+      "id": "3020_photo",
+      "type": "photo",
+      "file_path": "-1001900000003/415611939_photo.jpg",
+      "file_name": "415611939_photo.jpg",
+      "file_size": 30955,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/1-io-biJT6DorLiWQi7_mQ/3020_photo"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "❤️",
+        "count": 8,
+        "user_ids": []
+      },
+      {
+        "emoji": "👍",
+        "count": 11,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 11,
+        "previous_count": null,
+        "observed_at": "2026-09-29T09:01:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "❤️",
+        "count": 8,
+        "previous_count": null,
+        "observed_at": "2026-09-29T09:01:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3019,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-26T20:06:00",
+    "text": "Trail closures this week are listed below.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.939157",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 16,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 16,
+        "previous_count": null,
+        "observed_at": "2026-09-26T20:07:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3018,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-26T18:19:00",
+    "text": "Market report: apples, pears and the first pumpkins.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.938760",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": {
+      "id": "3018_photo",
+      "type": "photo",
+      "file_path": "-1001900000003/2161847740_photo.jpg",
+      "file_name": "2161847740_photo.jpg",
+      "file_size": 32668,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/1-io-biJT6DorLiWQi7_mQ/3018_photo"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "❤️",
+        "count": 16,
+        "user_ids": []
+      },
+      {
+        "emoji": "👍",
+        "count": 42,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 42,
+        "previous_count": null,
+        "observed_at": "2026-09-26T18:20:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "❤️",
+        "count": 16,
+        "previous_count": null,
+        "observed_at": "2026-09-26T18:20:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3017,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-25T11:36:00",
+    "text": "Street lights on the promenade are being replaced this week.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.938339",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 24,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 24,
+        "previous_count": null,
+        "observed_at": "2026-09-25T11:37:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3016,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-22T18:51:00",
+    "text": "Community choir rehearsals move to Tuesdays.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.937832",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 3,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 3,
+        "previous_count": null,
+        "observed_at": "2026-09-22T18:52:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3015,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-19T14:58:00",
+    "text": "The ferry timetable changes on the first of the month.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.937454",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": {
+      "id": "3015_photo",
+      "type": "photo",
+      "file_path": "-1001900000003/2736778587_photo.jpg",
+      "file_name": "2736778587_photo.jpg",
+      "file_size": 31587,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/1-io-biJT6DorLiWQi7_mQ/3015_photo"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "❤️",
+        "count": 28,
+        "user_ids": []
+      },
+      {
+        "emoji": "👍",
+        "count": 40,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 40,
+        "previous_count": null,
+        "observed_at": "2026-09-19T14:59:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "❤️",
+        "count": 28,
+        "previous_count": null,
+        "observed_at": "2026-09-19T14:59:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3014,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-19T08:52:00",
+    "text": "Council meeting minutes are online.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.937070",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 15,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 15,
+        "previous_count": null,
+        "observed_at": "2026-09-19T08:53:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3013,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-18T21:08:00",
+    "text": "Photo of the week: sailing boats back in the marina.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.936676",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": {
+      "id": "3013_photo",
+      "type": "photo",
+      "file_path": "-1001900000003/677449936_photo.jpg",
+      "file_name": "677449936_photo.jpg",
+      "file_size": 31165,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/1-io-biJT6DorLiWQi7_mQ/3013_photo"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "❤️",
+        "count": 5,
+        "user_ids": []
+      },
+      {
+        "emoji": "👍",
+        "count": 28,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 28,
+        "previous_count": null,
+        "observed_at": "2026-09-18T21:09:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "❤️",
+        "count": 5,
+        "previous_count": null,
+        "observed_at": "2026-09-18T21:09:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3012,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-18T09:26:00",
+    "text": "Volunteers wanted for the spring garden project.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.936283",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 11,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 11,
+        "previous_count": null,
+        "observed_at": "2026-09-18T09:27:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3011,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-16T18:27:00",
+    "text": "The night bus runs every 30 minutes on Fridays and Saturdays.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.935896",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 13,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 13,
+        "previous_count": null,
+        "observed_at": "2026-09-16T18:28:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3010,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-15T19:52:00",
+    "text": "Harvest festival this weekend. Parade starts at noon.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.935502",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": {
+      "id": "3010_photo",
+      "type": "photo",
+      "file_path": "-1001900000003/184250234_photo.jpg",
+      "file_name": "184250234_photo.jpg",
+      "file_size": 35410,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/1-io-biJT6DorLiWQi7_mQ/3010_photo"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "❤️",
+        "count": 4,
+        "user_ids": []
+      },
+      {
+        "emoji": "👍",
+        "count": 37,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 37,
+        "previous_count": null,
+        "observed_at": "2026-09-15T19:53:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "❤️",
+        "count": 4,
+        "previous_count": null,
+        "observed_at": "2026-09-15T19:53:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3009,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-13T15:14:00",
+    "text": "Lost and found: a blue backpack was handed in at the town hall.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.935109",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 4,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 4,
+        "previous_count": null,
+        "observed_at": "2026-09-13T15:15:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3008,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-13T13:50:00",
+    "text": "Swimming pool closes for maintenance for two weeks.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.934696",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 20,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 20,
+        "previous_count": null,
+        "observed_at": "2026-09-13T13:51:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3007,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-12T09:22:00",
+    "text": "Photo of the week: first frost on the hill paths.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.934282",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": {
+      "id": "3007_photo",
+      "type": "photo",
+      "file_path": "-1001900000003/516369278_photo.jpg",
+      "file_name": "516369278_photo.jpg",
+      "file_size": 29132,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/1-io-biJT6DorLiWQi7_mQ/3007_photo"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "❤️",
+        "count": 28,
+        "user_ids": []
+      },
+      {
+        "emoji": "👍",
+        "count": 33,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 33,
+        "previous_count": null,
+        "observed_at": "2026-09-12T09:23:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "❤️",
+        "count": 28,
+        "previous_count": null,
+        "observed_at": "2026-09-12T09:23:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3006,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-10T20:57:00",
+    "text": "New bike racks are going in outside the station.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.933856",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 24,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 24,
+        "previous_count": null,
+        "observed_at": "2026-09-10T20:58:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3005,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-10T14:40:00",
+    "text": "Beach clean-up on Sunday morning. Gloves and bags provided.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.933362",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": {
+      "id": "3005_photo",
+      "type": "photo",
+      "file_path": "-1001900000003/1477618909_photo.jpg",
+      "file_name": "1477618909_photo.jpg",
+      "file_size": 30779,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/1-io-biJT6DorLiWQi7_mQ/3005_photo"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "❤️",
+        "count": 11,
+        "user_ids": []
+      },
+      {
+        "emoji": "👍",
+        "count": 39,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 39,
+        "previous_count": null,
+        "observed_at": "2026-09-10T14:41:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "❤️",
+        "count": 11,
+        "previous_count": null,
+        "observed_at": "2026-09-10T14:41:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3004,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-04T18:38:00",
+    "text": "The summer concert series line-up is out.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.932362",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 25,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 25,
+        "previous_count": null,
+        "observed_at": "2026-09-04T18:39:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3003,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-02T20:04:00",
+    "text": "Road works on Mill Street start Monday. Expect short delays.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.931942",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 16,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 16,
+        "previous_count": null,
+        "observed_at": "2026-09-02T20:05:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3002,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-08-31T10:18:00",
+    "text": "Photo of the week: fog over the old harbour wall.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.931563",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": {
+      "id": "3002_photo",
+      "type": "photo",
+      "file_path": "-1001900000003/3804222405_photo.jpg",
+      "file_name": "3804222405_photo.jpg",
+      "file_size": 35719,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/1-io-biJT6DorLiWQi7_mQ/3002_photo"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "❤️",
+        "count": 12,
+        "user_ids": []
+      },
+      {
+        "emoji": "👍",
+        "count": 18,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 18,
+        "previous_count": null,
+        "observed_at": "2026-08-31T10:19:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "❤️",
+        "count": 12,
+        "previous_count": null,
+        "observed_at": "2026-08-31T10:19:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3001,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-08-24T17:47:00",
+    "text": "Library extends weekend opening hours from next month.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor",
+      "webpage": {
+        "site_name": "Harbor Town",
+        "url": "https://example.org/library-hours",
+        "title": "Longer weekend hours at the town library",
+        "description": "From next month the library stays open until 6pm on Saturdays and Sundays."
+      }
+    },
+    "created_at": "2026-10-07T14:00:01.931094",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {
+      "preview": {
+        "payload": {
+          "site_name": "Harbor Town",
+          "url": "https://example.org/library-hours",
+          "title": "Longer weekend hours at the town library",
+          "description": "From next month the library stays open until 7pm at weekends."
+        },
+        "observed_at": "2026-08-25T19:47:00",
+        "source": "sync",
+        "count": 1,
+        "differs_from_first": true
+      }
+    },
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "👍",
+        "count": 6,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 6,
+        "previous_count": null,
+        "observed_at": "2026-08-24T17:48:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 3000,
+    "chat_id": -1001900000003,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-08-24T12:17:00",
+    "text": "The farmers market moves to the pier this Saturday. Stalls open at 8.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {
+      "post_author": "Editor"
+    },
+    "created_at": "2026-10-07T14:00:01.930630",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": {
+      "id": "3000_photo",
+      "type": "photo",
+      "file_path": "-1001900000003/1975782734_photo.jpg",
+      "file_name": "1975782734_photo.jpg",
+      "file_size": 32603,
+      "mime_type": "image/jpeg",
+      "width": 1280,
+      "height": 853,
+      "duration": null,
+      "skip_reason": null,
+      "downloaded": true,
+      "url": "/media/1-io-biJT6DorLiWQi7_mQ/3000_photo"
+    },
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "❤️",
+        "count": 23,
+        "user_ids": []
+      },
+      {
+        "emoji": "👍",
+        "count": 28,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "👍",
+        "count": 28,
+        "previous_count": null,
+        "observed_at": "2026-08-24T12:18:00",
+        "source": "listener"
+      },
+      {
+        "emoji": "❤️",
+        "count": 23,
+        "previous_count": null,
+        "observed_at": "2026-08-24T12:18:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  }
+]
