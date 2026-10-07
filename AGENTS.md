@@ -26,11 +26,13 @@ xcodebuild test -project TGArchive.xcodeproj -scheme TGArchive \
 scripts/check-required-reason-apis.sh --self-test && scripts/check-required-reason-apis.sh
 ```
 
-- `scripts/mini-test.sh`, once it exists, runs the same generate and test on a remote Mac named by the
-  `MINI_HOST` environment variable. Use it from an editing laptop.
+- From an editing laptop, run `scripts/mini-test.sh`. It copies the checkout over ssh to the Mac named by
+  `MINI_HOST`, generates the project, runs the unit and UI tests on a simulator and applies the same
+  test-count gate as CI. The script's header lists its other settings.
 - `scripts/demo-server.sh start|stop|status|reset` runs a demo Telegram-Archive viewer on
   `127.0.0.1:8000` with invented data, for the UI tests and the store screenshots
-  ([docs/DESIGN.md](docs/DESIGN.md) section 5).
+  ([docs/DESIGN.md](docs/DESIGN.md) section 5). `scripts/capture-fixtures.sh` refreshes the unit-test
+  fixtures from a running demo.
 - CI (`.github/workflows/ci.yml`) runs the unit and UI tests, a test-count gate, the Required Reason API
   check and a Release build. When you add tests, raise the count in the gate.
 
