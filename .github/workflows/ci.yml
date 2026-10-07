@@ -1,0 +1,80 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Build and test
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Show toolchain
+        run: xcodebuild -version
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate the Xcode project
+        run: xcodegen generate
+
+      - name: Check for undeclared Required Reason APIs
+        run: scripts/check-required-reason-apis.sh --self-test && scripts/check-required-reason-apis.sh
+
+      - name: Pick a simulator
+        id: sim
+        run: echo "udid=$(scripts/pick-simulator.sh)" >> "$GITHUB_OUTPUT"
+
+      - name: Build and run unit and UI tests
+        run: |
+          set -o pipefail
+          mkdir -p build
+          xcodebuild test \
+            -project TGArchive.xcodeproj -scheme TGArchive \
+            -destination "platform=iOS Simulator,id=${{ steps.sim.outputs.udid }}" \
+            -derivedDataPath build/dd -resultBundlePath build/results.xcresult \
+            -parallel-testing-enabled NO \
+            | tee build/test.log \
+            | grep -E "error:|warning: .*\.swift|Test Case .*(passed|failed)|Test .*(passed|failed) after|Executed [0-9]+ tests?|\*\* TEST"
+
+      # A run that executes no tests also ends in TEST SUCCEEDED. Read the counts from the result bundle.
+      - name: Gate on the test count
+        run: |
+          xcrun xcresulttool get test-results summary --path build/results.xcresult --compact \
+            | python3 -c '
+          import json, sys
+          s = json.load(sys.stdin)
+          total, failed = s.get("totalTestCount", 0), s.get("failedTests", 0)
+          print(f"totalTestCount={total} failedTests={failed}")
+          sys.exit(0 if total >= 2 and failed == 0 else 1)
+          '
+
+      - name: Build the Release configuration
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project TGArchive.xcodeproj -scheme TGArchive -configuration Release \
+            -destination "generic/platform=iOS Simulator" -derivedDataPath build/dd-release \
+            CODE_SIGNING_ALLOWED=NO \
+            | grep -E "error:|\*\* BUILD"
+
+      - name: Keep the test results
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: test-results
+          path: |
+            build/results.xcresult
+            build/test.log
+          retention-days: 7
