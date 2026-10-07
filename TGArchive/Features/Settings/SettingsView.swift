@@ -7,6 +7,7 @@ struct SettingsView: View {
     @Environment(SessionStore.self) private var store
     @State private var model = SettingsModel()
     @State private var confirmingSignOut = false
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     private var stored: StoredSession { session.stored }
     private var isAnonymous: Bool { stored.role == .anonymous }
@@ -26,7 +27,8 @@ struct SettingsView: View {
                         Text("settings.server")
                     }
                     LabeledContent {
-                        VStack(alignment: .trailing) {
+                        // At accessibility sizes the value wraps under its label, so it lines up on the left.
+                        VStack(alignment: dynamicTypeSize.isAccessibilitySize ? .leading : .trailing) {
                             if let name = SettingsModel.accountName(for: stored) {
                                 Text(verbatim: name)
                             }
