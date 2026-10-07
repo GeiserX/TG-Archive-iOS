@@ -181,3 +181,30 @@
 "media.downloadsOff" = "Las descargas están desactivadas para este acceso";
 "media.missing" = "Sin vista previa";
 "media.failed" = "No se pudo cargar";
+
+/* The thread (a chat's messages). */
+"chat.empty" = "Sin mensajes";
+"chat.day.today" = "Hoy";
+"chat.deleted" = "Eliminado en Telegram";
+"chat.edited" = "editado";
+"chat.pinned" = "Fijado";
+"chat.forwardedFrom %@" = "Reenviado de %@";
+"chat.replyTo %@ %@" = "Respuesta a %1$@: %2$@";
+"chat.service" = "Evento del chat";
+"chat.reaction.custom" = "Emoji personalizado";
+"chat.reactions.takenBack %lld" = "Retiradas: %lld";
+"chat.jumpToLatest" = "Ir al final";
+"chat.unavailable" = "Este chat ya no está disponible para este acceso";
+"chat.unavailable.ok" = "Aceptar";
+"chat.play" = "Reproducir";
+"chat.transcript" = "Transcripción";
+"chat.transcript.more" = "Ver más";
+"chat.transcript.less" = "Ver menos";
+"chat.poll.quiz" = "Cuestionario";
+"chat.poll.closed" = "Cerrada";
+"chat.poll.multiple" = "Varias respuestas";
+"chat.poll.correct" = "Respuesta correcta";
+"chat.poll.voters %lld" = "^[%lld voto](inflect: true)";
+"chat.media.tooLarge" = "No descargado (demasiado grande)";
+"chat.media.filtered" = "No descargado (filtrado)";
+"chat.media.notDownloaded" = "Aún no descargado";

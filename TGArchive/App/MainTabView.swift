@@ -12,7 +12,7 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             Tab("tab.chats", systemImage: "bubble.left.and.bubble.right") {
-                TabPlaceholder(title: "tab.chats", systemImage: "bubble.left.and.bubble.right")
+                ChatListView(session: session)
             }
             Tab("tab.search", systemImage: "magnifyingglass") {
                 TabPlaceholder(title: "tab.search", systemImage: "magnifyingglass")
