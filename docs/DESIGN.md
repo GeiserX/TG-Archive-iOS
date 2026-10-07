@@ -35,6 +35,8 @@ Three tabs (Chats, Search, Settings) plus the screens pushed or presented from t
 | **SearchView** (tab Search) | Word-prefix search across every chat the login sees. Each row: chat avatar and title, sender, date, snippet, topic title for forum hits, a "Deleted in Telegram" tag when `is_deleted`. Tapping opens ChatView anchored at the message. | `GET /api/search/messages?q=&limit=20&offset=` |
 | **SettingsView** (tab Settings) and **AboutView** | Server host; signed in as (username and role: Owner, Viewer, Share link "label", or Open server); "Downloads are off for this login" when `no_download`; an Archive section (chats, messages, media files, last backup) when `show_stats`; Sign out with confirmation; Clear cache; About with the disclaimer, version, and links to the privacy policy, the source code and the GPL text. | `GET /api/stats`, `POST /api/logout` |
 
+Stage 7 note: a document downloads in its cell and opens straight in Quick Look, which carries its own share button, so the full-screen viewer holds photos and videos only; voice notes and audio files play inside their cell. The share button downloads the original file only when a share target asks for it.
+
 Stage 4 note: `PasteButton`'s title is fixed by the system ("Paste"), so its row on ConnectView reads "Have a share link?"; SignInView's "Other Server" button returns to ConnectView through view state in `RootView`, since changing server before signing in changes no session.
 
 ### Shared chats and the preview, as the API defines them
@@ -148,6 +150,7 @@ Three places. The Keychain holds the session. `SessionStore` on the main actor h
   - `VideoCell` (video, animation): tries the 400 px thumbnail (the server makes one when it has ffmpeg), falls back to a dark tile; play glyph and duration; tap opens MediaViewer.
   - `VideoNoteCell`: a circle; tap opens MediaViewer.
   - `VoiceCell` and `AudioCell`: play/pause, duration, a progress bar, and under it the newest `done` transcript as collapsible text. Playback goes through `PlayerFactory`. Voice notes are Ogg/Opus files, which AVFoundation on iOS does not play; stage 8 confirms this against the demo server and, when confirmed, the cell shows the duration and transcript and "Voice note playback isn't supported in this version" when tapped. Audio files AVFoundation plays (m4a, mp3, mp4) play.
+  - Stage 7 note: measured on the iOS 26.5 simulator, AVFoundation reads and decodes Ogg/Opus: `PlayerFactoryTests` decodes an Ogg/Opus fixture to PCM and opens the demo server's voice notes over http with the session cookie. Voice notes therefore play in the cell like any audio file. When AVFoundation on a device cannot read a file, the cell says "This voice note can't be played on this device" and the transcript stays under it.
   - `DocumentCell`: file icon, `file_name`, `file_size`; tap downloads through `FileStore` and opens Quick Look.
   - `StickerCell`: a static WebP (`image/webp`) renders as an image at 160 pt; `.tgs` and `.webm` stickers show `raw_data.sticker.emoji` at 64 pt, or a generic sticker glyph.
   - `LocationCell` (geo, venue, geo_live): a non-interactive MapKit `Map` with a `Marker` at `lat`/`long`, the venue title and address under it, tap opens Apple Maps. A location without a point shows "Location".
@@ -233,6 +236,7 @@ CI starts the demo on the `macos-latest` runner (`brew install uv`), runs the un
 - Universal links or a URL scheme for share links: the link's domain is the user's own, so universal links cannot work; `PasteButton` covers it. No QR scanner: the server shows no QR anywhere.
 - A built-in "Try the demo" button: it would put a hostname in the public repo and the binary.
 - Voice note (Ogg/Opus) playback: AVFoundation does not play the Ogg container, and a decoder would break the no-packages rule; the transcript and duration are shown. Reconsidered when the server offers another rendition.
+- Stage 7 note: voice note playback is in v1 after all, because AVFoundation does play Ogg/Opus (section 3.6).
 
 ## 8. Implementation stages and file ownership
 
