@@ -181,3 +181,30 @@
 "media.downloadsOff" = "Downloads are off for this login";
 "media.missing" = "No preview";
 "media.failed" = "Couldn't load";
+
+/* The thread (a chat's messages). */
+"chat.empty" = "No messages";
+"chat.day.today" = "Today";
+"chat.deleted" = "Deleted in Telegram";
+"chat.edited" = "edited";
+"chat.pinned" = "Pinned";
+"chat.forwardedFrom %@" = "Forwarded from %@";
+"chat.replyTo %@ %@" = "Reply to %1$@: %2$@";
+"chat.service" = "Chat event";
+"chat.reaction.custom" = "Custom emoji";
+"chat.reactions.takenBack %lld" = "%lld taken back";
+"chat.jumpToLatest" = "Jump to latest";
+"chat.unavailable" = "This chat is no longer available to this login";
+"chat.unavailable.ok" = "OK";
+"chat.play" = "Play";
+"chat.transcript" = "Transcript";
+"chat.transcript.more" = "Show more";
+"chat.transcript.less" = "Show less";
+"chat.poll.quiz" = "Quiz";
+"chat.poll.closed" = "Closed";
+"chat.poll.multiple" = "Multiple answers";
+"chat.poll.correct" = "Correct answer";
+"chat.poll.voters %lld" = "^[%lld vote](inflect: true)";
+"chat.media.tooLarge" = "Not downloaded (too large)";
+"chat.media.filtered" = "Not downloaded (filtered)";
+"chat.media.notDownloaded" = "Not downloaded yet";
