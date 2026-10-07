@@ -1,8 +1,10 @@
-# TG Archive for iOS
+<h1 align="center">
+  <img src="docs/images/banner.svg" alt="TG-Archive-iOS" width="900"/>
+</h1>
 
-An unofficial, read-only iOS client for a self-hosted [Telegram-Archive](https://github.com/GeiserX/Telegram-Archive) backup. Point it at your own viewer, sign in with a viewer account or a share link, and read your archived chats, search them and open their media on the phone.
+The read-only iOS client for a self-hosted [Telegram-Archive](https://github.com/GeiserX/Telegram-Archive) backup. Point it at your own viewer, sign in with a viewer account or a share link, and read your archived chats, search them and open their media on the phone.
 
-This app is not affiliated with Telegram. It talks only to the Telegram-Archive server you run, through its documented HTTP API.
+TG Archive is the iOS app of the Telegram-Archive project and is independent of Telegram. It talks only to the Telegram-Archive server you run, through its documented HTTP API.
 
 Work in progress: nothing is on TestFlight yet.
 

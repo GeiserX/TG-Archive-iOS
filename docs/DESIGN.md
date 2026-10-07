@@ -16,7 +16,7 @@ Four server facts shape everything below.
 ### Naming and disclosure rules
 
 - The app is called **TG Archive** everywhere: display name, App Store name, About screen. "Telegram" is never part of the app name, subtitle, keywords, bundle id or icon.
-- The icon is ours: no paper plane, no Telegram blue, no bubble that copies Telegram's. Message bubbles use our own accent colour and shape.
+- The icon is the Telegram-Archive mark, the same paper plane and database stack on the same dark plate as the server project's icon (`docs/images/icon.svg` there), so the app reads as that product's iOS edition. Never Telegram's own logo, and no bubble that copies Telegram's. Message bubbles use our own accent colour and shape.
 - The word "Telegram" appears in exactly two places: the store description's last paragraph and the About screen, both with this text: "TG Archive is unofficial and not affiliated with Telegram. It reads backups made by Telegram-Archive, an open source server you run yourself, which uses the Telegram API." The server project's name, "Telegram-Archive", is used as the name of that project and nothing else.
 - Nothing committed to this public repo names a private server, hostname, person or deployment. Docs say "your server" or "the demo server". Review credentials and the demo URL live only in App Store Connect.
 
