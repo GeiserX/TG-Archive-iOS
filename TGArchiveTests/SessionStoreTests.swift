@@ -197,12 +197,45 @@ struct SessionStoreTests {
         }
         let store = store()
         try await store.connect(server.address.baseURL.absoluteString)
-        await #expect(throws: SessionError.api(.unauthorized)) {
+        await #expect(throws: SessionError.wrongCredentials) {
             try await store.signIn(username: "admin", password: "wrong")
         }
         #expect(store.phase == .signIn(server.address, prefilledToken: nil, reason: nil))
         #expect(server.requests(to: "/api/login").count == 1)
         #expect(vault.stored == nil)
+        #expect(SessionError.wrongCredentials.message != SessionError.api(.unauthorized).message)
+    }
+
+    @Test("A share link the server refuses is reported as a bad link, not as an ended session")
+    func invalidLink() async throws {
+        let server = MockServer { request in
+            request.path == "/auth/token"
+                ? .json(#"{"detail": "Invalid or expired token"}"#, status: 401)
+                : .json(#"{"authenticated": false, "auth_required": true}"#)
+        }
+        let store = store()
+        try await store.connect(server.address.baseURL.absoluteString)
+        await #expect(throws: SessionError.invalidLink) { try await store.signIn(token: "revoked-link") }
+        #expect(server.requests(to: "/auth/token").count == 1)
+        #expect(vault.stored == nil)
+        #expect(SessionError.invalidLink.message != SessionError.wrongCredentials.message)
+    }
+
+    @Test("Connecting to another server while signed in ends the old session there first")
+    func connectWhileSignedIn() async throws {
+        let old = MockServer(handler: Self.archive())
+        let new = MockServer(handler: Self.archive())
+        try vault.save(stored(old))
+        let store = store()
+        await store.restore()
+        _ = try readySession(store)
+
+        try await store.connect(new.address.baseURL.absoluteString)
+        #expect(store.phase == .signIn(new.address, prefilledToken: nil, reason: nil))
+        #expect(old.requests.map(\.path) == ["/api/auth/check", "/api/logout"])
+        #expect(old.requests.last?.cookie == "viewer_auth=old-session")
+        #expect(vault.stored == nil)
+        #expect(new.requests.map(\.path) == ["/api/auth/check"])
     }
 
     @Test("A 429 is reported once and never retried")

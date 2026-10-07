@@ -32,6 +32,10 @@ enum SessionError: Error, Equatable, Sendable {
     case busy
     /// There is no server to sign in to yet.
     case noServer
+    /// `/api/login` answered 401.
+    case wrongCredentials
+    /// `/auth/token` answered 401: the share link is invalid, revoked or expired.
+    case invalidLink
     case api(APIError)
 
     var message: String {
@@ -41,6 +45,8 @@ enum SessionError: Error, Equatable, Sendable {
         case .proxyAuthUnsupported: String(localized: "session.error.proxyAuthUnsupported")
         case .busy: String(localized: "session.error.busy")
         case .noServer: String(localized: "session.error.invalidAddress")
+        case .wrongCredentials: String(localized: "session.error.wrongCredentials")
+        case .invalidLink: String(localized: "session.error.invalidLink")
         case let .api(error): error.message
         }
     }
@@ -190,6 +196,9 @@ final class SessionStore {
             await startAnonymous(at: parsed.address)
             return
         }
+        // Leaving the archive for another sign-in ends the session it showed, so a relaunch never brings
+        // back a server the user moved away from.
+        await releaseCurrentSession()
         phase = .signIn(parsed.address, prefilledToken: parsed.token, reason: nil)
     }
 
@@ -237,7 +246,12 @@ final class SessionStore {
                 (response, cookie) = try await client.post(.tokenLogin, body: TokenBody(token: token))
             }
         } catch {
-            throw .api(error)
+            // A 401 from a login route is about what the user typed, never about a session.
+            guard error == .unauthorized else { throw .api(error) }
+            switch credential {
+            case .password: throw .wrongCredentials
+            case .token: throw .invalidLink
+            }
         }
 
         guard let cookie else {

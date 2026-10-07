@@ -207,7 +207,7 @@ struct APIClientTests {
                                   .transport(.timedOut), .transport(.serverCertificateUntrusted),
                                   .transport(.notConnectedToInternet), .decoding("x")]
         let sessionErrors: [SessionError] = [.invalidAddress, .setupRequired, .proxyAuthUnsupported, .busy,
-                                             .noServer]
+                                             .noServer, .wrongCredentials, .invalidLink]
         for message in errors.map(\.message) + sessionErrors.map(\.message) {
             #expect(!message.hasPrefix("api.error") && !message.hasPrefix("session.error"), "untranslated: \(message)")
         }

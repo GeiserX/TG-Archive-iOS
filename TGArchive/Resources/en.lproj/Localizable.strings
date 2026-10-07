@@ -25,3 +25,5 @@
 "session.error.invalidAddress" = "Enter your server's address, like archive.example.com, or paste a share link.";
 "session.error.proxyAuthUnsupported" = "Proxy sign-in isn't supported in this version.";
 "session.error.busy" = "Already signing in.";
+"session.error.wrongCredentials" = "Wrong username or password.";
+"session.error.invalidLink" = "This link is invalid, revoked or expired.";

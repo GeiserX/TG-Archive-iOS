@@ -25,3 +25,5 @@
 "session.error.invalidAddress" = "Escribe la dirección de tu servidor, como archive.example.com, o pega un enlace compartido.";
 "session.error.proxyAuthUnsupported" = "Esta versión no admite el inicio de sesión mediante proxy.";
 "session.error.busy" = "Ya se está iniciando sesión.";
+"session.error.wrongCredentials" = "Usuario o contraseña incorrectos.";
+"session.error.invalidLink" = "Este enlace no es válido, se ha revocado o ha caducado.";
