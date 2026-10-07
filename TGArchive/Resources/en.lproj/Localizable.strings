@@ -64,7 +64,15 @@
 "tab.chats" = "Chats";
 "tab.search" = "Search";
 "tab.settings" = "Settings";
-"tab.placeholder" = "This screen is coming in a later version.";
+
+/* Search (the Search tab). */
+"search.prompt" = "Search messages";
+"search.start.title" = "Search Your Archive";
+"search.start.description" = "Find messages in every chat this login can see. Words match from their start, so \"photo\" also finds \"photos\".";
+"search.notIndexed" = "Message search needs your server's search index. Your server builds it when its backup starts on version 8.5 or later.";
+"search.matchedTranscript" = "Found in a voice message transcript";
+"search.noText" = "Message without text";
+"search.limit" = "There are more results than this list can show. Add words to narrow the search.";
 
 /* Settings. */
 "settings.title" = "Settings";
