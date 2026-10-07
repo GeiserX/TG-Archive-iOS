@@ -20,6 +20,8 @@ struct MediaViewer: View {
 
     @Environment(SessionStore.self) private var store: SessionStore?
     @Environment(\.dismiss) private var dismiss
+    /// The 400 px thumbnail the share sheet shows beside the file name.
+    @State private var shareThumbnail: UIImage?
 
     private var session: Session? {
         guard let store, case let .ready(session) = store.phase else { return nil }
@@ -43,7 +45,7 @@ struct MediaViewer: View {
                     ToolbarItem(placement: .primaryAction) {
                         ShareLink(item: SharedMediaFile(target: target,
                                                         loader: MediaLoader.current(for: session, in: store)),
-                                  preview: SharedMediaFile.preview(for: target.media)) {
+                                  preview: SharedMediaFile.preview(for: target.media, image: shareThumbnail)) {
                             Label("media.viewer.share", systemImage: "square.and.arrow.up")
                         }
                         .accessibilityIdentifier("media.viewer.share")
@@ -56,6 +58,12 @@ struct MediaViewer: View {
         }
         .environment(\.colorScheme, .dark)
         .onAppear { AudioPlayback.pauseCurrent() }
+        .task(id: target) {
+            // The same request as the thumbnail under a loading photo, so it usually comes from memory.
+            guard canShare, let session, let store else { return }
+            shareThumbnail = try? await MediaLoader.current(for: session, in: store)
+                .image(for: .thumbnail(size: .large, ref: target.ref, key: target.media.key), maxPixelSize: 400)
+        }
     }
 
     @ViewBuilder

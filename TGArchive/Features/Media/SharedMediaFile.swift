@@ -20,9 +20,12 @@ struct SharedMediaFile: Transferable {
         return .data
     }
 
-    /// The file's name as the share sheet's title; the sheet draws the icon for the file's type.
-    static func preview(for media: MessageMedia) -> SharePreview<Never, Never> {
-        SharePreview(DocumentName.display(media.fileName) ?? MediaKindLabel(kind: media.type.rawValue)?.title ?? "")
+    /// The share sheet's header: the file's name beside its thumbnail, or a photo or video symbol until the
+    /// thumbnail has loaded. A title-only preview leaves the header's icon blank.
+    static func preview(for media: MessageMedia, image: UIImage?) -> SharePreview<Image, Never> {
+        let title = DocumentName.display(media.fileName) ?? MediaKindLabel(kind: media.type.rawValue)?.title ?? ""
+        if let image { return SharePreview(title, image: Image(uiImage: image)) }
+        return SharePreview(title, image: Image(systemName: media.type == .photo ? "photo" : "video"))
     }
 
     fileprivate func download() async throws -> SentTransferredFile {
@@ -30,8 +33,9 @@ struct SharedMediaFile: Transferable {
         return SentTransferredFile(url)
     }
 
-    /// A concrete type first, so share targets see an image or a movie (Save Image and Save Video also need a
-    /// photo-library usage string in the Info.plist); plain data last, so any file can still go to Files.
+    /// A concrete type first, so share targets see an image or a movie (Save Image and Save Video rely on the
+    /// `NSPhotoLibraryAddUsageDescription` string in the Info.plist); plain data last, so any file can still go to
+    /// Files.
     static var transferRepresentation: some TransferRepresentation {
         FileRepresentation(exportedContentType: .jpeg) { try await $0.download() }
             .exportingCondition { $0.contentType.conforms(to: .jpeg) }
