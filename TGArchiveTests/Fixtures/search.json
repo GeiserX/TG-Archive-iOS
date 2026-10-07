@@ -1,0 +1,409 @@
+{
+  "query": "the",
+  "limit": 20,
+  "offset": 0,
+  "has_more": true,
+  "indexed": true,
+  "results": [
+    {
+      "id": 1272,
+      "date": "2026-10-07T13:45:00",
+      "text": "Parking at the north lot is free before nine, after that it's the paid lot by the café.",
+      "sender_name": "Hugo Tallowmere",
+      "sender_account_id": null,
+      "is_deleted": true,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "C9uWzfb7MCkzaP28_9kOKA",
+        "title": "Weekend Hikers",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA"
+      }
+    },
+    {
+      "id": 1271,
+      "date": "2026-10-07T13:44:00",
+      "text": "Meeting point for Sunday: north lot, 7:30. Carpool list is in the shared sheet.",
+      "sender_name": "Orson Quill",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "C9uWzfb7MCkzaP28_9kOKA",
+        "title": "Weekend Hikers",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA"
+      }
+    },
+    {
+      "id": 1270,
+      "date": "2026-10-07T13:34:00",
+      "text": "Same sun from the summit 🌞",
+      "sender_name": "Hugo Tallowmere",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "C9uWzfb7MCkzaP28_9kOKA",
+        "title": "Weekend Hikers",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA"
+      }
+    },
+    {
+      "id": 1269,
+      "date": "2026-10-07T13:32:00",
+      "text": "Found this view on the way back",
+      "sender_name": "Kofi Brightwater",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "C9uWzfb7MCkzaP28_9kOKA",
+        "title": "Weekend Hikers",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA"
+      }
+    },
+    {
+      "id": 1265,
+      "date": "2026-10-07T13:07:00",
+      "text": "",
+      "sender_name": "Juniper Vale",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "transcript",
+      "chat": {
+        "ref": "C9uWzfb7MCkzaP28_9kOKA",
+        "title": "Weekend Hikers",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA"
+      }
+    },
+    {
+      "id": 1264,
+      "date": "2026-10-07T12:50:00",
+      "text": "Trail notice: the lower canyon path is closed for bridge repairs until Friday. Use the ridge detour.",
+      "sender_name": "Juniper Vale",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "C9uWzfb7MCkzaP28_9kOKA",
+        "title": "Weekend Hikers",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA"
+      }
+    },
+    {
+      "id": 1263,
+      "date": "2026-10-07T12:34:00",
+      "text": "Adding this one to the list for next month.",
+      "sender_name": "Robin Ashgrove",
+      "sender_account_id": 1,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "C9uWzfb7MCkzaP28_9kOKA",
+        "title": "Weekend Hikers",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA"
+      }
+    },
+    {
+      "id": 1262,
+      "date": "2026-10-07T12:21:00",
+      "text": "The north lot. It fills up by 8, so get there early.",
+      "sender_name": "Esme Driftwood",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "C9uWzfb7MCkzaP28_9kOKA",
+        "title": "Weekend Hikers",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA"
+      }
+    },
+    {
+      "id": 1256,
+      "date": "2026-10-07T12:10:00",
+      "text": "A few shots from the ridge loop",
+      "sender_name": "Esme Driftwood",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "C9uWzfb7MCkzaP28_9kOKA",
+        "title": "Weekend Hikers",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA"
+      }
+    },
+    {
+      "id": 1255,
+      "date": "2026-10-07T12:09:00",
+      "text": "Trail report from Saturday is up. The ridge loop was muddy but worth it.",
+      "sender_name": "Esme Driftwood",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "C9uWzfb7MCkzaP28_9kOKA",
+        "title": "Weekend Hikers",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA"
+      }
+    },
+    {
+      "id": 928,
+      "date": "2026-10-07T11:19:00",
+      "text": "",
+      "sender_name": "Juniper Vale",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "transcript",
+      "chat": {
+        "ref": "bn9xLPViyAyVGYJEkdhCkg",
+        "title": null,
+        "first_name": "Juniper",
+        "last_name": "Vale",
+        "username": "juniper_vale",
+        "type": "private",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/bn9xLPViyAyVGYJEkdhCkg"
+      }
+    },
+    {
+      "id": 927,
+      "date": "2026-10-07T11:16:00",
+      "text": "Deal. I'll bring the bag too.",
+      "sender_name": "Robin Ashgrove",
+      "sender_account_id": 1,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "bn9xLPViyAyVGYJEkdhCkg",
+        "title": null,
+        "first_name": "Juniper",
+        "last_name": "Vale",
+        "username": "juniper_vale",
+        "type": "private",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/bn9xLPViyAyVGYJEkdhCkg"
+      }
+    },
+    {
+      "id": 926,
+      "date": "2026-10-07T11:14:00",
+      "text": "",
+      "sender_name": "Juniper Vale",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "transcript",
+      "chat": {
+        "ref": "bn9xLPViyAyVGYJEkdhCkg",
+        "title": null,
+        "first_name": "Juniper",
+        "last_name": "Vale",
+        "username": "juniper_vale",
+        "type": "private",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/bn9xLPViyAyVGYJEkdhCkg"
+      }
+    },
+    {
+      "id": 921,
+      "date": "2026-10-07T11:03:00",
+      "text": "",
+      "sender_name": "Juniper Vale",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "transcript",
+      "chat": {
+        "ref": "bn9xLPViyAyVGYJEkdhCkg",
+        "title": null,
+        "first_name": "Juniper",
+        "last_name": "Vale",
+        "username": "juniper_vale",
+        "type": "private",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/bn9xLPViyAyVGYJEkdhCkg"
+      }
+    },
+    {
+      "id": 5040,
+      "date": "2026-10-07T08:59:00",
+      "text": "Release checklist for Thursday is in the team folder.",
+      "sender_name": "Priya Lanternfield",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "NVlqRriaIL61BCJfvhWZiQ",
+        "title": "Platform Team",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/NVlqRriaIL61BCJfvhWZiQ"
+      }
+    },
+    {
+      "id": 5039,
+      "date": "2026-10-06T18:17:00",
+      "text": "Closing the ticket, the fix is live.",
+      "sender_name": "Priya Lanternfield",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "NVlqRriaIL61BCJfvhWZiQ",
+        "title": "Platform Team",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/NVlqRriaIL61BCJfvhWZiQ"
+      }
+    },
+    {
+      "id": 917,
+      "date": "2026-10-06T18:15:00",
+      "text": "On my way. Here is the number of the owner, she sells the rolls wholesale.",
+      "sender_name": "Robin Ashgrove",
+      "sender_account_id": 1,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "bn9xLPViyAyVGYJEkdhCkg",
+        "title": null,
+        "first_name": "Juniper",
+        "last_name": "Vale",
+        "username": "juniper_vale",
+        "type": "private",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/bn9xLPViyAyVGYJEkdhCkg"
+      }
+    },
+    {
+      "id": 915,
+      "date": "2026-10-06T17:04:00",
+      "text": "I parked there, the bakery is two streets down.",
+      "sender_name": "Juniper Vale",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "bn9xLPViyAyVGYJEkdhCkg",
+        "title": null,
+        "first_name": "Juniper",
+        "last_name": "Vale",
+        "username": "juniper_vale",
+        "type": "private",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/bn9xLPViyAyVGYJEkdhCkg"
+      }
+    },
+    {
+      "id": 164,
+      "date": "2026-10-06T14:59:00",
+      "text": "See you at the trailhead at seven.",
+      "sender_name": "Robin Ashgrove",
+      "sender_account_id": 1,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "C2yIiVewBPdJvKgTt5NTdA",
+        "title": null,
+        "first_name": "Kofi",
+        "last_name": "Brightwater",
+        "username": "kofi_bw",
+        "type": "private",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/C2yIiVewBPdJvKgTt5NTdA"
+      }
+    },
+    {
+      "id": 5037,
+      "date": "2026-10-06T12:48:00",
+      "text": "Build times dropped after the cache change.",
+      "sender_name": "Priya Lanternfield",
+      "sender_account_id": null,
+      "is_deleted": false,
+      "topic_title": null,
+      "matched_in": "message",
+      "chat": {
+        "ref": "NVlqRriaIL61BCJfvhWZiQ",
+        "title": "Platform Team",
+        "first_name": null,
+        "last_name": null,
+        "username": null,
+        "type": "group",
+        "is_forum": false,
+        "avatar_url": "/media/avatar/NVlqRriaIL61BCJfvhWZiQ"
+      }
+    }
+  ]
+}

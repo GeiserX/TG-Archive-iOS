@@ -1,0 +1,7 @@
+{
+  "authenticated": true,
+  "auth_required": true,
+  "role": "master",
+  "username": "admin",
+  "no_download": false
+}

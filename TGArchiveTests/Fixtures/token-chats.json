@@ -1,0 +1,42 @@
+{
+  "chats": [
+    {
+      "id": -1001900000001,
+      "account_id": 1,
+      "ref": "C9uWzfb7MCkzaP28_9kOKA",
+      "type": "group",
+      "title": "Weekend Hikers",
+      "username": null,
+      "first_name": null,
+      "last_name": null,
+      "phone": null,
+      "description": "Day hikes, trail reports and carpools.",
+      "participants_count": 24,
+      "is_forum": 0,
+      "is_archived": 0,
+      "avatar_photo_id": 5550000,
+      "last_synced_message_id": 0,
+      "created_at": "2026-10-07T14:00:00.820679",
+      "updated_at": "2026-10-07T14:00:00.816143",
+      "last_message_date": "2026-10-07T13:48:00",
+      "preview": {
+        "message_id": 1275,
+        "date": "2026-10-07T13:48:00",
+        "text": "Perfect, save me a seat 🙌",
+        "sender": "Esme",
+        "kind": "text",
+        "outgoing": false,
+        "action": null,
+        "action_title": null
+      },
+      "accounts": [
+        1
+      ],
+      "avatar_url": "/media/avatar/C9uWzfb7MCkzaP28_9kOKA"
+    }
+  ],
+  "total": 1,
+  "limit": 50,
+  "offset": 0,
+  "has_more": false
+}
