@@ -3,12 +3,14 @@ import SwiftUI
 /// The Chats tab: the chat list in its own navigation stack.
 struct ChatListView: View {
     let session: Session
+    @State private var availability = ChatAvailability()
 
     var body: some View {
         NavigationStack {
             ChatListScreen(session: session, archived: false)
                 .chatRoutes(session: session)
         }
+        .environment(availability)
     }
 }
 
@@ -21,8 +23,8 @@ extension View {
                 ChatListScreen(session: session, archived: true)
             case let .topics(ref, title):
                 TopicListView(session: session, ref: ref, title: title)
-            case let .chat(_, title, _, _):
-                ChatPlaceholderView(title: title)
+            case let .chat(ref, title, topicID, anchor):
+                ChatView(session: session, ref: ref, title: title, topicID: topicID, anchor: anchor)
             }
         }
     }
@@ -33,7 +35,10 @@ struct ChatListScreen: View {
     let session: Session
     let archived: Bool
     @Environment(SessionStore.self) private var store: SessionStore?
+    @Environment(ChatAvailability.self) private var availability: ChatAvailability?
     @State private var model: ChatListModel
+    /// The last `ChatAvailability.generation` this screen acted on.
+    @State private var seenGeneration: Int?
     @State private var search = ""
     @State private var folderID: Int?
 
@@ -92,6 +97,14 @@ struct ChatListScreen: View {
                 if Task.isCancelled { return }
             }
             await model.open(query)
+        }
+        .task(id: availability?.generation) {
+            // A thread found its chat gone: the rows may hold it, so ask the server again.
+            let generation = availability?.generation ?? 0
+            defer { seenGeneration = generation }
+            if let seenGeneration, seenGeneration != generation, model.appliedQuery != nil {
+                await model.refresh()
+            }
         }
     }
 
@@ -160,16 +173,5 @@ struct ErrorRow: View {
             .disabled(retrying)
         }
         .padding(.vertical, 4)
-    }
-}
-
-/// Stands in for the thread until the thread screen exists.
-struct ChatPlaceholderView: View {
-    let title: String?
-
-    var body: some View {
-        ContentUnavailableView("chat.placeholder", systemImage: "text.bubble")
-            .navigationTitle(title.map { Text(verbatim: $0) } ?? Text(verbatim: ""))
-            .navigationBarTitleDisplayMode(.inline)
     }
 }
