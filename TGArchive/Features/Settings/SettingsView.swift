@@ -144,6 +144,6 @@ struct SettingsView: View {
     }
 
     private func clearCache() {
-        model.clearCache(session)
+        Task { @MainActor in await model.clearCache(session, store: store) }
     }
 }

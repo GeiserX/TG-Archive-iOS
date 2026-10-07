@@ -38,9 +38,12 @@ final class SettingsModel {
         await store.signOut()
     }
 
-    /// Drops the media and thumbnails kept on the device. They download again, and the session stays.
-    func clearCache(_ session: Session) {
+    /// Drops the media, thumbnails, decoded images and downloaded files kept on the device. They download
+    /// again, and the session stays.
+    func clearCache(_ session: Session, store: SessionStore) async {
         session.client.cache.removeAllCachedResponses()
+        await MediaLoader.current(for: session, in: store).purge()
+        FileStore.shared.wipe()
         cacheCleared = true
     }
 

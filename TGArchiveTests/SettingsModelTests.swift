@@ -130,7 +130,7 @@ struct SettingsModelTests {
         #expect(vault.stored == nil)
     }
 
-    @Test("Clear cache empties the HTTP cache and keeps the session")
+    @Test("Clear cache empties the HTTP cache and the downloaded files, and keeps the session")
     func clearCache() async throws {
         let server = MockServer(handler: FakeArchive.handler())
         let (store, session) = try await signedIn(server)
@@ -141,7 +141,13 @@ struct SettingsModelTests {
         #expect(cache.cachedResponse(for: request) != nil)
         let model = SettingsModel()
 
-        model.clearCache(session)
+        let file = FileStore.shared.root.appending(path: "c1/1_document/notes.txt")
+        try FileManager.default.createDirectory(at: file.deletingLastPathComponent(), withIntermediateDirectories: true)
+        try Data("x".utf8).write(to: file)
+
+        await model.clearCache(session, store: store)
+
+        #expect(!FileManager.default.fileExists(atPath: file.path(percentEncoded: false)))
 
         #expect(cache.cachedResponse(for: request) == nil)
         #expect(model.cacheCleared)
