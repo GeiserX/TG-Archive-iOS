@@ -1,0 +1,22 @@
+[
+  {
+    "chat_id": -1001900000001,
+    "message_id": 1262,
+    "text": "The north lot. It fills up by 9.",
+    "date": "2026-10-07T12:23:00",
+    "captured_at": "2026-10-07T12:26:00",
+    "source": "listener",
+    "entities": null,
+    "rich_message": null
+  },
+  {
+    "chat_id": -1001900000001,
+    "message_id": 1262,
+    "text": "The north lot.",
+    "date": "2026-10-07T12:21:00",
+    "captured_at": "2026-10-07T12:23:00",
+    "source": "listener",
+    "entities": null,
+    "rich_message": null
+  }
+]

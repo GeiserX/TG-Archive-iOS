@@ -1,0 +1,20 @@
+{
+  "5000000000000000001": {
+    "kind": "image",
+    "alt": "☀️",
+    "text_color": false,
+    "ready": true
+  },
+  "5000000000000000002": {
+    "kind": "tgs",
+    "alt": "🌞",
+    "text_color": false,
+    "ready": true
+  },
+  "5000000000000000003": {
+    "kind": null,
+    "alt": "🏔️",
+    "text_color": false,
+    "ready": false
+  }
+}

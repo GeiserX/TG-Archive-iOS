@@ -1,0 +1,18 @@
+{
+  "chats": 16,
+  "messages": 409,
+  "media_files": 46,
+  "total_size_mb": 2.7,
+  "stats_calculated_at": "2026-10-07T14:00:02.507196",
+  "last_backup_time": "2026-10-07T13:34:00Z",
+  "last_backup_time_source": "metadata",
+  "timezone": "UTC",
+  "stats_calculation_hour": 3,
+  "show_stats": true,
+  "listener_active": true,
+  "listener_active_since": "2026-10-07T13:34:00",
+  "backup_in_progress": false,
+  "push_notifications": "basic",
+  "push_enabled": false,
+  "enable_notifications": true
+}

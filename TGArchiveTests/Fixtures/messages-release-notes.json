@@ -1,0 +1,186 @@
+[
+  {
+    "id": 93,
+    "chat_id": -1001900000011,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-10-02T13:44:00",
+    "text": "Version 2.5.1 improves import speed.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:02.108528",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "🎉",
+        "count": 18,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "🎉",
+        "count": 18,
+        "previous_count": null,
+        "observed_at": "2026-10-02T13:45:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 92,
+    "chat_id": -1001900000011,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-24T18:44:00",
+    "text": "Version 2.5 adds dark mode to the admin pages.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:02.108161",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "🎉",
+        "count": 6,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "🎉",
+        "count": 6,
+        "previous_count": null,
+        "observed_at": "2026-09-24T18:45:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 91,
+    "chat_id": -1001900000011,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-15T15:53:00",
+    "text": "Version 2.4.1 fixes the date picker.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:02.107768",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "🎉",
+        "count": 11,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "🎉",
+        "count": 11,
+        "previous_count": null,
+        "observed_at": "2026-09-15T15:54:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  },
+  {
+    "id": 90,
+    "chat_id": -1001900000011,
+    "sender_id": null,
+    "sender_name": null,
+    "date": "2026-09-12T09:35:00",
+    "text": "Version 2.4 is out: faster search and a new export menu.",
+    "reply_to_msg_id": null,
+    "reply_to_top_id": null,
+    "reply_to_text": null,
+    "forward_from_id": null,
+    "edit_date": null,
+    "edit_hide": null,
+    "raw_data": {},
+    "created_at": "2026-10-07T14:00:02.107312",
+    "is_outgoing": 0,
+    "is_pinned": 0,
+    "is_deleted": 0,
+    "deleted_at": null,
+    "first_name": null,
+    "last_name": null,
+    "username": null,
+    "media": null,
+    "snapshots": {},
+    "version_count": 0,
+    "reactions": [
+      {
+        "emoji": "🎉",
+        "count": 14,
+        "user_ids": []
+      }
+    ],
+    "reaction_history": [
+      {
+        "emoji": "🎉",
+        "count": 14,
+        "previous_count": null,
+        "observed_at": "2026-09-12T09:36:00",
+        "source": "listener"
+      }
+    ],
+    "reaction_history_omitted": 0,
+    "removed_reactions": [],
+    "sender_account_id": null,
+    "sender_avatar_url": null
+  }
+]

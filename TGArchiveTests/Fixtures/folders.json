@@ -1,0 +1,18 @@
+{
+  "folders": [
+    {
+      "id": 2,
+      "title": "Friends",
+      "emoticon": "👋",
+      "sort_order": 0,
+      "chat_count": 6
+    },
+    {
+      "id": 3,
+      "title": "Hobbies",
+      "emoticon": "🎨",
+      "sort_order": 1,
+      "chat_count": 4
+    }
+  ]
+}
