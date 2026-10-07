@@ -1,0 +1,113 @@
+# Generate the Xcode project with `xcodegen generate`. The .xcodeproj and TGArchive/Info.plist are generated
+# and never committed: this file is the single source of truth for targets, settings, version and build number.
+name: TGArchive
+options:
+  bundleIdPrefix: io.github.geiserx
+  deploymentTarget:
+    iOS: "18.0"
+  developmentLanguage: en
+  createIntermediateGroups: true
+  generateEmptyDirectories: false
+
+settings:
+  base:
+    # Version and build number live only here. Bump CURRENT_PROJECT_VERSION for every TestFlight upload.
+    MARKETING_VERSION: 0.1.0
+    CURRENT_PROJECT_VERSION: 1
+    DEVELOPMENT_TEAM: 624WUVM8B4
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    TARGETED_DEVICE_FAMILY: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    LOCALIZATION_PREFERS_STRING_CATALOGS: NO
+    SWIFT_EMIT_LOC_STRINGS: YES
+
+targets:
+  TGArchive:
+    type: application
+    platform: iOS
+    sources:
+      - path: TGArchive
+    info:
+      path: TGArchive/Info.plist
+      properties:
+        CFBundleDisplayName: TG Archive
+        CFBundleDevelopmentRegion: en
+        CFBundleLocalizations: [en, es]
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        ITSAppUsesNonExemptEncryption: false
+        LSApplicationCategoryType: public.app-category.utilities
+        # Plain http is allowed only to local-network addresses; never NSAllowsArbitraryLoads.
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
+        NSLocalNetworkUsageDescription: TG Archive connects to your archive server when you enter an address on your local network.
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.geiserx.tg-archive-ios
+        # iPhone only. Set per target: XcodeGen's target default ("1,2") overrides the project-level value,
+        # and an iPad build must support all four orientations or App Store upload fails (error 90474).
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        CODE_SIGN_STYLE: Automatic
+      configs:
+        Release:
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: Apple Distribution
+          PROVISIONING_PROFILE_SPECIFIER: TG Archive App Store
+
+  TGArchiveTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: TGArchiveTests
+        excludes:
+          - Fixtures
+      - path: TGArchiveTests/Fixtures
+        buildPhase: resources
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.geiserx.tg-archive-ios.tests
+        TARGETED_DEVICE_FAMILY: "1"
+    dependencies:
+      - target: TGArchive
+
+  TGArchiveUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: TGArchiveUITests
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.geiserx.tg-archive-ios.uitests
+        TARGETED_DEVICE_FAMILY: "1"
+        TEST_TARGET_NAME: TGArchive
+    dependencies:
+      - target: TGArchive
+
+schemes:
+  TGArchive:
+    build:
+      targets:
+        TGArchive: all
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - TGArchive
+      targets:
+        - TGArchiveTests
+        - TGArchiveUITests
+    archive:
+      config: Release
