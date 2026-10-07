@@ -22,3 +22,6 @@ build/
 
 # scripts/record-demo.sh output
 out/
+
+# Written by `xcodegen generate` from project.yml (info.properties); project.yml is the source of truth
+TGArchive/Info.plist

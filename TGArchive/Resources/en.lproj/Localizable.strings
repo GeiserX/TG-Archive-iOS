@@ -1,0 +1,5 @@
+/* App name, shown on the placeholder root screen. */
+"app.name" = "TG Archive";
+
+/* Placeholder line under the app name until onboarding exists. */
+"app.placeholder" = "Connect to your archive server to begin.";
