@@ -1,10 +1,10 @@
 import SwiftUI
 
-/// The app's name and version, the unofficial disclosure, and the links the GPL and App Review need.
+/// The app's name and version, the disclosure, and the links the GPL and App Review need.
 struct AboutView: View {
-    static let privacyPolicy = URL(string: "https://github.com/GeiserX/tg-archive-ios/blob/main/PRIVACY.md")!
-    static let sourceCode = URL(string: "https://github.com/GeiserX/tg-archive-ios")!
-    static let license = URL(string: "https://github.com/GeiserX/tg-archive-ios/blob/main/LICENSE")!
+    static let privacyPolicy = URL(string: "https://github.com/GeiserX/TG-Archive-iOS/blob/main/PRIVACY.md")!
+    static let sourceCode = URL(string: "https://github.com/GeiserX/TG-Archive-iOS")!
+    static let license = URL(string: "https://github.com/GeiserX/TG-Archive-iOS/blob/main/LICENSE")!
 
     /// "0.1.0 (1)", from the bundle.
     static var version: String {

@@ -104,7 +104,7 @@
 /* About. */
 "about.title" = "About";
 "about.version %@" = "Version %@";
-"about.disclaimer" = "TG Archive is unofficial and not affiliated with Telegram. It reads backups made by Telegram-Archive, an open source server you run yourself, which uses the Telegram API.";
+"about.disclaimer" = "TG Archive is part of the open-source Telegram-Archive project and is independent of Telegram. It reads backups made by Telegram-Archive, a server you run yourself, which uses the Telegram API.";
 "about.privacy" = "Privacy Policy";
 "about.source" = "Source Code";
 "about.license" = "License (GPL-3.0-or-later)";

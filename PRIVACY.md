@@ -22,6 +22,6 @@ Your server's owner decides who can sign in, what each login can see, and how lo
 
 ## Contact
 
-Questions and requests: https://github.com/GeiserX/tg-archive-ios/issues
+Questions and requests: https://github.com/GeiserX/TG-Archive-iOS/issues
 
 Last updated: October 2026.

@@ -1,6 +1,6 @@
-# tg-archive-ios: agent notes
+# TG-Archive-iOS: agent notes
 
-TG Archive is an unofficial, read-only iPhone client for a self-hosted
+TG Archive is the read-only iPhone client for a self-hosted
 [Telegram-Archive](https://github.com/GeiserX/Telegram-Archive) server. SwiftUI, Swift 6, iOS 18, no
 third-party packages. The one design the code follows is [docs/DESIGN.md](docs/DESIGN.md); read it
 before changing anything.
@@ -56,8 +56,9 @@ one-line note in that document.
   of the app name, subtitle, keywords, bundle id or icon.
 - The icon is the Telegram-Archive mark, the same as the server project's. Never Telegram's own logo,
   in the icon or anywhere else.
-- The store description and the About screen carry the unofficial disclosure from
-  [docs/DESIGN.md](docs/DESIGN.md) section 1, word for word.
+- The store description and the About screen carry the disclosure from
+  [docs/DESIGN.md](docs/DESIGN.md) section 1, word for word. Never call the app "unofficial": it is the
+  official iOS client of the Telegram-Archive project. What it is not is a Telegram product.
 - Nothing in this repository names a private server, hostname, person or deployment: not in code, docs,
   fixtures, commit messages or pull requests. Write "your server" or "the demo server". Review
   credentials and the public demo address live only in App Store Connect.
