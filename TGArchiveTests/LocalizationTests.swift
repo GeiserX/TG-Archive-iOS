@@ -21,10 +21,13 @@ struct LocalizationTests {
         #expect(es.filter { $0.value.isEmpty }.keys.sorted() == [])
     }
 
-    @Test("The About screen carries the unofficial disclosure word for word")
+    @Test("The About screen carries the disclosure word for word and never calls the app unofficial")
     func disclosure() throws {
         let en = try table("en", "Localizable")
-        #expect(en["about.disclaimer"] == "TG Archive is unofficial and not affiliated with Telegram. It reads backups "
-            + "made by Telegram-Archive, an open source server you run yourself, which uses the Telegram API.")
+        let es = try table("es", "Localizable")
+        #expect(en["about.disclaimer"] == "TG Archive is part of the open-source Telegram-Archive project and is independent "
+            + "of Telegram. It reads backups made by Telegram-Archive, a server you run yourself, which uses the Telegram API.")
+        #expect(en["about.disclaimer"]?.lowercased().contains("unofficial") == false)
+        #expect(es["about.disclaimer"]?.lowercased().contains("no es oficial") == false)
     }
 }

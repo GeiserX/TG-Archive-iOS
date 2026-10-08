@@ -104,7 +104,7 @@
 /* About. */
 "about.title" = "Acerca de";
 "about.version %@" = "Versión %@";
-"about.disclaimer" = "TG Archive no es oficial ni está afiliada con Telegram. Lee copias de seguridad hechas por Telegram-Archive, un servidor de código abierto que instalas tú, que usa la API de Telegram.";
+"about.disclaimer" = "TG Archive forma parte del proyecto de código abierto Telegram-Archive y es independiente de Telegram. Lee copias de seguridad hechas por Telegram-Archive, un servidor que instalas tú, que usa la API de Telegram.";
 "about.privacy" = "Política de privacidad";
 "about.source" = "Código fuente";
 "about.license" = "Licencia (GPL-3.0-or-later)";

@@ -17,8 +17,8 @@ Four server facts shape everything below.
 
 - The app is called **TG Archive** everywhere: display name, App Store name, About screen. "Telegram" is never part of the app name, subtitle, keywords, bundle id or icon.
 - The icon is the Telegram-Archive mark, the same paper plane and database stack on the same dark plate as the server project's icon (`docs/images/icon.svg` there), so the app reads as that product's iOS edition. Never Telegram's own logo, and no bubble that copies Telegram's. Message bubbles use our own accent colour and shape.
-- The word "Telegram" appears in exactly two places: the store description's last paragraph and the About screen, both with this text: "TG Archive is unofficial and not affiliated with Telegram. It reads backups made by Telegram-Archive, an open source server you run yourself, which uses the Telegram API." The server project's name, "Telegram-Archive", is used as the name of that project and nothing else.
-- Stage 10 note: the disclosure is now "TG Archive is part of the open-source Telegram-Archive project and is independent of Telegram; the server you run uses the Telegram API.", and nothing calls the app unofficial. The store texts carry it; the About string and its test in `LocalizationTests` still hold the old sentence.
+- The word "Telegram" appears in exactly two places: the store description's last paragraph and the About screen, both with this text: "TG Archive is part of the open-source Telegram-Archive project and is independent of Telegram. It reads backups made by Telegram-Archive, a server you run yourself, which uses the Telegram API." The app is never called "unofficial": it is the official iOS client of the Telegram-Archive project. The server project's name, "Telegram-Archive", is used as the name of that project and nothing else.
+- Stage 10 note: the disclosure is now "TG Archive is part of the open-source Telegram-Archive project and is independent of Telegram; the server you run uses the Telegram API.", and nothing calls the app unofficial. The store texts, the About string and its test in `LocalizationTests` all carry it.
 - Nothing committed to this public repo names a private server, hostname, person or deployment. Docs say "your server" or "the demo server". Review credentials and the demo URL live only in App Store Connect.
 
 ## 2. Screens and the routes each one uses
@@ -269,7 +269,7 @@ Stages in the same group run in parallel and never touch the same file. A later 
 
 **Group C** (after 6)
 
-- **Stage 7, media viewer.** Owns `TGArchive/Features/Media/**`, `TGArchive/Media/PlayerFactory.swift`, `TGArchiveTests/PlayerFactoryTests.swift`; edits the cells in `Features/Chat/Cells/` to present the viewer. Confirms the Ogg/Opus result on the simulator and records it in section 3.6.
+- **Stage 7, media viewer.** Owns `TGArchive/Features/Media/**`, `TGArchive/Media/PlayerFactory.swift`, `TGArchiveTests/PlayerFactoryTests.swift`; edits the cells in `Features/Chat/Cells/` to present the viewer. Confirms the Ogg/Opus result on the simulator and records it in section 3.6. Stage 7 note: it also edited `TGArchive/API/APIClient.swift`, `TGArchive/Session/SessionStore.swift`, `TGArchiveTests/SessionStoreTests.swift`, `project.yml` and the `InfoPlist.strings` files, for the URLSession teardown on sign-out and the photo-library usage string.
 - **Stage 8, search.** Owns `TGArchive/Features/Search/**`, `TGArchiveTests/SearchModelTests.swift`; edits `MainTabView.swift` to replace the Search placeholder. Debounce 300 ms, 1 to 500 characters, offset capped at 5000, `indexed == false` banner, anchored open through `Route.chat(ref:anchor:)`.
 
 **Group D** (after C)

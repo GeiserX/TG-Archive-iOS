@@ -4,8 +4,8 @@
 # and fails unless the result bundle counts at least MIN_TESTS tests and none failed, the same gate as CI.
 #   scripts/mini-test.sh
 # Env:
-#   MINI_HOST           ssh destination of the build Mac (default MacMini)
-#   MINI_ROOT           scratch folder on it (default /Volumes/Data/scratch/tg-archive-ios)
+#   MINI_HOST           ssh destination of the build Mac (required, for example a host alias from ~/.ssh/config)
+#   MINI_ROOT           scratch folder on it (default tg-archive-ios-build, relative to the remote home)
 #   MINI_LANE           subfolder for this checkout (default: the checkout's folder name); the sources go to
 #                       $MINI_ROOT/$MINI_LANE/src, the results to .../build and the full log to .../test.log
 #   MIN_TESTS           lowest acceptable totalTestCount (default: the floor in .github/workflows/ci.yml)
@@ -13,8 +13,8 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
-MINI_HOST=${MINI_HOST:-MacMini}
-MINI_ROOT=${MINI_ROOT:-/Volumes/Data/scratch/tg-archive-ios}
+MINI_HOST=${MINI_HOST:?set MINI_HOST to the ssh destination of the build Mac}
+MINI_ROOT=${MINI_ROOT:-tg-archive-ios-build}
 MINI_LANE=${MINI_LANE:-$(basename "$PWD")}
 if [[ -z "${MIN_TESTS:-}" ]]; then
     MIN_TESTS=$(sed -n 's/.*total >= \([0-9][0-9]*\) and failed == 0.*/\1/p' .github/workflows/ci.yml)
