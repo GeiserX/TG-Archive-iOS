@@ -195,6 +195,8 @@ What it serves, as checked against the live script: 15 chat rows for the master 
 
 CI starts the demo on the `macos-latest` runner (`brew install uv`), runs the unit tests against the fixtures and the UI tests against `http://127.0.0.1:8000` (loopback, allowed by `NSAllowsLocalNetworking`), and stops it. The public demo for App Review is the same script on a host with a public hostname and https; its address is never written in this repo.
 
+Stage 9 note: CI also installs ffmpeg, because the live playback test reads a voice note and a video that exist only when ffmpeg made them. It runs on the newest iPhone Pro Max simulator with the status bar pinned, so the screenshot test writes 6.9-inch (1320 x 2868) PNGs, which CI checks and uploads as the `store-screenshots` artifact.
+
 ## 6. App Review plan
 
 **What the reviewer gets** (all in App Review Notes, never in the repo): the public demo server's https URL, the `family` viewer login, the share link built as `https://<demo>/#token=<DEMO_SHARE_TOKEN>` (so the reviewer also sees the share-link path and the downloads-off state), and the physical-device screen recording of connect, sign in, browse a thread, open a photo, search, open a hit, sign out. The demo archive is regenerated before each submission so the share link has not expired, the host has a hostname (never an IP literal; Apple reviews from an IPv6-only network), and `TRUST_PROXY_HEADERS=true` is set behind the proxy so the reviewer's attempts do not share the rate-limit bucket with everyone else. "Sign-in required" is ticked.
