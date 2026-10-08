@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// A poll in the newest state the archive kept: the question, each answer with its share of the votes, the
-/// number of voters, and "Closed" once it closed.
+/// number of voters, and "Closed" once it closed. A poll kept without its question and answers says so.
 struct PollCell: View {
     let poll: Poll?
 
@@ -10,10 +10,15 @@ struct PollCell: View {
             Label {
                 Text(LocalizedStringKey(poll?.quiz == true ? "chat.poll.quiz" : "preview.kind.poll"))
             } icon: {
-                Image(systemName: "chart.bar.fill")
+                Image(systemName: MediaKindLabel.pollSymbol)
             }
             .font(.caption.weight(.semibold))
             .foregroundStyle(.secondary)
+            if poll?.isEmpty ?? true {
+                Text("chat.media.detailsNotArchived")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
             if let question = poll?.question?.nonBlank {
                 Text(verbatim: question)
                     .font(.headline)

@@ -408,6 +408,71 @@ struct MessageContentTests {
         #expect(TranscriptView.text(of: try #require(pending.media)) == "older")
     }
 
+    @Test("A poll reads its question, answers and votes from raw_data, and one kept without them is empty")
+    func pollDetails() throws {
+        guard case let .poll(poll?) = MessageContent(try ThreadFixture.message(337, in: "messages-book-club")),
+              case .poll(nil) = MessageContent(try ThreadFixture.message(911, in: "messages-juniper-vale"))
+        else { Issue.record("not a poll"); return }
+        #expect(!poll.isEmpty)
+        #expect(poll.question == "Which book should we read in spring?")
+        #expect(poll.rows.map(\.text) == ["The Salt Orchard", "Winter Lines"])
+        #expect(poll.rows.map(\.voters) == [2, 1])
+        #expect(poll.results?.totalVoters == 3)
+        #expect(poll.closed == false)
+        let empty = Poll(question: " ", answers: [], closed: nil, multipleChoice: nil, quiz: nil, results: nil)
+        #expect(empty.isEmpty)
+        let answersOnly = Poll(question: nil, answers: [PollAnswer(text: "A", option: "MA==")], closed: nil,
+                               multipleChoice: nil, quiz: nil, results: nil)
+        #expect(!answersOnly.isEmpty)
+    }
+
+    @Test("The three location kinds give a point, coordinates and a Maps link; a map picture needs its file name")
+    func locationDetails() throws {
+        func location(_ id: Int) throws -> LocationContent {
+            guard case let .location(content) = MessageContent(try ThreadFixture.message(id, in: "messages-juniper-vale"))
+            else { throw LocationFixtureError.notALocation(id) }
+            return content
+        }
+        let geo = try location(914)
+        #expect(geo.mapPicture?.key == "914_geo")
+        #expect(geo.coordinates == "40.419020, -3.700910")
+        #expect(geo.unavailableText == nil && geo.mapsURL != nil)
+        let venue = try location(913)
+        #expect(venue.mapPicture?.key == "913_venue")
+        #expect(venue.title == "Elm Street Bakery" && venue.address == "12 Elm Street, Demo Town")
+        #expect(venue.mapsURL?.query()?.contains("q=Elm%20Street%20Bakery") == true)
+        let live = try location(916)
+        #expect(live.mapPicture == nil)
+        #expect(live.coordinates == "40.417020, -3.703220")
+        #expect(live.unavailableText == nil && live.mapsURL != nil)
+
+        #expect(LocationContent.isMapPicture("map_4b0f0ddad4d8c9d1.png"))
+        #expect(LocationContent.isMapPicture("MAP_4B0F0DDAD4D8C9D1.JPG"))
+        #expect(!LocationContent.isMapPicture("194825724.bin"))
+        #expect(!LocationContent.isMapPicture("map_4b0f.png"))
+        #expect(!LocationContent.isMapPicture("map_4b0f0ddad4d8c9d1.png.bin"))
+        #expect(!LocationContent.isMapPicture(nil))
+        let served = try ThreadFixture.decode(#"{"id": 2, "date": "2026-10-01T10:00:00", "raw_data": {"geo": "#
+            + #"{"lat": 1.5, "long": 2.25}}, "media": {"id": "2_geo", "type": "geo", "file_name": "2.bin", "#
+            + #""url": "/media/x/2_geo"}}"#)
+        guard case let .location(notAPicture) = MessageContent(served) else { Issue.record("not a location"); return }
+        #expect(notAPicture.mapPicture == nil)
+        #expect(notAPicture.coordinates == "1.500000, 2.250000")
+    }
+
+    @Test("A location with nothing to draw says why: no payload kept, or no usable point")
+    func locationUnavailable() throws {
+        guard case let .location(legacy) = MessageContent(try ThreadFixture.message(910, in: "messages-juniper-vale"))
+        else { Issue.record("not a location"); return }
+        #expect(!legacy.hasDetails && legacy.mapPicture == nil && legacy.mapsURL == nil)
+        #expect(legacy.unavailableText == String(localized: "chat.media.detailsNotArchived"))
+        let noPoint = try ThreadFixture.decode(#"{"id": 3, "date": "2026-10-01T10:00:00", "raw_data": {"geo": "#
+            + #"{"lat": 91, "long": 2}}}"#)
+        guard case let .location(bad) = MessageContent(noPoint) else { Issue.record("not a location"); return }
+        #expect(bad.hasDetails && !bad.hasPoint && bad.coordinates == nil)
+        #expect(bad.unavailableText == String(localized: "chat.location.unavailable"))
+    }
+
     @Test("A location builds an Apple Maps link only when it has a point")
     func mapsLink() throws {
         guard case let .location(venue) = MessageContent(try ThreadFixture.message(913, in: "messages-juniper-vale"))
@@ -419,4 +484,8 @@ struct MessageContentTests {
         #expect(noPoint.mapsURL == nil)
         #expect(!noPoint.hasPoint)
     }
+}
+
+private enum LocationFixtureError: Error {
+    case notALocation(Int)
 }

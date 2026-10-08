@@ -216,6 +216,9 @@
 "chat.media.tooLarge" = "No descargado (demasiado grande)";
 "chat.media.filtered" = "No descargado (filtrado)";
 "chat.media.notDownloaded" = "Aún no descargado";
+"chat.media.detailsNotArchived" = "Detalles no archivados";
+"chat.location.unavailable" = "Ubicación no disponible";
+"chat.location.openInMaps" = "Abrir en Mapas";
 
 /* The media viewer and in-place playback. */
 "media.viewer.done" = "Listo";
