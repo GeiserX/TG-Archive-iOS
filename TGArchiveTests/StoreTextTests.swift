@@ -61,7 +61,7 @@ struct StoreTextTests {
     func limits(_ language: String) throws {
         let fields = try storeFields(language)
         #expect(try field(fields, "Name") == "TG Archive")
-        #expect(try field(fields, "Subtitle").count < 30)
+        #expect(try field(fields, "Subtitle").count <= 30)
         #expect(try field(fields, "Promotional text").count <= 170)
         #expect(try field(fields, "Keywords").utf8.count <= 100)
         #expect(try field(fields, "Description").count <= 4000)
