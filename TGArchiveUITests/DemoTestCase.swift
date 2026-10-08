@@ -163,8 +163,11 @@ class DemoTestCase: XCTestCase {
         return target.exists && target.isHittable
     }
 
-    /// Scrolls an open thread up until the oldest message stays first: no older page comes any more.
-    func scrollThreadToTop(file: StaticString = #filePath, line: UInt = #line) {
+    /// Scrolls an open thread up until the oldest message stays first: no older page comes any more. Returns the
+    /// identifier of that first message, so a caller can check it is the chat's oldest and not the oldest of a
+    /// page that never asked for the one before it.
+    @discardableResult
+    func scrollThreadToTop(file: StaticString = #filePath, line: UInt = #line) -> String? {
         let messages = elements(prefixed: "message.")
         XCTAssertTrue(messages.firstMatch.waitForExistence(timeout: 20), "the thread shows no message",
                       file: file, line: line)
@@ -178,10 +181,11 @@ class DemoTestCase: XCTestCase {
             if unchanged == 2 {
                 XCTAssertFalse(element("banner.message").exists,
                                "an older page failed: \(element("banner.message").label)", file: file, line: line)
-                return
+                return top
             }
         }
         XCTFail("the thread never reached its first message", file: file, line: line)
+        return nil
     }
 
     /// Opens the chat whose row shows `title`.

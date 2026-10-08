@@ -11,12 +11,23 @@ final class ViewerTests: DemoTestCase {
         XCTAssertTrue(rows.firstMatch.waitForExistence(timeout: 20))
         let chats = identifiers(prefixed: "chat.row.")
         XCTAssertEqual(chats.count, 3, "the demo's family viewer sees three chats: \(chats)")
+        // The oldest message of each chat in the demo generator. Weekend Hikers (76 messages) and Juniper (51)
+        // hold more than one 50-message page, so reaching these ids proves older pages load.
+        let oldest = ["Weekend Hikers": "message.1200", "Juniper": "message.880", "Book Club": "message.200"]
+        var checked = 0
         for chat in chats {
-            element(chat).tap()
-            scrollThreadToTop()
+            let row = element(chat)
+            let title = row.label
+            row.tap()
+            let top = scrollThreadToTop()
+            if let expected = oldest.first(where: { title.contains($0.key) })?.value {
+                XCTAssertEqual(top, expected, "\(title) did not page back to its first message")
+                checked += 1
+            }
             goBack()
             XCTAssertTrue(element(chat).waitForExistence(timeout: 10))
         }
+        XCTAssertEqual(checked, oldest.count, "not every demo chat was read to its first message")
 
         openChat(titled: "Weekend Hikers")
         let photos = app.buttons.matching(NSPredicate(format: "label == 'Photo'"))
