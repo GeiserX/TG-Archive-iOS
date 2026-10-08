@@ -217,7 +217,8 @@ extension XCUIApplication {
         }
         XCTAssertTrue(screens.contains(where: { $0.exists }), "the app shows no known screen", file: file, line: line)
         guard tabBar.exists else { return false }
-        tabBar.buttons["Settings"].tap()
+        // Settings is the third tab; by position, since a launch without the English arguments may be in Spanish.
+        tabBar.buttons.element(boundBy: 2).tap()
         let signOut = descendants(matching: .any)["settings.signOut"].firstMatch
         XCTAssertTrue(signOut.waitForExistence(timeout: 10), file: file, line: line)
         for _ in 0..<8 where !signOut.isHittable {
