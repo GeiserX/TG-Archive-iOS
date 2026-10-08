@@ -52,6 +52,7 @@ struct LocationCell: View {
         .disabled(content.mapsURL == nil)
         .accessibilityElement(children: .combine)
         .accessibilityLabel(accessibilityText)
+        .accessibilityHint(content.mapsURL == nil ? Text(verbatim: "") : Text("chat.location.openInMaps"))
     }
 
     @ViewBuilder
@@ -99,8 +100,9 @@ struct LocationCell: View {
         case .geoLive: String(localized: "preview.kind.liveLocation")
         default: String(localized: "preview.kind.location")
         }
-        let detail = content.address ?? content.coordinates ?? content.unavailableText
-        return Text(verbatim: [kind, content.title, detail].compactMap(\.self).joined(separator: ", "))
+        let missing = content.mapPicture == nil ? content.unavailableText : nil
+        let parts = [kind, content.title, content.address ?? content.coordinates, missing]
+        return Text(verbatim: parts.compactMap(\.self).joined(separator: ", "))
     }
 }
 

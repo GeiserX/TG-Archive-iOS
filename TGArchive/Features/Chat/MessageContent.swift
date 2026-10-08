@@ -173,10 +173,11 @@ struct LocationContent: Equatable, Sendable {
         return String(format: "%.6f, %.6f", latitude, longitude)
     }
 
-    /// What the card says when it has neither a map picture nor a point to draw: "Details not archived" for a
-    /// row kept without its payload, "Location unavailable" for one Telegram sent without a usable point.
+    /// What the card says when it has no point to draw, in place of a map picture it lacks or could not load:
+    /// "Details not archived" for a row kept without its payload, "Location unavailable" for one Telegram sent
+    /// without a usable point.
     var unavailableText: String? {
-        guard mapPicture == nil, !hasPoint else { return nil }
+        guard !hasPoint else { return nil }
         return String(localized: hasDetails ? "chat.location.unavailable" : "chat.media.detailsNotArchived")
     }
 

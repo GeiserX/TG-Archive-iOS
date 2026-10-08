@@ -458,6 +458,13 @@ struct MessageContentTests {
         guard case let .location(notAPicture) = MessageContent(served) else { Issue.record("not a location"); return }
         #expect(notAPicture.mapPicture == nil)
         #expect(notAPicture.coordinates == "1.500000, 2.250000")
+        // A picture that fails to load, on a location with no point, still says why there is no map.
+        let pictureOnly = try ThreadFixture.decode(#"{"id": 4, "date": "2026-10-01T10:00:00", "raw_data": {"geo": "#
+            + #"{}}, "media": {"id": "4_geo", "type": "geo", "file_name": "map_0123456789abcdef.jpg", "#
+            + #""url": "/media/x/4_geo"}}"#)
+        guard case let .location(unpointed) = MessageContent(pictureOnly) else { Issue.record("not a location"); return }
+        #expect(unpointed.mapPicture?.key == "4_geo" && !unpointed.hasPoint)
+        #expect(unpointed.unavailableText == String(localized: "chat.location.unavailable"))
     }
 
     @Test("A location with nothing to draw says why: no payload kept, or no usable point")
