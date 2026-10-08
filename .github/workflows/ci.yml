@@ -80,7 +80,7 @@ jobs:
             | grep -E "error:|warning: .*\.swift|Test Case .*(passed|failed)|Test .*(passed|failed) after|Executed [0-9]+ tests?|\*\* TEST"
 
       # A run that executes no tests also ends in TEST SUCCEEDED. Read the counts from the result bundle.
-      # 214 = 208 unit tests plus 6 UI tests (launch, viewer browse, viewer search, wrong password, share link,
+      # 224 = 218 unit tests plus 6 UI tests (launch, viewer browse, viewer search, wrong password, share link,
       # store screenshots); raise it when a stage adds tests. With the demo running nothing may skip: a skipped
       # live or UI test would mean the demo or the 6.9-inch simulator was missing.
       - name: Gate on the test count
@@ -91,7 +91,7 @@ jobs:
           s = json.load(sys.stdin)
           total, failed, skipped = s.get("totalTestCount", 0), s.get("failedTests", 0), s.get("skippedTests", 0)
           print(f"totalTestCount={total} failedTests={failed} skippedTests={skipped}")
-          sys.exit(0 if total >= 214 and failed == 0 and skipped == 0 else 1)
+          sys.exit(0 if total >= 224 and failed == 0 and skipped == 0 else 1)
           '
 
       - name: Check the store screenshots
