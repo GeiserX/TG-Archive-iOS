@@ -227,8 +227,9 @@ extension XCUIApplication {
         // The floating tab bar can cover the middle of the row: tap its leading end.
         signOut.coordinate(withNormalizedOffset: CGVector(dx: 0.1, dy: 0.4)).tap()
         let confirm = buttons.matching(identifier: "settings.signOut.confirm").firstMatch
-        if !confirm.waitForExistence(timeout: 10) {
+        guard confirm.waitForExistence(timeout: 10) else {
             XCTFail("no sign-out confirmation", file: file, line: line)
+            return false
         }
         confirm.tap()
         XCTAssertTrue(descendants(matching: .any)["signin.submit"].firstMatch.waitForExistence(timeout: 20),
