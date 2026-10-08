@@ -216,6 +216,8 @@ CI starts the demo on the `macos-latest` runner (`brew install uv`), runs the un
 
 **Screenshots (2.3.3)**: captured by a UI test from the synthetic archive only: chat list, a thread with a photo and a poll, a location card, search results, the media viewer. Never a real archive.
 
+Stage 9 note: in the demo the poll and its nearest photo do not fit on one screen (two stickers sit between them), so the thread shot shows the poll with a voice note and its transcript, and the photo gets its own shot in the media viewer.
+
 **Age rating**: the questionnaire answered as none for every listed content category, no unrestricted web access, no user-to-user communication in the app; the result is 4+.
 
 **GPL ([NOTICE](../NOTICE))**: the About screen links the public repo, and the store description names it, so every store recipient can get the Corresponding Source.
