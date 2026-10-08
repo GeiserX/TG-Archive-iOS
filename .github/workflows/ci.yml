@@ -23,8 +23,12 @@ jobs:
       - name: Show toolchain
         run: xcodebuild -version
 
-      - name: Install XcodeGen
-        run: brew install xcodegen
+      # uv runs the demo server; ffmpeg gives the demo its voice notes and videos, which the live playback test reads.
+      - name: Install XcodeGen, uv and ffmpeg
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: "1"
+          HOMEBREW_NO_INSTALL_CLEANUP: "1"
+        run: brew install xcodegen uv ffmpeg
 
       - name: Generate the Xcode project
         run: xcodegen generate
@@ -32,11 +36,38 @@ jobs:
       - name: Check for undeclared Required Reason APIs
         run: scripts/check-required-reason-apis.sh --self-test && scripts/check-required-reason-apis.sh
 
-      - name: Pick a simulator
-        id: sim
-        run: echo "udid=$(scripts/pick-simulator.sh)" >> "$GITHUB_OUTPUT"
+      - name: Start the demo server
+        env:
+          DATA_DIR: ${{ runner.temp }}/demo-data
+          SRC_DIR: ${{ runner.temp }}/demo-src
+        run: scripts/demo-server.sh start
 
+      # The store screenshots need a 6.9-inch iPhone: the newest Pro Max on the newest runtime. The status bar
+      # is pinned so every screenshot shows the same time, signal and battery.
+      - name: Pick a 6.9-inch simulator
+        id: sim
+        run: |
+          udid=$(xcrun simctl list devices available --json | python3 -c '
+          import json, sys
+          devices = json.load(sys.stdin)["devices"]
+          version = lambda runtime: [int(p) for p in runtime.split("iOS-")[1].split("-")]
+          for runtime in sorted((r for r in devices if ".iOS-" in r), key=version, reverse=True):
+              for device in sorted(devices[runtime], key=lambda d: d["name"], reverse=True):
+                  if device["name"].startswith("iPhone") and device["name"].endswith("Pro Max"):
+                      print(device["udid"]); sys.exit(0)
+          sys.exit("no iPhone Pro Max simulator available")
+          ')
+          xcrun simctl bootstatus "$udid" -b >/dev/null
+          xcrun simctl status_bar "$udid" override --time 9:41 --dataNetwork wifi --wifiMode active --wifiBars 3 \
+            --cellularMode active --cellularBars 4 --batteryState charged --batteryLevel 100
+          xcrun simctl list devices | grep "$udid"
+          echo "udid=$udid" >> "$GITHUB_OUTPUT"
+
+      # xcodebuild hands TEST_RUNNER_<NAME> to the test processes as <NAME>.
       - name: Build and run unit and UI tests
+        env:
+          TEST_RUNNER_TGARCHIVE_DEMO_URL: http://127.0.0.1:8000
+          TEST_RUNNER_TGARCHIVE_SCREENSHOT_DIR: ${{ github.workspace }}/build/screenshots
         run: |
           set -o pipefail
           mkdir -p build
@@ -49,18 +80,38 @@ jobs:
             | grep -E "error:|warning: .*\.swift|Test Case .*(passed|failed)|Test .*(passed|failed) after|Executed [0-9]+ tests?|\*\* TEST"
 
       # A run that executes no tests also ends in TEST SUCCEEDED. Read the counts from the result bundle.
-      # 219 = 218 unit tests (the live-server tests count while skipped without TGARCHIVE_DEMO_URL) plus the
-      # launch UI test; raise it when a stage adds tests.
+      # 224 = 218 unit tests plus 6 UI tests (launch, viewer browse, viewer search, wrong password, share link,
+      # store screenshots); raise it when a stage adds tests. With the demo running nothing may skip: a skipped
+      # live or UI test would mean the demo or the 6.9-inch simulator was missing.
       - name: Gate on the test count
         run: |
           xcrun xcresulttool get test-results summary --path build/results.xcresult --compact \
             | python3 -c '
           import json, sys
           s = json.load(sys.stdin)
-          total, failed = s.get("totalTestCount", 0), s.get("failedTests", 0)
-          print(f"totalTestCount={total} failedTests={failed}")
-          sys.exit(0 if total >= 219 and failed == 0 else 1)
+          total, failed, skipped = s.get("totalTestCount", 0), s.get("failedTests", 0), s.get("skippedTests", 0)
+          print(f"totalTestCount={total} failedTests={failed} skippedTests={skipped}")
+          sys.exit(0 if total >= 224 and failed == 0 and skipped == 0 else 1)
           '
+
+      - name: Check the store screenshots
+        run: |
+          shopt -s nullglob
+          shots=(build/screenshots/*.png)
+          echo "${#shots[@]} screenshots"
+          [[ ${#shots[@]} -eq 5 ]] || { echo "expected 5 store screenshots" >&2; exit 1; }
+          for shot in "${shots[@]}"; do
+            size=$(sips -g pixelWidth -g pixelHeight "$shot" | awk '/pixel(Width|Height)/ { printf "%s ", $2 }')
+            echo "$shot: $size"
+            [[ "$size" == "1320 2868 " ]] || { echo "$shot is not 1320 x 2868" >&2; exit 1; }
+          done
+
+      - name: Keep the store screenshots
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: store-screenshots
+          path: build/screenshots/*.png
+          retention-days: 30
 
       - name: Build the Release configuration
         run: |
@@ -71,6 +122,13 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             | grep -E "error:|\*\* BUILD"
 
+      - name: Stop the demo server
+        if: always()
+        env:
+          DATA_DIR: ${{ runner.temp }}/demo-data
+          SRC_DIR: ${{ runner.temp }}/demo-src
+        run: scripts/demo-server.sh stop
+
       - name: Keep the test results
         if: failure()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -79,4 +137,5 @@ jobs:
           path: |
             build/results.xcresult
             build/test.log
+            ${{ runner.temp }}/demo-data/viewer.log
           retention-days: 7
