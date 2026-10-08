@@ -129,8 +129,10 @@ struct LocationContent: Equatable, Sendable {
     let longitude: Double?
     let title: String?
     let address: String?
-    /// The media row whose `url` is the map picture.
+    /// The media row whose `url` is the map picture: a `map_<16 hex>.jpg` or `.png` the server serves.
     let mapPicture: MessageMedia?
+    /// False for a row an older release archived with no payload, which has nothing to show.
+    let hasDetails: Bool
 
     init(kind: MediaType, raw: RawData?, media: MessageMedia?) {
         self.kind = kind
@@ -139,21 +141,44 @@ struct LocationContent: Equatable, Sendable {
         case .venue:
             latitude = venue?.lat ?? raw?.geo?.lat
             longitude = venue?.long ?? raw?.geo?.long
+            hasDetails = venue != nil || raw?.geo != nil
         case .geoLive:
             latitude = raw?.geoLive?.lat ?? raw?.geo?.lat
             longitude = raw?.geoLive?.long ?? raw?.geo?.long
+            hasDetails = raw?.geoLive != nil || raw?.geo != nil
         default:
             latitude = raw?.geo?.lat
             longitude = raw?.geo?.long
+            hasDetails = raw?.geo != nil
         }
         title = kind == .venue ? venue?.title?.nonBlank : nil
         address = kind == .venue ? venue?.address?.nonBlank : nil
-        mapPicture = media?.url == nil ? nil : media
+        mapPicture = media?.url != nil && Self.isMapPicture(media?.fileName) ? media : nil
+    }
+
+    /// True for the file name the server gives a location's map picture.
+    static func isMapPicture(_ fileName: String?) -> Bool {
+        guard let fileName else { return false }
+        return fileName.lowercased().wholeMatch(of: /map_[0-9a-f]{16}\.(jpg|png)/) != nil
     }
 
     var hasPoint: Bool {
         guard let latitude, let longitude else { return false }
         return (-90...90).contains(latitude) && (-180...180).contains(longitude)
+    }
+
+    /// The point as the server's viewer writes it, "40.416775, -3.703790", or nil without a point.
+    var coordinates: String? {
+        guard hasPoint, let latitude, let longitude else { return nil }
+        return String(format: "%.6f, %.6f", latitude, longitude)
+    }
+
+    /// What the card says when it has no point to draw, in place of a map picture it lacks or could not load:
+    /// "Details not archived" for a row kept without its payload, "Location unavailable" for one Telegram sent
+    /// without a usable point.
+    var unavailableText: String? {
+        guard !hasPoint else { return nil }
+        return String(localized: hasDetails ? "chat.location.unavailable" : "chat.media.detailsNotArchived")
     }
 
     /// Apple Maps at the point, labelled with the venue's name when there is one.
@@ -179,6 +204,12 @@ extension Poll {
                     multipleChoice: snapshot.multipleChoice ?? raw.multipleChoice,
                     quiz: snapshot.quiz ?? raw.quiz,
                     results: snapshot.results ?? raw.results)
+    }
+
+    /// True when the archive kept neither the question nor an answer, as for a poll an older release stored
+    /// without its payload.
+    var isEmpty: Bool {
+        question?.nonBlank == nil && (answers ?? []).allSatisfy { $0.text?.nonBlank == nil }
     }
 
     /// One row per answer with its share of the voters, in the poll's order.

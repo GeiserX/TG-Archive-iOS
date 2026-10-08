@@ -1,9 +1,10 @@
 import MapKit
 import SwiftUI
 
-/// A location, a venue or a live location: the map picture the archive kept, else a still MapKit map with a
-/// marker at the point, else a plain "Location" tile; the venue's name and address under it. Tapping opens
-/// Apple Maps at the point.
+/// A location, a venue or a live location, drawn the same way for the three: the map picture the archive kept
+/// with a marker at its centre, else a still MapKit map with a marker at the point, else a tile saying why
+/// there is no map. Under it the venue's name and address, or the coordinates, and "Open in Maps" when there
+/// is a point. Tapping opens Apple Maps at the point.
 struct LocationCell: View {
     let content: LocationContent
     let context: ThreadContext
@@ -33,6 +34,15 @@ struct LocationCell: View {
                     Text(verbatim: address)
                         .font(.caption)
                         .foregroundStyle(.secondary)
+                } else if let coordinates = content.coordinates {
+                    Text(verbatim: coordinates)
+                        .font(.caption.monospacedDigit())
+                        .foregroundStyle(.secondary)
+                }
+                if content.mapsURL != nil {
+                    Label("chat.location.openInMaps", systemImage: "arrow.up.forward.square")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.tint)
                 }
             }
             .frame(width: MediaFrame.width, alignment: .leading)
@@ -42,6 +52,7 @@ struct LocationCell: View {
         .disabled(content.mapsURL == nil)
         .accessibilityElement(children: .combine)
         .accessibilityLabel(accessibilityText)
+        .accessibilityHint(content.mapsURL == nil ? Text(verbatim: "") : Text("chat.location.openInMaps"))
     }
 
     @ViewBuilder
@@ -49,7 +60,9 @@ struct LocationCell: View {
         if let picture = content.mapPicture, !context.noDownload {
             RemoteImage(endpoint: .media(ref: context.ref, key: picture.key),
                         maxPixelSize: Int((MediaFrame.width * displayScale).rounded(.up))) { image in
+                // The server's map picture is centred on the point.
                 image.resizable().scaledToFill()
+                    .overlay { MapPin() }
             } placeholder: { failure in
                 if failure == nil { ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity) } else { map }
             }
@@ -70,9 +83,9 @@ struct LocationCell: View {
             .allowsHitTesting(false)
         } else {
             VStack(spacing: 6) {
-                Image(systemName: "mappin.and.ellipse")
+                Image(systemName: "mappin.slash")
                     .font(.title2)
-                Text("preview.kind.location")
+                Text(verbatim: content.unavailableText ?? String(localized: "preview.kind.location"))
                     .font(.caption)
             }
             .foregroundStyle(.secondary)
@@ -87,6 +100,27 @@ struct LocationCell: View {
         case .geoLive: String(localized: "preview.kind.liveLocation")
         default: String(localized: "preview.kind.location")
         }
-        return Text(verbatim: [kind, content.title, content.address].compactMap(\.self).joined(separator: ", "))
+        let missing = content.mapPicture == nil ? content.unavailableText : nil
+        let parts = [kind, content.title, content.address ?? content.coordinates, missing]
+        return Text(verbatim: parts.compactMap(\.self).joined(separator: ", "))
+    }
+}
+
+/// The marker drawn on a map picture, shaped like MapKit's: a red balloon whose tip sits on the centre.
+private struct MapPin: View {
+    var body: some View {
+        VStack(spacing: -4) {
+            Image(systemName: "mappin.circle.fill")
+                .font(.system(size: 30))
+                .symbolRenderingMode(.palette)
+                .foregroundStyle(.white, .red)
+            Image(systemName: "arrowtriangle.down.fill")
+                .font(.system(size: 12))
+                .foregroundStyle(.red)
+        }
+        .shadow(color: .black.opacity(0.25), radius: 2, y: 1)
+        // Lift the pin so its tip, not its middle, marks the point.
+        .alignmentGuide(VerticalAlignment.center) { $0[.bottom] }
+        .accessibilityHidden(true)
     }
 }

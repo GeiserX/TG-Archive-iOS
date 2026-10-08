@@ -59,6 +59,9 @@ struct PreviewLine: Equatable, Sendable {
 
 /// The label and glyph of a message kind with no text of its own: "Photo", "Voice message", "Location"...
 struct MediaKindLabel: Equatable, Sendable {
+    /// Filled bars on an axis: the outlined `chart.bar` reads as three empty boxes at text size.
+    static let pollSymbol = "chart.bar.xaxis"
+
     let symbol: String
     let title: String
 
@@ -77,7 +80,7 @@ struct MediaKindLabel: Equatable, Sendable {
         case "geo_live": ("location", "preview.kind.liveLocation")
         case "venue": ("mappin.and.ellipse", "preview.kind.venue")
         case "contact": ("person.crop.circle", "preview.kind.contact")
-        case "poll": ("chart.bar", "preview.kind.poll")
+        case "poll": (Self.pollSymbol, "preview.kind.poll")
         case "dice": ("dice", "preview.kind.dice")
         case "game": ("gamecontroller", "preview.kind.game")
         case "invoice": ("creditcard", "preview.kind.invoice")

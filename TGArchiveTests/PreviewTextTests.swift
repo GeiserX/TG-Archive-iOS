@@ -1,5 +1,6 @@
 import Foundation
 import Testing
+import UIKit
 @testable import TGArchive
 
 @Suite("Chat preview line")
@@ -42,7 +43,7 @@ struct PreviewTextTests {
         let video = try #require(PreviewLine(try preview(text: "The clip from the ferry", kind: "video")))
         #expect(video == PreviewLine(sender: nil, symbol: "video", text: "The clip from the ferry"))
         let poll = try #require(PreviewLine(try preview(text: "Which book?", sender: "Noor", kind: "poll")))
-        #expect(poll == PreviewLine(sender: "Noor", symbol: "chart.bar", text: "Which book?"))
+        #expect(poll == PreviewLine(sender: "Noor", symbol: "chart.bar.xaxis", text: "Which book?"))
     }
 
     @Test("Every kind the server documents has a glyph and a label, and text kinds have none")
@@ -58,6 +59,22 @@ struct PreviewTextTests {
         #expect(MediaKindLabel(kind: "text") == nil)
         #expect(MediaKindLabel(kind: "message") == nil)
         #expect(MediaKindLabel(kind: "hologram") == nil)
+    }
+
+    @Test("Every glyph a preview line can show is an SF Symbol this iOS draws")
+    func glyphsExist() {
+        let kinds = ["photo", "video", "video_note", "voice", "audio", "animation", "sticker", "document", "geo",
+                     "geo_live", "venue", "contact", "poll", "dice", "game", "invoice", "story", "giveaway",
+                     "giveaway_results", "webpage", "unsupported"]
+        let symbols = kinds.compactMap { MediaKindLabel(kind: $0)?.symbol } + [ServiceText.symbol]
+        #expect(symbols.count == kinds.count + 1)
+        for symbol in symbols {
+            #expect(UIImage(systemName: symbol) != nil, "no SF Symbol named \(symbol)")
+        }
+        // The check can fail: a name that is not a symbol draws nothing.
+        #expect(UIImage(systemName: "chart.bar.not-a-symbol") == nil)
+        // The outlined bars read as three empty boxes next to text; the poll glyph has an axis under them.
+        #expect(MediaKindLabel(kind: "poll")?.symbol == "chart.bar.xaxis")
     }
 
     @Test("A message with neither text nor media, or of an unknown kind, reads as Message")
@@ -100,6 +117,8 @@ struct PreviewTextTests {
         let byTitle = Dictionary(page.chats.map { ($0.displayTitle, PreviewLine($0.preview)) }) { first, _ in first }
         #expect(byTitle["Juniper Vale"]??.symbol == "mic")
         #expect(byTitle["Tobias Fernwood"]??.symbol == "mappin.and.ellipse")
+        #expect(byTitle["Book Club"]??.symbol == "chart.bar.xaxis")
+        #expect(byTitle["Book Club"]??.text == "Which book should we read in spring?")
         #expect(byTitle["Kofi Brightwater"]??.sender == String(localized: "preview.you"))
         #expect(byTitle["Harbor Town Weekly"]??.sender == nil)
     }
