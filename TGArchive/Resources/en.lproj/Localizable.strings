@@ -42,7 +42,7 @@
 "connect.paste.footer" = "Paste a share link to open the archive it gives access to, without an account.";
 "connect.setup.docs" = "How to set up sign-in on your server";
 "connect.demo" = "Try the Demo";
-"connect.demo.footer" = "Browse an invented archive built into the app, with no server and no account. Nothing is sent anywhere.";
+"connect.demo.footer" = "Browse an invented archive built into the app, with no server and no account.";
 "demo.banner" = "Demo: invented chats, not a real archive";
 "demo.exit" = "Exit Demo";
 "demo.server" = "Demo archive in the app";

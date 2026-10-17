@@ -2,7 +2,7 @@ import Foundation
 
 /// The invented archive behind "Try the demo": the demo server's chats, messages and photos, bundled in the
 /// app (`scripts/build-demo-archive.sh`) and answered in place of a server by `DemoURLProtocol`. The rest of
-/// the app runs unchanged on an ordinary `APIClient`, and nothing in demo mode reaches the network.
+/// the app runs unchanged on an ordinary `APIClient`, and no archive request in demo mode reaches the network.
 ///
 /// Immutable after `init`, so any thread may ask it.
 final class DemoArchive: @unchecked Sendable {
