@@ -32,7 +32,8 @@ scripts/check-required-reason-apis.sh --self-test && scripts/check-required-reas
 - `scripts/demo-server.sh start|stop|status|reset` runs a demo Telegram-Archive viewer on
   `127.0.0.1:8000` with invented data, for the UI tests and the store screenshots
   ([docs/DESIGN.md](docs/DESIGN.md) section 5). `scripts/capture-fixtures.sh` refreshes the unit-test
-  fixtures from a running demo.
+  fixtures from a running demo. `scripts/build-demo-archive.sh [media-dir]` turns the fixtures (and the
+  demo server's photos) into the archive bundled for "Try the Demo"; rerun it after a fixture capture.
 - CI (`.github/workflows/ci.yml`) runs the unit and UI tests, a test-count gate, the Required Reason API
   check and a Release build. When you add tests, raise the count in the gate.
 

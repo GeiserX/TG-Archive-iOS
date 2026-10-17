@@ -37,6 +37,7 @@ PRIVADO POR DISEÑO
 
 QUÉ NECESITAS
 Un servidor Telegram-Archive que ejecutes tú mismo, accesible por https (o por http en tu red local), con una cuenta de lector o un enlace compartido. Guía de instalación: https://github.com/GeiserX/Telegram-Archive
+Para echar un vistazo antes, toca Probar la demo en la primera pantalla: abre un archivo inventado incluido en la app, sin servidor.
 
 CÓDIGO ABIERTO
 TG Archive es software libre bajo la GPL. El código fuente está en https://github.com/GeiserX/TG-Archive-iOS

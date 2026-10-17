@@ -41,6 +41,11 @@
 "connect.paste.label" = "¿Tienes un enlace compartido?";
 "connect.paste.footer" = "Pega un enlace compartido para abrir el archivo al que da acceso, sin cuenta.";
 "connect.setup.docs" = "Cómo configurar el inicio de sesión en tu servidor";
+"connect.demo" = "Probar la demo";
+"connect.demo.footer" = "Explora un archivo inventado que viene con la app, sin servidor ni cuenta. No se envía nada a ningún sitio.";
+"demo.banner" = "Demo: chats inventados, no es un archivo real";
+"demo.exit" = "Salir de la demo";
+"demo.server" = "Archivo de demo de la app";
 
 /* Sign-in screen. */
 "signin.title" = "Iniciar sesión";

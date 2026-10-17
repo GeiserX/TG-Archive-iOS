@@ -217,6 +217,16 @@ final class SessionStore {
         await startAnonymous(at: server)
     }
 
+    /// "Try the demo": opens the invented archive bundled in the app. Nothing is stored, so a relaunch shows
+    /// the connect screen again, and Exit Demo goes back there like a Disconnect.
+    func startDemo() async {
+        await releaseCurrentSession()
+        let stored = StoredSession(server: DemoArchive.address, cookie: nil, cookieExpires: nil, username: nil,
+                                   role: .anonymous, noDownload: false)
+        connectionProblem = nil
+        phase = .ready(Session(stored: stored, client: DemoArchive.client()))
+    }
+
     private var signInServer: ServerAddress? {
         switch phase {
         case let .signIn(server, _, _): server
