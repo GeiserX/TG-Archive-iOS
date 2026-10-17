@@ -11,9 +11,9 @@ struct SettingsView: View {
 
     private var stored: StoredSession { session.stored }
     private var isAnonymous: Bool { stored.role == .anonymous }
-    /// An open server has no sign-in to return to, so its button reads Disconnect.
+    /// An open server has no sign-in to return to, so its button reads Disconnect; the demo's reads Exit Demo.
     private var signOutTitle: LocalizedStringKey {
-        isAnonymous ? "settings.disconnect" : "settings.signOut"
+        session.isDemo ? "demo.exit" : isAnonymous ? "settings.disconnect" : "settings.signOut"
     }
 
     var body: some View {
@@ -21,24 +21,19 @@ struct SettingsView: View {
             Form {
                 Section {
                     LabeledContent {
-                        Text(verbatim: stored.server.host)
-                            .accessibilityIdentifier("settings.server")
+                        Group {
+                            if session.isDemo {
+                                Text("demo.server")
+                            } else {
+                                Text(verbatim: stored.server.host)
+                            }
+                        }
+                        .accessibilityIdentifier("settings.server")
                     } label: {
                         Text("settings.server")
                     }
-                    LabeledContent {
-                        // At accessibility sizes the value wraps under its label, so it lines up on the left.
-                        VStack(alignment: dynamicTypeSize.isAccessibilitySize ? .leading : .trailing) {
-                            if let name = SettingsModel.accountName(for: stored) {
-                                Text(verbatim: name)
-                            }
-                            Text(SettingsModel.roleLabel(for: stored))
-                                .foregroundStyle(.secondary)
-                        }
-                        .accessibilityElement(children: .combine)
-                        .accessibilityIdentifier("settings.signedInAs")
-                    } label: {
-                        Text("settings.signedInAs")
+                    if !session.isDemo {
+                        signedInAs
                     }
                     if stored.noDownload {
                         Label { Text("settings.noDownload") } icon: { Image(systemName: "arrow.down.circle.dotted") }
@@ -80,7 +75,11 @@ struct SettingsView: View {
 
                 Section {
                     Button(role: .destructive) {
-                        confirmingSignOut = true
+                        if session.isDemo {
+                            Task { @MainActor in await model.signOut(using: store) }
+                        } else {
+                            confirmingSignOut = true
+                        }
                     } label: {
                         HStack {
                             Text(signOutTitle)
@@ -112,6 +111,23 @@ struct SettingsView: View {
             } message: {
                 Text(isAnonymous ? LocalizedStringKey("settings.disconnect.confirm.message") : LocalizedStringKey("settings.signOut.confirm.message"))
             }
+        }
+    }
+
+    private var signedInAs: some View {
+        LabeledContent {
+            // At accessibility sizes the value wraps under its label, so it lines up on the left.
+            VStack(alignment: dynamicTypeSize.isAccessibilitySize ? .leading : .trailing) {
+                if let name = SettingsModel.accountName(for: stored) {
+                    Text(verbatim: name)
+                }
+                Text(SettingsModel.roleLabel(for: stored))
+                    .foregroundStyle(.secondary)
+            }
+            .accessibilityElement(children: .combine)
+            .accessibilityIdentifier("settings.signedInAs")
+        } label: {
+            Text("settings.signedInAs")
         }
     }
 

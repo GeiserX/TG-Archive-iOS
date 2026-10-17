@@ -22,5 +22,28 @@ struct MainTabView: View {
             }
         }
         .errorBanner(problemDismissed ? nil : store.connectionProblem, dismiss: { problemDismissed = true })
+        .safeAreaInset(edge: .top, spacing: 0) {
+            if session.isDemo { demoBanner }
+        }
+    }
+
+    /// Says on every screen that this is the bundled demo, not someone's archive, with the way out.
+    private var demoBanner: some View {
+        HStack(spacing: 8) {
+            Label { Text("demo.banner") } icon: { Image(systemName: "sparkles") }
+                .accessibilityIdentifier("demo.banner")
+            Spacer(minLength: 8)
+            Button {
+                Task { @MainActor in await store.signOut() }
+            } label: {
+                Text("demo.exit").bold()
+            }
+            .accessibilityIdentifier("demo.exit")
+        }
+        .font(.footnote)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 8)
+        .frame(maxWidth: .infinity)
+        .background(.tint.opacity(0.15))
     }
 }

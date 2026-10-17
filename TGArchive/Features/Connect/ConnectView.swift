@@ -29,6 +29,7 @@ struct ConnectView: View {
                 .listRowBackground(Color.clear)
                 addressSection
                 actionsSection
+                demoSection
                 if model.needsServerSetup {
                     Section {
                         Link(destination: Self.accessDocs) {
@@ -106,6 +107,24 @@ struct ConnectView: View {
             }
         } footer: {
             Text("connect.paste.footer")
+        }
+    }
+
+    private var demoSection: some View {
+        Section {
+            Button {
+                addressFocused = false
+                Task { @MainActor in
+                    await store.startDemo()
+                    onConnected?()
+                }
+            } label: {
+                Label { Text("connect.demo") } icon: { Image(systemName: "sparkles.rectangle.stack") }
+            }
+            .disabled(model.isConnecting)
+            .accessibilityIdentifier("connect.demo")
+        } footer: {
+            Text("connect.demo.footer")
         }
     }
 

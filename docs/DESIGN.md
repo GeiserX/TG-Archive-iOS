@@ -200,6 +200,8 @@ Stage 9 note: CI also installs ffmpeg, because the live playback test reads a vo
 
 ## 6. App Review plan
 
+Demo mode note: since 2026-10-17 the reviewer uses "Try the Demo" on the connect screen, so there is no public demo server, no reviewer login and "Sign-in required" is unticked; the notes are `docs/app-store/review-notes-template.md`. The paragraph below is the earlier plan.
+
 **What the reviewer gets** (all in App Review Notes, never in the repo): the public demo server's https URL, the `family` viewer login, the share link built as `https://<demo>/#token=<DEMO_SHARE_TOKEN>` (so the reviewer also sees the share-link path and the downloads-off state), and the physical-device screen recording of connect, sign in, browse a thread, open a photo, search, open a hit, sign out. The demo archive is regenerated before each submission so the share link has not expired, the host has a hostname (never an IP literal; Apple reviews from an IPv6-only network), and `TRUST_PROXY_HEADERS=true` is set behind the proxy so the reviewer's attempts do not share the rate-limit bucket with everyone else. "Sign-in required" is ticked.
 
 **Notes text outline** (the six-item Guideline 2.1 answers, pre-filled before the first submission):
@@ -246,6 +248,7 @@ Stage 9 note: in the demo the poll and its nearest photo do not fit on one scree
 - iPad layouts, widgets, Shortcuts, Spotlight (it would copy private text into the system index), an offline mirror.
 - Universal links or a URL scheme for share links: the link's domain is the user's own, so universal links cannot work; `PasteButton` covers it. No QR scanner: the server shows no QR anywhere.
 - A built-in "Try the demo" button: it would put a hostname in the public repo and the binary.
+- Demo mode note (2026-10-17): "Try the Demo" is in after all, without a hostname. The demo server's invented archive is bundled in the app (`scripts/build-demo-archive.sh` builds `TGArchive/Resources/DemoArchive/` from the fixtures) and `DemoURLProtocol` answers an `APIClient` for the never-resolving `demo.tgarchive.invalid`, so no archive server is involved. Photos are bundled; videos and voice notes are not, and show as unavailable (AVFoundation asks the unresolvable host and fails). Location cards still load Apple Maps tiles, as outside the demo. App Review uses it instead of a public demo server.
 - Voice note (Ogg/Opus) playback: AVFoundation does not play the Ogg container, and a decoder would break the no-packages rule; the transcript and duration are shown. Reconsidered when the server offers another rendition.
 - Stage 7 note: voice note playback is in v1 after all, because AVFoundation does play Ogg/Opus (section 3.6).
 

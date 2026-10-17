@@ -113,12 +113,15 @@ struct StoreTextTests {
         #expect(FileManager.default.fileExists(atPath: repositoryRoot.appending(path: "PRIVACY.md").path))
     }
 
-    @Test("The review notes template keeps placeholders, fits the Notes field, and names no host")
+    @Test("The review notes send the reviewer to the demo, fit the Notes field, and name no host")
     func reviewNotes() throws {
         let template = try repositoryFile("docs/app-store/review-notes-template.md")
-        for placeholder in ["<DEMO_URL>", "<VIEWER_USERNAME>", "<VIEWER_PASSWORD>", "<SHARE_LINK>"] {
-            #expect(template.contains(placeholder), "missing \(placeholder)")
-        }
+        let strings = try repositoryFile("TGArchive/Resources/en.lproj/Localizable.strings")
+        // The buttons the notes name are the buttons the app shows.
+        #expect(strings.contains(#""connect.demo" = "Try the Demo";"#))
+        #expect(strings.contains(#""demo.exit" = "Exit Demo";"#))
+        #expect(template.contains(#""Try the Demo""#) && template.contains(#""Exit Demo""#))
+        #expect(template.contains("No account or sign-in is needed"))
         let notes = try #require(template.components(separatedBy: "\n## Notes\n").last)
         #expect(notes.trimmingCharacters(in: .whitespacesAndNewlines).count <= 4000)
         #expect(notes.contains(try #require(Self.disclosure["en"])))
