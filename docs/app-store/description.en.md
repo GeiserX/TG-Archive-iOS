@@ -20,7 +20,7 @@ backup,chat,history,self-hosted,viewer,messages,search,reader,homelab,open sourc
 
 ## Description
 
-TG Archive is the iOS client for the open-source Telegram-Archive server you run yourself. Enter your server's address, sign in with a viewer account or paste a share link, and read your backed-up chats natively on your iPhone.
+TG Archive is the reader for the chat backup kept by Telegram-Archive, the open-source server you run yourself. Enter your server's address, sign in with a viewer account or paste a share link, and read your backed-up chats natively on your iPhone.
 
 WHAT YOU CAN DO
 - Browse your chat list with previews, folders, archived chats and forum topics.

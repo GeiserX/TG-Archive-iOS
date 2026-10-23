@@ -2,7 +2,7 @@
   <img src="docs/images/banner.svg" alt="TG-Archive-iOS" width="900"/>
 </h1>
 
-TG Archive is the iOS client for [Telegram-Archive](https://github.com/GeiserX/Telegram-Archive), the open-source server you run yourself to back up your chats. Point it at your server, sign in with a viewer account or a share link, and read, search and open your archived chats natively on the iPhone.
+TG Archive is the iPhone reader for [Telegram-Archive](https://github.com/GeiserX/Telegram-Archive), the open-source server you run yourself to back up your chats. Point it at your server, sign in with a viewer account or a share link, and read, search and open your archived chats natively on the iPhone.
 
 TG Archive is part of the open-source Telegram-Archive project and is independent of Telegram; the server you run uses the Telegram API.
 
