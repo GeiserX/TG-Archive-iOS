@@ -47,8 +47,8 @@ private let repositoryURL = "https://github.com/GeiserX/TG-Archive-iOS"
 @Suite("Store text")
 struct StoreTextTests {
     static let opening = [
-        "en": "TG Archive is the iOS client for the open-source Telegram-Archive server you run yourself.",
-        "es": "TG Archive es el cliente de iOS para el servidor de código abierto Telegram-Archive que ejecutas tú mismo.",
+        "en": "TG Archive is the reader for the chat backup kept by Telegram-Archive, the open-source server you run yourself.",
+        "es": "TG Archive es el lector de la copia de tus chats que guarda Telegram-Archive, el servidor de código abierto que ejecutas tú mismo.",
     ]
     static let disclosure = [
         "en": "TG Archive is part of the open-source Telegram-Archive project and is independent of Telegram; "
@@ -67,7 +67,7 @@ struct StoreTextTests {
         #expect(try field(fields, "Description").count <= 4000)
     }
 
-    @Test("The description opens with the client line and ends with the disclosure", arguments: ["en", "es"])
+    @Test("The description opens with the reader line and ends with the disclosure", arguments: ["en", "es"])
     func description(_ language: String) throws {
         let description = try field(try storeFields(language), "Description")
         #expect(description.hasPrefix(try #require(Self.opening[language])))
@@ -84,6 +84,8 @@ struct StoreTextTests {
         let text = try repositoryFile("docs/app-store/description.\(language).md").lowercased()
         #expect(!text.contains("unofficial"))
         #expect(!text.contains("no oficial"))
+        // App Review read "client" as a Telegram client (Guideline 4.3, 2026-10-17): the app is a reader.
+        #expect(!text.contains("client"), "the store text calls the app a client")
         let fields = try storeFields(language)
         for name in ["Name", "Subtitle", "Keywords"] {
             #expect(!(try field(fields, name)).contains(bareTelegram), "\(name) names Telegram")
