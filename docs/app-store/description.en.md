@@ -8,7 +8,7 @@ TG Archive
 
 ## Subtitle
 
-Read your Telegram-Archive
+Read your self-hosted backup
 
 ## Promotional text
 
@@ -16,7 +16,7 @@ Your chat backup on your iPhone: browse chats and topics, open photos, videos an
 
 ## Keywords
 
-backup,chat,history,self-hosted,viewer,messages,search,reader,homelab,open source,privacy,GPL
+chat,history,viewer,messages,search,reader,homelab,open source,privacy,GPL,server,media
 
 ## Description
 
