@@ -6,7 +6,7 @@ TG Archive is the iPhone reader for [Telegram-Archive](https://github.com/Geiser
 
 TG Archive is part of the open-source Telegram-Archive project and is independent of Telegram; the server you run uses the Telegram API.
 
-Status: v0.1.1 is being prepared for TestFlight and the App Store.
+Status: v0.2.1 is being prepared for TestFlight and the App Store.
 
 ## Features
 
