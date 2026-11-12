@@ -16,7 +16,7 @@ Four server facts shape everything below.
 ### Naming and disclosure rules
 
 - The app is called **TG Archive** everywhere: display name, App Store name, About screen. "Telegram" is never part of the app name, subtitle, keywords, bundle id or icon.
-- The icon is the Telegram-Archive mark, the same paper plane and database stack on the same dark plate as the server project's icon (`docs/images/icon.svg` there), so the app reads as that product's iOS edition. Never Telegram's own logo, and no bubble that copies Telegram's. Message bubbles use our own accent colour and shape.
+- The icon is the Telegram-Archive mark, the same open ring around two message rows, in the same teal on the same dark plate as the server project's icon (`docs/images/icon.svg` there), so the app reads as that product's iOS edition. Never Telegram's own logo, no paper plane, and no bubble that copies Telegram's. Message bubbles use our own accent colour and shape.
 - The word "Telegram" appears in exactly two places: the store description's last paragraph and the About screen, both with this text: "TG Archive is part of the open-source Telegram-Archive project and is independent of Telegram. It reads backups made by Telegram-Archive, a server you run yourself, which uses the Telegram API." The app is never called "unofficial": it is the official iOS reader of the Telegram-Archive project, never called a client, because App Review read "client" as a Telegram client. The server project's name, "Telegram-Archive", is used as the name of that project and nothing else.
 - Stage 10 note: the disclosure is now "TG Archive is part of the open-source Telegram-Archive project and is independent of Telegram; the server you run uses the Telegram API.", and nothing calls the app unofficial. The store texts, the About string and its test in `LocalizationTests` all carry it.
 - Nothing committed to this public repo names a private server, hostname, person or deployment. Docs say "your server" or "the demo server". Review credentials and the demo URL live only in App Store Connect.
@@ -219,7 +219,7 @@ Demo mode note: since 2026-10-17 the reviewer uses "Try the Demo" on the connect
 
 **Trademarks (5.2.1, 4.1)**: the rules in section 1. The subtitle is "Read your self-hosted chat backup". Keywords leave out "telegram".
 
-Stage 10 note: the subtitle names the server project instead, "Read your Telegram-Archive" ("Lee tu Telegram-Archive" in Spanish); "Telegram" on its own stays out of the name, subtitle and keywords.
+Stage 10 note: the subtitle named the server project instead, "Read your Telegram-Archive". App Review rejected that under 4.1(c) together with the paper plane the icon had then, because the project's name contains "Telegram". The subtitle is now "Read your self-hosted backup" ("Lee tu copia autoalojada" in Spanish), and no form of "Telegram" appears in the name, subtitle or keywords.
 
 **Screenshots (2.3.3)**: captured by a UI test from the synthetic archive only: chat list, a thread with a photo and a poll, a location card, search results, the media viewer. Never a real archive.
 

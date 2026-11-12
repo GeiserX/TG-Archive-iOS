@@ -55,7 +55,8 @@ one-line note in that document.
 
 - The app is "TG Archive" everywhere: display name, store name, About screen. "Telegram" is never part
   of the app name, subtitle, keywords, bundle id or icon.
-- The icon is the Telegram-Archive mark, the same as the server project's. Never Telegram's own logo,
+- The icon is the Telegram-Archive mark, the same as the server project's: an open ring that runs back
+  around two message rows, in our teal. No paper plane. Never Telegram's own logo,
   in the icon or anywhere else.
 - The store description and the About screen carry the disclosure from
   [docs/DESIGN.md](docs/DESIGN.md) section 1, word for word. Never call the app "unofficial": it is the

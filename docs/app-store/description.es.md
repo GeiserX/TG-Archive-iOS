@@ -8,7 +8,7 @@ TG Archive
 
 ## Subtitle
 
-Lee tu Telegram-Archive
+Lee tu copia autoalojada
 
 ## Promotional text
 
@@ -16,7 +16,7 @@ Tu copia de chats en el iPhone: recorre chats y temas, abre fotos, vídeos y not
 
 ## Keywords
 
-copia,chat,historial,autoalojado,visor,mensajes,buscar,lector,respaldo,código abierto,privacidad
+chat,historial,servidor,visor,mensajes,buscar,lector,respaldo,código abierto,privacidad,multimedia
 
 ## Description
 

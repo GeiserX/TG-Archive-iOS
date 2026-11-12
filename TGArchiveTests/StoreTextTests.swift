@@ -87,8 +87,10 @@ struct StoreTextTests {
         // App Review read "client" as a Telegram client (Guideline 4.3, 2026-10-17): the app is a reader.
         #expect(!text.contains("client"), "the store text calls the app a client")
         let fields = try storeFields(language)
+        // App Review rejected the subtitle "Read your Telegram-Archive" (Guideline 4.1(c), 2026-11-12): in these
+        // three fields the server project's name counts as Telegram's too, so no form of the word is allowed.
         for name in ["Name", "Subtitle", "Keywords"] {
-            #expect(!(try field(fields, name)).contains(bareTelegram), "\(name) names Telegram")
+            #expect(!(try field(fields, name)).lowercased().contains("telegram"), "\(name) names Telegram")
         }
     }
 
