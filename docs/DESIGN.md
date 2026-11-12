@@ -217,7 +217,7 @@ Demo mode note: since 2026-10-17 the reviewer uses "Try the Demo" on the connect
 
 **Privacy**: label "Data Not Collected" (nothing leaves the device except requests to the user's own server). `PRIVACY.md` in the repo is the privacy policy URL. Manifest as in section 3.1. `ITSAppUsesNonExemptEncryption` false (system TLS only).
 
-**Trademarks (5.2.1, 4.1)**: the rules in section 1. The subtitle is "Read your self-hosted chat backup". Keywords leave out "telegram".
+**Trademarks (5.2.1, 4.1)**: the rules in section 1. The subtitle is "Read your self-hosted backup". The name, subtitle and keywords hold no form of "Telegram".
 
 Stage 10 note: the subtitle named the server project instead, "Read your Telegram-Archive". App Review rejected that under 4.1(c) together with the paper plane the icon had then, because the project's name contains "Telegram". The subtitle is now "Read your self-hosted backup" ("Lee tu copia autoalojada" in Spanish), and no form of "Telegram" appears in the name, subtitle or keywords.
 
