@@ -53,8 +53,22 @@ struct ChatView: View {
         .overlay { emptyState }
         .overlay(alignment: .bottomTrailing) { jumpButton }
         .errorBanner(model.error, retry: { Task { await model.retry() } })
-        .navigationTitle(Text(verbatim: title ?? model.chat?.displayTitle ?? ""))
+        .navigationTitle(Text(verbatim: navigationTitle))
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            if model.chat?.showsDeletedAccountMarker == true {
+                ToolbarItem(placement: .principal) {
+                    VStack(spacing: 0) {
+                        Text(verbatim: navigationTitle)
+                            .font(.headline)
+                            .lineLimit(1)
+                        DeletedAccountMarker()
+                    }
+                    .accessibilityElement(children: .combine)
+                    .accessibilityAddTraits(.isHeader)
+                }
+            }
+        }
         .task {
             model.sessionEnded = { [weak store] client in await store?.sessionEnded(client) }
             guard !model.loaded else { return }
@@ -76,6 +90,10 @@ struct ChatView: View {
         .alert(Text("chat.unavailable"), isPresented: .constant(model.isUnavailable)) {
             Button("chat.unavailable.ok") { dismiss() }
         }
+    }
+
+    private var navigationTitle: String {
+        title ?? model.chat?.displayTitle ?? ""
     }
 
     private struct Row {

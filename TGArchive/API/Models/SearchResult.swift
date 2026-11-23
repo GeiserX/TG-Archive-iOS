@@ -28,10 +28,12 @@ struct SearchChat: Decodable, Hashable, Sendable {
     let username: String?
     let type: String?
     @FlexBool var isForum: Bool
+    /// As on `Chat`: when the archive first saw the account behind the chat deleted, else nil.
+    @Lenient var accountDeletedAt: Date?
     let avatarURL: String?
 
     private enum CodingKeys: String, CodingKey {
-        case ref, title, firstName, lastName, username, type, isForum
+        case ref, title, firstName, lastName, username, type, isForum, accountDeletedAt
         case avatarURL = "avatarUrl"
     }
 }

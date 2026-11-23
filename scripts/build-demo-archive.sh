@@ -67,9 +67,52 @@ private = [c["ref"] for c in chats if c["type"] == "private"]
 groups = [c["ref"] for c in chats if c["type"] != "private" and c["type"] != "channel"]
 members = {folders[0]["id"]: private[: folders[0]["chat_count"]], folders[1]["id"]: groups[: folders[1]["chat_count"]]}
 
+# A contact who deleted their Telegram account, which the server's demo generator does not make: a private
+# chat with Wren, who is also in two groups, with the time the archive saw the account deleted on the chat
+# (account_deleted_at) and on Wren's messages everywhere (sender_account_deleted_at). The names are kept.
+WREN, WREN_REF, WREN_GONE = 7100009, "Wr3nOakh0llowGoneDem0A", "2026-09-24T09:30:00"
+wren_lines = [
+    (90, "2026-09-22T18:40:00", False, "Finished the lantern build. The hinge finally sits flush."),
+    (91, "2026-09-22T18:47:00", True, "Bring it on Thursday, Dax will want to see that hinge."),
+    (92, "2026-09-24T09:12:00", False, "I'm leaving Telegram for a while. You'll find me at the book club."),
+    (93, "2026-09-24T09:20:00", True, "Understood. I'll save you a seat by the window."),
+]
+owner = {"sender_id": 7000001, "first_name": "Robin", "last_name": "Ashgrove", "sender_name": "Robin Ashgrove",
+         "username": "robin_ashgrove", "sender_account_id": 1, "sender_avatar_url": None}
+wren = {"sender_id": WREN, "first_name": "Wren", "last_name": "Oakhollow", "sender_name": "Wren Oakhollow",
+        "username": "wren_oak", "sender_account_id": None, "sender_avatar_url": None}
+messages[WREN_REF] = {}
+for mid, date, outgoing, text in wren_lines:
+    who = owner if outgoing else wren
+    messages[WREN_REF][mid] = {
+        "chat_id": WREN, "id": mid, "date": date, "created_at": date, "text": text, "is_outgoing": int(outgoing),
+        "is_deleted": 0, "deleted_at": None, "is_pinned": 0, "edit_date": None, "edit_hide": None,
+        "version_count": 0, "forward_from_id": None, "media": None, "raw_data": {}, "reactions": [],
+        "removed_reactions": [], "reaction_history": [], "reaction_history_omitted": 0, "reply_to_msg_id": None,
+        "reply_to_text": None, "reply_to_top_id": None, "snapshots": {}, **who,
+    }
+for ms in messages.values():
+    for m in ms.values():
+        if m.get("sender_id") == WREN:
+            m["sender_account_deleted_at"] = WREN_GONE
+last_id, last_date, last_outgoing, last_text = wren_lines[-1]
+wren_chat = {
+    "ref": WREN_REF, "id": WREN, "type": "private", "title": None, "first_name": "Wren", "last_name": "Oakhollow",
+    "username": "wren_oak", "phone": None, "description": None, "participants_count": None, "is_forum": 0,
+    "is_archived": 0, "account_id": 1, "accounts": [1], "avatar_photo_id": None, "avatar_url": None,
+    "last_message_date": last_date, "last_synced_message_id": 0, "created_at": wren_lines[0][1],
+    "updated_at": WREN_GONE, "account_deleted_at": WREN_GONE,
+    "preview": {"message_id": last_id, "date": last_date, "text": last_text, "sender": "You" if last_outgoing else None,
+                "kind": "text", "outgoing": last_outgoing, "action": None, "action_title": None},
+}
+chats.insert(next(i for i, c in enumerate(chats) if c["last_message_date"] < last_date), wren_chat)
+stats = load("stats")
+stats["chats"] += 1
+stats["messages"] += len(wren_lines)
+
 archive = {
     "auth_check": {"authenticated": True, "auth_required": False, "role": None, "username": None, "no_download": False},
-    "stats": load("stats"),
+    "stats": stats,
     "folders": folders,
     "folder_members": {str(k): v for k, v in members.items()},
     "chats": chats,
@@ -100,5 +143,5 @@ with open(os.path.join(out, "DemoArchive.json"), "w", encoding="utf-8") as f:
 
 total = sum(len(ms) for ms in archive["messages"].values())
 bundled = len(glob.glob(os.path.join(out, "demo-*.jpg")))
-print(f"demo archive: {len(everything)} chats, {total} messages, {bundled} of {len(photos)} photos bundled")
+print(f"demo archive: {len(chats) + len(archived)} chats, {total} messages, {bundled} of {len(photos)} photos bundled")
 PY

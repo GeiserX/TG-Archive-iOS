@@ -11,11 +11,12 @@ struct DemoArchiveTests {
     private let client = DemoArchive.client()
     private static let hikers = "C9uWzfb7MCkzaP28_9kOKA"
     private static let forum = "UtB4DrfIxOJyfIL1mRcO0w"
+    private static let deleted = "Wr3nOakh0llowGoneDem0A"
 
     @Test("The chat list, the archived list, the folders and the figures decode")
     func lists() async throws {
         let page: ChatsPage = try await client.get(.chats())
-        #expect(page.chats.count == 14)
+        #expect(page.chats.count == 15)
         #expect(page.chats.first?.ref == Self.hikers)
         #expect(!page.hasMore)
         let archived: ChatsPage = try await client.get(.chats(archived: true))
@@ -30,7 +31,7 @@ struct DemoArchiveTests {
         let found: ChatsPage = try await client.get(.chats(search: "book"))
         #expect(found.chats.map(\.ref) == ["62CLdN3oC13zajv4KawzYw"])
         let stats: ArchiveStats = try await client.get(.stats)
-        #expect(stats.messages == 409)
+        #expect(stats.messages == 413)
     }
 
     @Test("A thread pages back by date to its oldest message, and every message decodes")
@@ -69,6 +70,34 @@ struct DemoArchiveTests {
         #expect(page.indexed)
         let none: SearchPage = try await client.get(.search(query: "no such words anywhere"))
         #expect(none.results.isEmpty)
+    }
+
+    @Test("A contact who deleted their account keeps the name, in the list, the thread, groups and search")
+    func deletedAccount() async throws {
+        let page: ChatsPage = try await client.get(.chats())
+        let wren = try #require(page.chats.first { $0.ref == Self.deleted })
+        #expect(wren.displayTitle == "Wren Oakhollow")
+        #expect(wren.showsDeletedAccountMarker)
+        #expect(page.chats.filter(\.showsDeletedAccountMarker).map(\.ref) == [Self.deleted])
+        let chat: Chat = try await client.get(.chat(ref: Self.deleted))
+        #expect(chat.showsDeletedAccountMarker)
+
+        let thread: MessagePage = try await client.get(.messages(ref: Self.deleted))
+        #expect(thread.messages.count == 4)
+        let incoming = thread.messages.filter { !$0.isOutgoing }
+        #expect(!incoming.isEmpty)
+        #expect(thread.messages.filter(\.showsSenderDeletedMarker) == incoming)
+
+        // Wren is in Book Club and Maker Space too; only Wren's messages there carry the marker.
+        let bookClub: MessagePage = try await client.get(.messages(ref: "62CLdN3oC13zajv4KawzYw", limit: 500))
+        let marked = bookClub.messages.filter(\.showsSenderDeletedMarker)
+        #expect(!marked.isEmpty)
+        #expect(marked.allSatisfy { $0.senderDisplayName == "Wren Oakhollow" })
+        #expect(bookClub.messages.filter { $0.senderID == 7_100_009 }.count == marked.count)
+
+        let found: SearchPage = try await client.get(.search(query: "lantern build"))
+        let hit = try #require(found.results.first { $0.chat.ref == Self.deleted })
+        #expect(hit.chat.showsDeletedAccountMarker)
     }
 
     @Test("Bundled photos load as images; other media and unknown routes are 404")
@@ -120,7 +149,7 @@ struct DemoArchiveTests {
         #expect(vault.stored == nil, "the demo was saved to the Keychain")
         #expect(store.lastServer == nil, "the demo became the last server")
         let stats: ArchiveStats = try await session.client.get(.stats)
-        #expect(stats.chats == 16)
+        #expect(stats.chats == 17)
         await store.signOut()
         #expect(store.phase == .connect)
         #expect(!store.lastSignOutWasLocalOnly)

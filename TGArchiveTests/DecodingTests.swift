@@ -280,6 +280,48 @@ struct DecodingTests {
         #expect(!page.messages[1].isPinned)
     }
 
+    @Test("account_deleted_at on a chat, a search hit's chat and a message's sender; old servers omit it")
+    func deletedAccountFields() throws {
+        // The committed fixtures come from a server older than the field.
+        let page = try Self.decode(ChatsPage.self, "chats")
+        #expect(page.chats.allSatisfy { $0.accountDeletedAt == nil })
+        #expect(try Self.allMessages().allSatisfy { $0.senderAccountDeletedAt == nil })
+
+        let seen = Date(timeIntervalSince1970: 1_790_242_200) // 2026-09-24T09:30:00Z
+        let chats = #"""
+        {"chats": [
+          {"ref": "a", "type": "private", "first_name": "Wren", "account_deleted_at": "2026-09-24T09:30:00"},
+          {"ref": "b", "type": "private", "first_name": "Juniper", "account_deleted_at": null},
+          {"ref": "c", "type": "private", "first_name": "Kofi"},
+          {"ref": "d", "type": "private", "first_name": "Odd", "account_deleted_at": "yesterday"}
+        ], "has_more": false}
+        """#
+        let decoded = try ArchiveDecoder.decode(ChatsPage.self, from: Data(chats.utf8)).chats
+        #expect(decoded.map(\.accountDeletedAt) == [seen, nil, nil, nil])
+
+        let chat = try ArchiveDecoder.decode(Chat.self, from: Data(
+            #"{"ref": "a", "first_name": "Wren", "account_deleted_at": "2026-09-24T09:30:00.123456"}"#.utf8))
+        #expect(chat.accountDeletedAt != nil)
+
+        let search = #"""
+        {"has_more": false, "indexed": true, "results": [
+          {"id": 1, "date": "2026-09-24T09:12:00", "chat": {"ref": "a", "first_name": "Wren",
+           "account_deleted_at": "2026-09-24T09:30:00"}},
+          {"id": 2, "date": "2026-09-24T09:12:00", "chat": {"ref": "b", "first_name": "Kofi"}}
+        ]}
+        """#
+        let hits = try ArchiveDecoder.decode(SearchPage.self, from: Data(search.utf8)).results
+        #expect(hits.map(\.chat.accountDeletedAt) == [seen, nil])
+
+        let messages = #"""
+        [{"id": 2, "date": "2026-09-24T09:12:00", "first_name": "Wren", "sender_account_deleted_at": "2026-09-24T09:30:00"},
+         {"id": 1, "date": "2026-09-24T09:11:00", "first_name": "Kofi", "sender_account_deleted_at": null}]
+        """#
+        let thread = try ArchiveDecoder.decode(MessagePage.self, from: Data(messages.utf8))
+        #expect(thread.dropped == 0)
+        #expect(thread.messages.map(\.senderAccountDeletedAt) == [seen, nil])
+    }
+
     @Test("The edited mark follows the server's pencil rule")
     func editedRule() throws {
         func message(_ fields: String) throws -> Message {
