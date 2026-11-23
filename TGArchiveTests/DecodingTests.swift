@@ -307,19 +307,22 @@ struct DecodingTests {
         {"has_more": false, "indexed": true, "results": [
           {"id": 1, "date": "2026-09-24T09:12:00", "chat": {"ref": "a", "first_name": "Wren",
            "account_deleted_at": "2026-09-24T09:30:00"}},
-          {"id": 2, "date": "2026-09-24T09:12:00", "chat": {"ref": "b", "first_name": "Kofi"}}
+          {"id": 2, "date": "2026-09-24T09:12:00", "chat": {"ref": "b", "first_name": "Kofi"}},
+          {"id": 3, "date": "2026-09-24T09:12:00", "chat": {"ref": "d", "first_name": "Odd", "account_deleted_at": "yesterday"}}
         ]}
         """#
         let hits = try ArchiveDecoder.decode(SearchPage.self, from: Data(search.utf8)).results
-        #expect(hits.map(\.chat.accountDeletedAt) == [seen, nil])
+        #expect(hits.map(\.chat.accountDeletedAt) == [seen, nil, nil])
 
         let messages = #"""
         [{"id": 2, "date": "2026-09-24T09:12:00", "first_name": "Wren", "sender_account_deleted_at": "2026-09-24T09:30:00"},
-         {"id": 1, "date": "2026-09-24T09:11:00", "first_name": "Kofi", "sender_account_deleted_at": null}]
+         {"id": 1, "date": "2026-09-24T09:11:00", "first_name": "Kofi", "sender_account_deleted_at": null},
+         {"id": 0, "date": "2026-09-24T09:10:00", "first_name": "Odd", "sender_account_deleted_at": "yesterday"}]
         """#
+        // A malformed value reads as nil and never drops the message.
         let thread = try ArchiveDecoder.decode(MessagePage.self, from: Data(messages.utf8))
         #expect(thread.dropped == 0)
-        #expect(thread.messages.map(\.senderAccountDeletedAt) == [seen, nil])
+        #expect(thread.messages.map(\.senderAccountDeletedAt) == [seen, nil, nil])
     }
 
     @Test("The edited mark follows the server's pencil rule")
