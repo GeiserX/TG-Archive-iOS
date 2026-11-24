@@ -95,6 +95,17 @@ extension Message {
         return name.isEmpty ? nil : name
     }
 
+    /// The name over a group message: the sender's name, else "Deleted account" for a sender the archive saw
+    /// deleted with no name left, else nil (no name line, as before the archive recorded deletions).
+    var senderTitle: String? {
+        senderDisplayName ?? (senderAccountDeletedAt == nil ? nil : String(localized: "chat.deletedAccount"))
+    }
+
+    /// The sender's account was deleted and the name shown is the one the archive kept.
+    var showsSenderDeletedMarker: Bool {
+        senderAccountDeletedAt != nil && senderDisplayName != nil
+    }
+
     /// A service row's sentence: the one the archive stored, else one worded from the action with the server's
     /// table and the sender's name, else nil (the capsule shows its glyph alone).
     var serviceSentence: String? {

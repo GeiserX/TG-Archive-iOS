@@ -23,12 +23,15 @@ struct Chat: Decodable, Hashable, Sendable, Identifiable {
     let accounts: [Int]?
     /// Root-absolute path from the server; the app builds avatar URLs itself through `Endpoint.avatar(ref:)`.
     let avatarURL: String?
+    /// When the archive first saw Telegram report the account behind this private chat deleted; it keeps
+    /// the names. Nil for a live account, for every other chat, and from a server older than the field.
+    @Lenient var accountDeletedAt: Date?
     @Lenient var preview: ChatPreview?
 
     var id: String { ref }
 
     private enum CodingKeys: String, CodingKey {
-        case ref, type, title, firstName, lastName, username, isForum, isArchived, accounts, preview
+        case ref, type, title, firstName, lastName, username, isForum, isArchived, accounts, accountDeletedAt, preview
         case avatarURL = "avatarUrl"
     }
 }

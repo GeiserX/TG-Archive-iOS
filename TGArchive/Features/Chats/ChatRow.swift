@@ -38,6 +38,10 @@ struct ChatRow: View {
             Text(chat.displayTitle)
                 .font(.headline)
                 .lineLimit(dynamicTypeSize.isAccessibilitySize ? 2 : 1)
+                .layoutPriority(1)
+            if chat.showsDeletedAccountMarker {
+                DeletedAccountMarker()
+            }
         }
     }
 
@@ -81,5 +85,22 @@ struct PreviewLabel: View {
             return Text("chats.preview.sender \(name) \(glyph)\(body)")
         }
         return Text("\(glyph)\(body)")
+    }
+}
+
+/// The tag beside the kept name of a deleted account, in the chat list, search, the chat's header and over a
+/// group message. On a short line it gives way before the name does. Not a `Label`: a list row gives a label's
+/// icon its own column, and a toolbar draws a label as its icon alone.
+struct DeletedAccountMarker: View {
+    var body: some View {
+        HStack(spacing: 3) {
+            Image(systemName: "person.crop.circle.badge.xmark")
+                .accessibilityHidden(true)
+            Text("chat.deletedAccount")
+                .lineLimit(1)
+        }
+        .font(.caption)
+        .foregroundStyle(.secondary)
+        .accessibilityElement(children: .combine)
     }
 }

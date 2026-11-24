@@ -3,17 +3,36 @@ import Foundation
 /// A chat's display title: `title`, else first and last name, else `@username`, else "Deleted account".
 enum ChatTitle {
     static func make(title: String?, firstName: String?, lastName: String?, username: String?) -> String {
+        keptName(title: title, firstName: firstName, lastName: lastName, username: username)
+            ?? String(localized: "chat.deletedAccount")
+    }
+
+    /// The name the archive kept, or nil when none is left.
+    static func keptName(title: String?, firstName: String?, lastName: String?, username: String?) -> String? {
         if let title = title?.nonBlank { return title }
         let name = [firstName?.nonBlank, lastName?.nonBlank].compactMap(\.self).joined(separator: " ")
         if !name.isEmpty { return name }
         if let username = username?.nonBlank { return "@\(username)" }
-        return String(localized: "chat.deletedAccount")
+        return nil
+    }
+
+    /// An account is deleted when the archive saw Telegram report it (`account_deleted_at`) or when no name
+    /// is left. With no name left the title already reads "Deleted account"; a kept name gets a "Deleted
+    /// account" marker beside it.
+    static func showsDeletedMarker(accountDeletedAt: Date?, keptName: String?) -> Bool {
+        accountDeletedAt != nil && keptName != nil
     }
 }
 
 extension Chat {
     var displayTitle: String {
         ChatTitle.make(title: title, firstName: firstName, lastName: lastName, username: username)
+    }
+
+    /// The account behind this chat was deleted and the title is its kept name.
+    var showsDeletedAccountMarker: Bool {
+        ChatTitle.showsDeletedMarker(accountDeletedAt: accountDeletedAt, keptName: ChatTitle.keptName(
+            title: title, firstName: firstName, lastName: lastName, username: username))
     }
 }
 

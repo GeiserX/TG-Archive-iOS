@@ -120,9 +120,15 @@ struct SearchRow: View {
     }
 
     private var title: some View {
-        Text(hit.chat.displayTitle)
-            .font(.headline)
-            .lineLimit(dynamicTypeSize.isAccessibilitySize ? 2 : 1)
+        HStack(alignment: .firstTextBaseline, spacing: 6) {
+            Text(hit.chat.displayTitle)
+                .font(.headline)
+                .lineLimit(dynamicTypeSize.isAccessibilitySize ? 2 : 1)
+                .layoutPriority(1)
+            if hit.chat.showsDeletedAccountMarker {
+                DeletedAccountMarker()
+            }
+        }
     }
 
     private var date: some View {

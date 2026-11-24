@@ -160,6 +160,56 @@ struct ChatTitleTests {
             == String(localized: "chat.deletedAccount"))
     }
 
+    @Test("A deleted account keeps its name with a marker; with no name left it reads Deleted account")
+    func deletedAccount() throws {
+        func chat(_ fields: String) throws -> Chat {
+            try ArchiveDecoder.decode(Chat.self, from: Data(#"{"ref": "a", "type": "private"\#(fields)}"#.utf8))
+        }
+        let gone = #", "account_deleted_at": "2026-09-24T09:30:00""#
+        let kept = try chat(#", "first_name": "Wren", "last_name": "Oakhollow""# + gone)
+        #expect(kept.displayTitle == "Wren Oakhollow")
+        #expect(kept.showsDeletedAccountMarker)
+        let byUsername = try chat(#", "username": "wren_oak""# + gone)
+        #expect(byUsername.displayTitle == "@wren_oak")
+        #expect(byUsername.showsDeletedAccountMarker)
+        // No name left: the title says it, so no marker, with or without the field.
+        for fields in [gone, ""] {
+            let nameless = try chat(fields)
+            #expect(nameless.displayTitle == String(localized: "chat.deletedAccount"))
+            #expect(!nameless.showsDeletedAccountMarker)
+        }
+        // A live account, and an older server that sends no field.
+        let live = try chat(#", "first_name": "Wren", "account_deleted_at": null"#)
+        let older = try chat(#", "first_name": "Wren""#)
+        #expect(!live.showsDeletedAccountMarker)
+        #expect(!older.showsDeletedAccountMarker)
+
+        let hit = try ArchiveDecoder.decode(SearchChat.self, from: Data(
+            #"{"ref": "a", "first_name": "Wren", "account_deleted_at": "2026-09-24T09:30:00"}"#.utf8))
+        #expect(hit.displayTitle == "Wren")
+        #expect(hit.showsDeletedAccountMarker)
+    }
+
+    @Test("A sender seen deleted keeps its name with a marker, or reads Deleted account with none left")
+    func deletedSender() throws {
+        func message(_ fields: String) throws -> Message {
+            let json = #"[{"id": 1, "date": "2026-09-24T09:12:00"\#(fields)}]"#
+            return try #require(ArchiveDecoder.decode(MessagePage.self, from: Data(json.utf8)).messages.first)
+        }
+        let gone = #", "sender_account_deleted_at": "2026-09-24T09:30:00""#
+        let kept = try message(#", "sender_name": "Wren Oakhollow""# + gone)
+        #expect(kept.senderTitle == "Wren Oakhollow")
+        #expect(kept.showsSenderDeletedMarker)
+        let nameless = try message(#", "sender_id": 7100009"# + gone)
+        #expect(nameless.senderTitle == String(localized: "chat.deletedAccount"))
+        #expect(!nameless.showsSenderDeletedMarker)
+        let live = try message(#", "first_name": "Kofi", "sender_account_deleted_at": null"#)
+        #expect(live.senderTitle == "Kofi")
+        #expect(!live.showsSenderDeletedMarker)
+        // Without the field a sender with no name shows no name line, as before.
+        #expect(try message(#", "sender_id": 7100009"#).senderTitle == nil)
+    }
+
     @Test("Initials take the first letter of the first two words")
     func initials() {
         #expect(AvatarView.initials(of: "Weekend Hikers") == "WH")

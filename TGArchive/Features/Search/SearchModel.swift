@@ -202,4 +202,10 @@ extension SearchChat {
     var displayTitle: String {
         ChatTitle.make(title: title, firstName: firstName, lastName: lastName, username: username)
     }
+
+    /// As on `Chat`: the account behind the hit's chat was deleted and the title is its kept name.
+    var showsDeletedAccountMarker: Bool {
+        ChatTitle.showsDeletedMarker(accountDeletedAt: accountDeletedAt, keptName: ChatTitle.keptName(
+            title: title, firstName: firstName, lastName: lastName, username: username))
+    }
 }

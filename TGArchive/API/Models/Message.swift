@@ -34,6 +34,8 @@ struct Message: Decodable, Hashable, Sendable, Identifiable {
     @Lenient var rawData: RawData?
     /// Root-absolute path from the server; the app builds it through `Endpoint.senderAvatar(ref:messageID:)`.
     let senderAvatarURL: String?
+    /// When the archive first saw the sender's account deleted; nil for a live account or an older server.
+    @Lenient var senderAccountDeletedAt: Date?
 
     /// The server's own pencil rule: Telegram marks the edit as shown, or the archive kept an earlier version.
     var isEdited: Bool {
@@ -50,6 +52,7 @@ struct Message: Decodable, Hashable, Sendable, Identifiable {
         case replyToText, replyToSenderName, replyToMediaType, media, reactions, removedReactions, snapshots
         case rawData
         case senderAvatarURL = "senderAvatarUrl"
+        case senderAccountDeletedAt
     }
 }
 

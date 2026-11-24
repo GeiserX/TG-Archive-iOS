@@ -171,6 +171,7 @@ final class DemoArchive: @unchecked Sendable {
                     "username": chat["username"] ?? NSNull(),
                     "type": chat["type"] ?? NSNull(),
                     "is_forum": (chat["is_forum"] as? Int ?? 0) != 0,
+                    "account_deleted_at": chat["account_deleted_at"] ?? NSNull(),
                     "avatar_url": NSNull(),
                 ],
             ]

@@ -92,11 +92,17 @@ struct MessageBubble: View {
 
     private var bubble: some View {
         BubbleLayout(spacing: 6, maxWidth: 520) {
-            if showsSender, let name = message.senderDisplayName {
-                Text(verbatim: name)
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(AvatarView.color(for: SenderAvatar.seed(of: message)))
-                    .lineLimit(1)
+            if showsSender, let name = message.senderTitle {
+                HStack(alignment: .firstTextBaseline, spacing: 6) {
+                    Text(verbatim: name)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(AvatarView.color(for: SenderAvatar.seed(of: message)))
+                        .lineLimit(1)
+                        .layoutPriority(1)
+                    if message.showsSenderDeletedMarker {
+                        DeletedAccountMarker()
+                    }
+                }
             }
             if let forwardedFrom {
                 Label {
